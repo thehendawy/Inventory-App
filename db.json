@@ -1,0 +1,320 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "ahmed mohamed",
+      "email": "ahmed@gmail.com",
+      "password": "test1234"
+    }
+  ],
+
+  "products": [
+    {
+      "id": 1,
+      "name": "Laptop Dell Inspiron",
+      "sku": "LAP-001",
+      "price": 20000,
+      "quantity": 10,
+      "reorderLevel": 3,
+      "categoryId": 1,
+      "supplierId": 1
+    },
+    {
+      "id": 2,
+      "name": "Wireless Mouse",
+      "sku": "MOU-001",
+      "price": 250,
+      "quantity": 50,
+      "reorderLevel": 10,
+      "categoryId": 1,
+      "supplierId": 2
+    },
+    {
+      "id": 3,
+      "name": "Mechanical Keyboard",
+      "sku": "KEY-001",
+      "price": 900,
+      "quantity": 20,
+      "reorderLevel": 5,
+      "categoryId": 1,
+      "supplierId": 2
+    },
+    {
+      "id": 4,
+      "name": "Office Chair",
+      "sku": "CHR-001",
+      "price": 1500,
+      "quantity": 15,
+      "reorderLevel": 4,
+      "categoryId": 2,
+      "supplierId": 3
+    },
+    {
+      "id": 5,
+      "name": "Wooden Desk",
+      "sku": "DSK-001",
+      "price": 3000,
+      "quantity": 8,
+      "reorderLevel": 2,
+      "categoryId": 2,
+      "supplierId": 3
+    },
+    {
+      "id": 6,
+      "name": "LED Monitor 24 inch",
+      "sku": "MON-001",
+      "price": 3500,
+      "quantity": 12,
+      "reorderLevel": 3,
+      "categoryId": 1,
+      "supplierId": 1
+    },
+    {
+      "id": 7,
+      "name": "USB Flash 64GB",
+      "sku": "USB-001",
+      "price": 120,
+      "quantity": 100,
+      "reorderLevel": 20,
+      "categoryId": 3,
+      "supplierId": 4
+    },
+    {
+      "id": 8,
+      "name": "Printer HP LaserJet",
+      "sku": "PRT-001",
+      "price": 4500,
+      "quantity": 6,
+      "reorderLevel": 2,
+      "categoryId": 4,
+      "supplierId": 5
+    },
+    {
+      "id": 9,
+      "name": "A4 Printing Paper",
+      "sku": "PAP-001",
+      "price": 150,
+      "quantity": 200,
+      "reorderLevel": 50,
+      "categoryId": 5,
+      "supplierId": 4
+    },
+    {
+      "id": 10,
+      "name": "External Hard Drive 1TB",
+      "sku": "HDD-001",
+      "price": 2200,
+      "quantity": 14,
+      "reorderLevel": 4,
+      "categoryId": 3,
+      "supplierId": 1
+    }
+  ],
+
+  "categories": [
+    {
+      "id": 1,
+      "name": "Electronics",
+      "description": "Electronic devices such as laptops, monitors, keyboards, and accessories."
+    },
+    {
+      "id": 2,
+      "name": "Furniture",
+      "description": "Office furniture including desks, chairs, and workstations."
+    },
+    {
+      "id": 3,
+      "name": "Storage Devices",
+      "description": "Data storage devices like USB drives and external hard disks."
+    },
+    {
+      "id": 4,
+      "name": "Printers",
+      "description": "Printers and printing equipment used in offices."
+    },
+    {
+      "id": 5,
+      "name": "Office Supplies",
+      "description": "Daily office consumables such as paper and stationery."
+    }
+  ],
+
+  "suppliers": [
+    {
+      "id": 1,
+      "name": "Dell Egypt",
+      "phone": "01011111111",
+      "email": "sales@dell-eg.com",
+      "address": "Cairo, Egypt"
+    },
+    {
+      "id": 2,
+      "name": "TechSource",
+      "phone": "01022222222",
+      "email": "info@techsource.com",
+      "address": "Giza, Egypt"
+    },
+    {
+      "id": 3,
+      "name": "Office Furniture Co",
+      "phone": "01033333333",
+      "email": "contact@officefurniture.com",
+      "address": "Alexandria, Egypt"
+    },
+    {
+      "id": 4,
+      "name": "Storage World",
+      "phone": "01044444444",
+      "email": "sales@storageworld.com",
+      "address": "Tanta, Egypt"
+    },
+    {
+      "id": 5,
+      "name": "Printer Solutions",
+      "phone": "01055555555",
+      "email": "support@printersolutions.com",
+      "address": "Mansoura, Egypt"
+    }
+  ],
+
+  "purchaseOrders": [
+    {
+      "id": 1,
+      "orderId": "PO-1001",
+      "supplierId": 1,
+      "productId": 1,
+      "quantity": 5,
+      "total": 100000,
+      "status": "Received"
+    },
+    {
+      "id": 2,
+      "orderId": "PO-1002",
+      "supplierId": 2,
+      "productId": 2,
+      "quantity": 20,
+      "total": 5000,
+      "status": "Pending"
+    },
+    {
+      "id": 3,
+      "orderId": "PO-1003",
+      "supplierId": 3,
+      "productId": 4,
+      "quantity": 3,
+      "total": 4500,
+      "status": "Received"
+    },
+    {
+      "id": 4,
+      "orderId": "PO-1004",
+      "supplierId": 5,
+      "productId": 8,
+      "quantity": 2,
+      "total": 9000,
+      "status": "Pending"
+    },
+    {
+      "id": 5,
+      "orderId": "PO-1005",
+      "supplierId": 4,
+      "productId": 7,
+      "quantity": 30,
+      "total": 3600,
+      "status": "Received"
+    }
+  ],
+
+  "logs": [
+    {
+      "id": 1,
+      "action": "Add Product",
+      "productId": 1,
+      "quantity": 10,
+      "details": "New product added to inventory",
+      "user": "Ahmed",
+      "timestamp": "2026-03-10T09:15:00"
+    },
+    {
+      "id": 2,
+      "action": "Update Stock",
+      "productId": 2,
+      "quantity": 50,
+      "details": "Stock quantity updated after inventory check",
+      "user": "Ahmed",
+      "timestamp": "2026-03-10T10:20:00"
+    },
+    {
+      "id": 3,
+      "action": "Create Purchase Order",
+      "productId": 1,
+      "quantity": 5,
+      "details": "Purchase order PO-1001 created",
+      "user": "Ahmed",
+      "timestamp": "2026-03-11T11:00:00"
+    },
+    {
+      "id": 4,
+      "action": "Receive Purchase Order",
+      "productId": 1,
+      "quantity": 5,
+      "details": "Stock received from supplier",
+      "user": "Ahmed",
+      "timestamp": "2026-03-11T13:30:00"
+    },
+    {
+      "id": 5,
+      "action": "Stock Adjustment",
+      "productId": 3,
+      "quantity": -1,
+      "details": "1 item removed due to damage",
+      "user": "Ahmed",
+      "timestamp": "2026-03-12T09:45:00"
+    },
+    {
+      "id": 6,
+      "action": "Update Product",
+      "productId": 4,
+      "quantity": 15,
+      "details": "Product price updated",
+      "user": "Ahmed",
+      "timestamp": "2026-03-12T12:10:00"
+    },
+    {
+      "id": 7,
+      "action": "Create Purchase Order",
+      "productId": 8,
+      "quantity": 2,
+      "details": "Purchase order PO-1004 created",
+      "user": "Ahmed",
+      "timestamp": "2026-03-13T08:30:00"
+    },
+    {
+      "id": 8,
+      "action": "Receive Purchase Order",
+      "productId": 7,
+      "quantity": 30,
+      "details": "USB flash drives received from supplier",
+      "user": "Ahmed",
+      "timestamp": "2026-03-13T14:15:00"
+    },
+    {
+      "id": 9,
+      "action": "Low Stock Alert",
+      "productId": 8,
+      "quantity": 6,
+      "details": "Product reached reorder level",
+      "user": "System",
+      "timestamp": "2026-03-14T10:05:00"
+    },
+    {
+      "id": 10,
+      "action": "Delete Product",
+      "productId": 9,
+      "quantity": 0,
+      "details": "Product removed from inventory",
+      "user": "Ahmed",
+      "timestamp": "2026-03-14T15:40:00"
+    }
+  ]
+}
