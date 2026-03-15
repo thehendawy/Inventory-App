@@ -9,7 +9,8 @@
         crossorigin="anonymous" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"
         crossorigin="anonymous" />
-    <link rel="stylesheet" href="../css/productus.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/products.css">
 </head>
 
 <body style="background-color: #eee;">
@@ -20,9 +21,9 @@
         <!-- Main content -->
         <main class="flex-grow-1 p-4">
             <div class="container">
-
-                <header class="product-header d-flex justify-content-between align-items-center">
-                    <div>
+                <header
+                    class="product-header d-flex flex-column flex-lg-row justify-content-between align-items-start align-lg-center mb-3">
+                    <div class="mb-2 mb-lg-0">
                         <h2>Products</h2>
                         <p class="text-muted">Manage your product inventory</p>
                     </div>
@@ -39,8 +40,6 @@
                             style="left:15px; top:50%; transform:translateY(-50%);"></i>
                     </div>
                 </div>
-
-
                 <div class="bg-white rounded-3 ps-3 pt-4 pb-5 border border-secondary-subtle"
                     style="box-shadow: 0 2px 6px rgba(0,0,0,0.15); ">
                     <h3>All Products</h3>
@@ -112,7 +111,7 @@
             <div class="modal fade" id="addProductModal" tabindex="-1" aria-labelledby="addProductModalLabel"
                 aria-hidden="true">
                 <div class="modal-dialog modal-md">
-                    <div class="modal-content" style="background-color:var(--bg-boxes-color)">
+                    <div class="modal-content" style="background-color:var(--bg-color)">
                         <div class="modal-header border-0 pb-0">
                             <div>
                                 <h5 class="modal-title" id="addProductModalLabel">Add New Product</h5>
@@ -124,46 +123,46 @@
                         <div class="modal-body">
                             <form>
                                 <div class="row mb-4">
-                                    <div class="col-md-6">
+                                    <div class="col-md-6 mb-2 mb-md-0">
                                         <label class="form-label fw-semibold">Product Name</label>
-                                        <input style="background-color:var (--bg-color) " type="text" class="form-control"
-                                            placeholder="Enter product name">
+                                        <input class="form-control py-2" type="text" placeholder="Enter product name"
+                                            style="background-color:var(--bg-color)">
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-6 mb-2 mb-md-0">
                                         <label class="form-label fw-semibold">SKU</label>
-                                        <input style="background-color:var (--bg-color) " type="text" class="form-control"
-                                            placeholder="Enter SKU">
+                                        <input class="form-control py-2" type="text" placeholder="Enter SKU"
+                                            style="background-color:var(--bg-color)">
                                     </div>
                                 </div>
 
                                 <div class="row mb-4">
-                                    <div class="col-md-6">
+                                    <div class="col-md-6 mb-2 mb-md-0">
                                         <label class="form-label fw-semibold">Category</label>
-                                        <input style="background-color:var (--bg-color) " type="text" class="form-control"
-                                            placeholder="Enter category">
+                                        <input class="form-control py-2" type="text" placeholder="Enter category"
+                                            style="background-color:var(--bg-color)">
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-6 mb-2 mb-md-0">
                                         <label class="form-label fw-semibold">Supplier</label>
-                                        <input style="background-color:var (--bg-color) " type="text" class="form-control"
-                                            placeholder="Enter supplier name">
+                                        <input class="form-control py-2" type="text" placeholder="Enter supplier name"
+                                            style="background-color:var(--bg-color)">
                                     </div>
                                 </div>
 
                                 <div class="row mb-4">
-                                    <div class="col-md-4">
+                                    <div class="col-md-4 mb-2 mb-md-0">
                                         <label class="form-label fw-semibold">Price</label>
-                                        <input style="background-color:var (--bg-color) " type="number" class="form-control"
-                                            placeholder="Enter price">
+                                        <input class="form-control py-2" type="number" placeholder="Enter price"
+                                            style="background-color:var(--bg-color)">
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-4 mb-2 mb-md-0">
                                         <label class="form-label fw-semibold">Quantity</label>
-                                        <input style="background-color:var (--bg-color) " type="number" class="form-control"
-                                            placeholder="Enter quantity">
+                                        <input class="form-control py-2" type="number" placeholder="Enter quantity"
+                                            style="background-color:var(--bg-color)">
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-4 mb-2 mb-md-0">
                                         <label class="form-label fw-semibold">Reorder</label>
-                                        <input style="background-color:var (--bg-color) " type="number" class="form-control"
-                                            placeholder="Enter reorder level">
+                                        <input class="form-control py-2" type="number" placeholder="Enter reorder level"
+                                            style="background-color:var(--bg-color)">
                                     </div>
                                 </div>
 
@@ -178,7 +177,8 @@
                                 <div class="d-flex justify-content-end">
                                     <button type="button" class="btn btn-light text-black me-2"
                                         data-bs-dismiss="modal">Cancel</button>
-                                    <button type="submit" class="btn" style="background-color:var(--add-btn-color); color:#ffffff;">
+                                    <button type="submit" class="btn"
+                                        style="background-color:var(--add-btn-color); color:#ffffff;">
                                         <i class="fas fa-save me-2"></i> Add Product
                                     </button>
                                 </div>
@@ -196,7 +196,13 @@
                 .then((res) => res.text())
                 .then((html) => {
                     document.getElementById("navbar-container").innerHTML = html;
-                })
+
+                    const currentPage = window.location.pathname.split("/").pop();
+                    const navLink = document.querySelector(`.nav-item a[href='./${currentPage}']`);
+                    if (navLink) {
+                        navLink.style.cssText = " background-color: #1C222B; color: #fff";
+                    }
+                });
 
         </script>
 </body>
