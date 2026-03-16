@@ -1,0 +1,22 @@
+.addBtn {
+  background-color: var(--add-btn-color);
+  color:var(--bg-boxes-color);
+  padding: 8px 17px;
+  transition: all .3s;
+}
+
+.addBtn:hover{
+    background-color: #0c62a8;
+    color: var(--bg-boxes-color);
+}
+
+.table tbody tr td{
+  transition: background-color 0.2s ease;
+}
+
+.table tbody tr:hover td{
+  background-color: var(--bg-color);
+}
+
+
+
