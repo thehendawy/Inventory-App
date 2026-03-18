@@ -1,0 +1,51 @@
+body {
+  background-color: #f8f9fa;
+  font-family: sans-serif;
+}
+.card {
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  /* box-shadow: var(--box-shadow); */
+}
+.stats-number {
+  font-size: 2rem;
+  font-weight: bold;
+}
+.text-success-custom {
+  color: #198754;
+}
+.text-danger-custom {
+  color: #dc3545;
+}
+.badge-added {
+  background-color: var(--add-btn-color);
+}
+.badge-received {
+  background-color: #f8f9fa;
+  color: #333;
+  border: 1px solid #ddd;
+}
+.badge-removed {
+  background-color: #dc3545;
+}
+.badge-new {
+  background-color: var(--add-btn-color);
+}
+.table thead th {
+  border-top: none;
+  color: #6c757d;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+.table tbody td {
+  vertical-align: middle;
+  padding: 1rem 0.5rem;
+}
+.search-container {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: var(--box-shadow);
+}

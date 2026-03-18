@@ -14,6 +14,7 @@
       rel="stylesheet"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="../css/main.css" />
     <link rel="stylesheet" href="../css/purchase-orders.css" />
   </head>
   <body>
@@ -33,7 +34,10 @@
               </p>
             </div>
             <button
-              class="btn btn-primary btn-new-order d-flex align-items-center gap-3"
+              type="button"
+              class="btn btn-primary btn-new-order"
+              data-bs-toggle="modal"
+              data-bs-target="#createOrderModal"
             >
               <i class="fa-solid fa-plus"></i> New Order
             </button>
@@ -87,8 +91,13 @@
                     <td><span class="badge-received">Received</span></td>
                     <td class="text-muted">2024-03-10</td>
                     <td class="text-center d-flex justify-content-center">
-                      <button class="action-btn view-btn" title="View">
-                        <i class="far fa-eye"></i>
+                      <button
+                        type="button"
+                        class="btn btn-link text-dark p-0"
+                        data-bs-toggle="modal"
+                        data-bs-target="#orderDetailsModal"
+                      >
+                        <i class="fa-regular fa-eye"></i>
                       </button>
 
                       <button class="action-btn check-btn" title="Approve">
@@ -110,8 +119,13 @@
                     <td><span class="badge-pending">Pending</span></td>
                     <td class="text-muted">2024-03-12</td>
                     <td class="text-center d-flex justify-content-center">
-                      <button class="action-btn view-btn" title="View">
-                        <i class="far fa-eye"></i>
+                      <button
+                        type="button"
+                        class="btn btn-link text-dark p-0"
+                        data-bs-toggle="modal"
+                        data-bs-target="#orderDetailsModal"
+                      >
+                        <i class="fa-regular fa-eye"></i>
                       </button>
 
                       <button class="action-btn check-btn" title="Approve">
@@ -133,8 +147,13 @@
                     <td><span class="badge-cancelled">cancelled</span></td>
                     <td class="text-muted">2024-03-13</td>
                     <td class="text-center d-flex justify-content-center">
-                      <button class="action-btn view-btn" title="View">
-                        <i class="far fa-eye"></i>
+                      <button
+                        type="button"
+                        class="btn btn-link text-dark p-0"
+                        data-bs-toggle="modal"
+                        data-bs-target="#orderDetailsModal"
+                      >
+                        <i class="fa-regular fa-eye"></i>
                       </button>
 
                       <button class="action-btn check-btn" title="Approve">
@@ -156,8 +175,13 @@
                     <td><span class="badge-received">Received</span></td>
                     <td class="text-muted">2024-03-08</td>
                     <td class="text-center d-flex justify-content-center">
-                      <button class="action-btn view-btn" title="View">
-                        <i class="far fa-eye"></i>
+                      <button
+                        type="button"
+                        class="btn btn-link text-dark p-0"
+                        data-bs-toggle="modal"
+                        data-bs-target="#orderDetailsModal"
+                      >
+                        <i class="fa-regular fa-eye"></i>
                       </button>
 
                       <button class="action-btn check-btn" title="Approve">
@@ -177,6 +201,159 @@
       </main>
     </div>
 
+    <!-- المودال -->
+    <div
+      class="modal fade"
+      id="createOrderModal"
+      tabindex="-1"
+      aria-labelledby="modalTitle"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content p-3 shadow-lg" style="border-radius: 12px">
+          <!-- الرأس: العنوان والوصف -->
+          <div class="modal-header border-0 pb-0">
+            <div>
+              <h5 class="modal-title fw-bold" id="modalTitle">
+                Create Purchase Order
+              </h5>
+              <p class="text-muted small mb-0">
+                Create a new purchase order for restocking.
+              </p>
+            </div>
+            <button
+              type="button"
+              class="btn-close align-self-start"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+
+          <div class="modal-body">
+            <form>
+              <!-- حقل المورد -->
+              <div class="mb-3">
+                <label class="form-label fw-semibold">Supplier</label>
+                <select class="form-select text-muted">
+                  <option selected>Select supplier</option>
+                  <option value="1">Supplier A</option>
+                  <option value="2">Supplier B</option>
+                </select>
+              </div>
+
+              <!-- حقل المنتج -->
+              <div class="mb-3">
+                <label class="form-label fw-semibold">Product</label>
+                <select class="form-select text-muted">
+                  <option selected>Select product</option>
+                  <option value="1">Product 1</option>
+                  <option value="2">Product 2</option>
+                </select>
+              </div>
+
+              <!-- الكمية والإجمالي جنب بعض -->
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label class="form-label fw-semibold">Quantity</label>
+                  <input type="number" class="form-control" placeholder="0" />
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label class="form-label fw-semibold">Total ($)</label>
+                  <input
+                    type="text"
+                    class="form-control bg-light text-muted"
+                    value="0.00"
+                    readonly
+                  />
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <!-- الأزرار في الأسفل -->
+          <div class="modal-footer border-0 pt-0 justify-content-end">
+            <button
+              type="button"
+              class="btn btn-outline-secondary px-4 me-2"
+              data-bs-dismiss="modal"
+            >
+              Cancel
+            </button>
+            <button type="submit" class="btn btn-primary px-4">
+              Create Order
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- أيقونة العين-->
+    <div
+      class="modal fade"
+      id="orderDetailsModal"
+      tabindex="-1"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div
+          class="modal-content p-4 shadow-sm"
+          style="border-radius: 15px; border: none"
+        >
+          <!-- الهيدر وزر الإغلاق -->
+          <div class="modal-header border-0 pb-0 position-relative">
+            <div>
+              <h5 class="modal-title fw-bold text-dark">Order Details</h5>
+              <p class="text-muted small mb-0">Purchase order PO-001</p>
+            </div>
+            <button
+              type="button"
+              class="btn-close border rounded-2 p-2 position-absolute end-0 top-0 mt-3 me-3"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+
+          <!-- محتوى البيانات -->
+          <div class="modal-body py-4">
+            <div class="row gy-4">
+              <!-- المورد -->
+              <div class="col-6">
+                <label class="text-muted small d-block mb-1">Supplier</label>
+                <span class="fw-bold text-dark d-block">Apple Inc.</span>
+              </div>
+              <!-- المنتج -->
+              <div class="col-6">
+                <label class="text-muted small d-block mb-1">Product</label>
+                <span class="fw-bold text-dark d-block">MacBook Pro 14"</span>
+              </div>
+
+              <!-- الكمية -->
+              <div class="col-6">
+                <label class="text-muted small d-block mb-1">Quantity</label>
+                <span class="fw-bold text-dark d-block">25</span>
+              </div>
+              <!-- الإجمالي -->
+              <div class="col-6">
+                <label class="text-muted small d-block mb-1">Total</label>
+                <span class="fw-bold text-dark d-block">$49,975</span>
+              </div>
+
+              <!-- الحالة -->
+              <div class="col-6">
+                <label class="text-muted small d-block mb-1">Status</label>
+                <span class="fw-bold text-dark d-block">Received</span>
+              </div>
+              <!-- التاريخ -->
+              <div class="col-6">
+                <label class="text-muted small d-block mb-1">Date</label>
+                <span class="fw-bold text-dark d-block">2024-03-10</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- !=======> Bootstrap -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
@@ -190,7 +367,7 @@
         .then((html) => {
           document.getElementById("navbar-container").innerHTML = html;
           document.querySelector(
-            ".nav-item a[href='./suppliers.html']",
+            ".nav-item a[href='./purchase-orders.html']",
           ).style.cssText = `background-color: #1C222B; color: #fff`;
         });
     </script>

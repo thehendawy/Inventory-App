@@ -18,7 +18,7 @@ body {
   font-size: 0.95rem;
 }
 .btn-new-order {
-  background-color: #007bff;
+  background-color: var(--add-btn-color);
   border-radius: 6px;
   font-weight: 500;
   padding: 8px 16px;
@@ -81,7 +81,8 @@ body {
 
 /* Status Badges */
 .badge-received {
-  background-color: #007bff;
+  /* background-color: #007bff; */
+  background-color: var(--add-btn-color);
   color: white;
   padding: 6px 12px;
   border-radius: 4px;
@@ -95,7 +96,7 @@ body {
   font-size: 0.75rem;
 }
 .badge-cancelled {
-  background-color: red;
+  background-color: #dc3545;
   color: #fff;
   padding: 6px 12px;
   border-radius: 4px;
@@ -158,4 +159,8 @@ body {
 .action-btn:hover {
   transform: scale(1.1);
   background-color: rgba(0, 0, 0, 0.05);
+}
+
+.modal-content {
+  background-color: #f1f3f7;
 }
