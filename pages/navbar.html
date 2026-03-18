@@ -1,5 +1,5 @@
 <button
-  class="btn position-fixed top-0 text-white border border-light border-opacity-50 start-0 m-2 d-lg-none"
+  class="btn position-fixed top-0 z-3 text-white border border-light border-opacity-50 start-0 m-2 d-lg-none"
   style="background-color: #0d1117"
   type="button"
   data-bs-toggle="offcanvas"
@@ -9,10 +9,10 @@
 </button>
 
 <div
-  class="offcanvas-lg offcanvas-start min-vh-100 border-end border-secondary d-flex flex-column flex-shrink-0 h-100"
+  class="offcanvas-lg offcanvas-start vh-100 position-fixed border-end border-secondary d-flex flex-column flex-shrink-0 h-100"
   tabindex="-1"
   id="sidebarMenu"
-  style="width: 240px; background-color: #0d1117 !important"
+  style="width: 240px; z-index: 9999; background-color: #0d1117 !important"
 >
   <div
     class="d-flex align-items-center border-bottom border-light border-opacity-10 mb-3 gap-2 px-3 py-3"
@@ -114,3 +114,5 @@
     <span class="fs-5 fw-semibold text-white">Ahmed</span>
   </div>
 </div>
+
+<div class="d-none d-lg-block flex-shrink-0" style="width: 240px"></div>
