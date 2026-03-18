@@ -1,0 +1,216 @@
+:root {
+  --border: #e2e8f0;
+}
+
+main {
+  background: var(--bg-color);
+  min-height: 100vh;
+  padding: 2rem 2.25rem;
+}
+.page-header h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 0.2rem;
+}
+.page-header p {
+  color: var(--secondary-color);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.status-card {
+  background: var(--bg-boxes-color);
+  border-radius: 14px;
+  padding: 1.4rem 1.5rem;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease;
+  height: 100%;
+}
+.status-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.09);
+}
+.status-title {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--secondary-color);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.6rem;
+}
+.status-value {
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  line-height: 1.1;
+  margin-bottom: 0.75rem;
+}
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.25rem 0.6rem;
+  border-radius: 20px;
+}
+.status-badge.up {
+  background: #dcfce7;
+  color: #16a34a;
+}
+.status-badge.down {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.status-icon-wrap {
+  width: 46px;
+  height: 46px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  flex-shrink: 0;
+}
+.icon-blue {
+  background: #dbeafe;
+  color: #2563eb;
+}
+.icon-green {
+  background: #d1fae5;
+  color: #059669;
+}
+.icon-red {
+  background: #fee2e2;
+  color: #dc2626;
+}
+.icon-orange {
+  background: #ffedd5;
+  color: #ea580c;
+}
+
+.section-card {
+  background: var(--bg-boxes-color);
+  border-radius: 14px;
+  padding: 1.5rem 1.75rem;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+}
+.section-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+.section-subtitle {
+  font-size: 0.8rem;
+  color: var(--secondary-color);
+  margin-bottom: 1.25rem;
+}
+
+.in-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.in-table thead th {
+  font-size: 0.73rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  padding: 0 1rem 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+.in-table tbody tr {
+  border-bottom: 1px solid #f1f5f9;
+  transition: background 0.12s;
+}
+.in-table tbody tr:last-child {
+  border-bottom: none;
+}
+.in-table tbody tr:hover {
+  background: #f8fafc;
+}
+.in-table td {
+  padding: 0.85rem 1rem;
+  font-size: 0.875rem;
+  color: var(--primary-color);
+  vertical-align: middle;
+}
+.sku-bg {
+  background: #f1f5f9;
+  color: var(--secondary-color);
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.2rem 0.55rem;
+  border-radius: 6px;
+  font-family: monospace;
+}
+.stock-bg {
+  display: inline-block;
+  background: #ef4444;
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 700;
+  min-width: 28px;
+  text-align: center;
+  padding: 0.2rem 0.5rem;
+  border-radius: 6px;
+}
+.reorder-num {
+  color: var(--secondary-color);
+  font-size: 0.85rem;
+}
+.activity-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.65rem;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+.badge-added {
+  background: #2563eb;
+  color: #fff;
+}
+.badge-removed {
+  background: #ef4444;
+  color: #fff;
+}
+.badge-order {
+  background: #f1f5f9;
+  color: var(--secondary-color);
+  border: 1px solid var(--border);
+}
+.badge-new {
+  background: #f1f5f9;
+  color: var(--secondary-color);
+  border: 1px solid var(--border);
+}
+.badge-updated {
+  background: #f1f5f9;
+  color: var(--secondary-color);
+  border: 1px solid var(--border);
+}
+
+@media (max-width: 991px) {
+  main {
+    padding: 1.25rem;
+  }
+}
+@media (max-width: 576px) {
+  .status-value {
+    font-size: 1.5rem;
+  }
+  main {
+    padding: 1rem;
+  }
+}
