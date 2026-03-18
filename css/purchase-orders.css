@@ -164,3 +164,9 @@ body {
 .modal-content {
   background-color: #f1f3f7;
 }
+
+@media (min-width: 768px) {
+  .btn-new-order {
+    width: auto !important;
+  }
+}
