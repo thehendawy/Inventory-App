@@ -256,10 +256,13 @@
       crossorigin="anonymous"
     ></script>
     <script>
-      fetch("navbar.html")
+      fetch("./navbar.html")
         .then((res) => res.text())
         .then((html) => {
           document.getElementById("navbar-container").innerHTML = html;
+          document.querySelector(
+            ".nav-item a[href='./reports.html']",
+          ).style.cssText = `background-color: #1C222B; color: #fff`;
         });
     </script>
   </body>
