@@ -2,8 +2,26 @@
   "users": [
     {
       "id": "1",
-      "name": "ahmed mohamed",
-      "email": "ahmed@gmail.com",
+      "name": "Ahmed Mohamed",
+      "email": "ahmedmohamedismail@gmail.com",
+      "password": "test1234"
+    },
+    {
+      "id": "2",
+      "name": "Ahmed Elhendawy",
+      "email": "ahmedelhendawy@gmail.com",
+      "password": "test1234"
+    },
+    {
+      "id": "3",
+      "name": "Ahmed Samir",
+      "email": "ahmedsamir@gmail.com",
+      "password": "test1234"
+    },
+    {
+      "id": "4",
+      "name": "Shorok Magdy",
+      "email": "shorokmagdy@gmail.com",
       "password": "test1234"
     }
   ],

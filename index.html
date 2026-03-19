@@ -61,10 +61,29 @@
                 placeholder="Enter your password"
               />
             </div>
-            <button class="btn btn-primary w-100 mt-2">Login</button>
+            <button class="btn btn-primary w-100 mt-2" id="loginBtn">
+              Login
+            </button>
           </div>
         </div>
       </div>
     </div>
+
+    <div
+      id="alertErr"
+      class="alert alert-danger position-absolute"
+      style="
+        top: 20px;
+        right: 20px;
+        width: 250px;
+        opacity: 0;
+        transition: opacity 500ms;
+      "
+      role="alert"
+    >
+      Email or password is invalid
+    </div>
+
+    <script src="./js/features/login.js" type="module"></script>
   </body>
 </html>
