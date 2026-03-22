@@ -191,11 +191,32 @@
       "address": "Mansoura, Egypt"
     },
     {
-      "id": "946d",
-      "name": "samsung22",
+      "id": "8b44",
+      "name": "samsung",
       "phone": "01025478963",
       "email": "ahmedsamir9828@gmail.com",
       "address": "cairo"
+    },
+    {
+      "name": "huawei",
+      "phone": "01069333058",
+      "email": "ahmedsamir9828@gmail.com",
+      "address": "Cairo, Egypt",
+      "id": "9fd0"
+    },
+    {
+      "id": "9223",
+      "name": "huawei",
+      "phone": "01069333058",
+      "email": "ahmedsamir9828@gmail.com",
+      "address": "bgfbfgb"
+    },
+    {
+      "name": "huawei",
+      "phone": "01069333058",
+      "email": "ahmedsamir9828@gmail.com",
+      "address": "tanta",
+      "id": "5b72"
     }
   ],
   "purchaseOrders": [

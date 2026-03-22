@@ -96,6 +96,25 @@ export class SupplierService {
         }
     }
 
+  // Edit existing supplier method
+  async getSupplierById(id) {
+      const response = await fetch(`${this.Url}/${id}`);
+      return await response.json();
+  }
+
+  async updateSupplier(id, updatedData) {
+
+    let erroeMassage = this.validate(updatedData);
+    if (erroeMassage == false ) return false;
+
+      const response = await fetch(`${this.Url}/${id}`, {
+          method: 'PUT', // PUT بتعدل العنصر بالكامل
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(updatedData)
+      });
+  }
+
+
 }
 
 export class SupplierTable {
@@ -118,7 +137,14 @@ export class SupplierTable {
                 <td><a href="mailto:${s.email}">${s.email}</a></td>
                 <td>${s.address}</td>
                 <td class="text-end">
-                    <button class="btn btn-sm text-secondary"><i class="fa-regular fa-pen-to-square"></i></button>
+                    <i
+                        class="fa-solid fa-edit mx-2 text-secondary"
+                        style="cursor: pointer"
+                        data-bs-toggle="modal"
+                        data-bs-target="#supplierInputs"
+                        data-bs-whatever="add-supplier"
+                        onclick="prepareEdit('${s.id}')"
+                      ></i>
                     <i
                         class="fa-solid fa-trash mx-2 text-danger"
                         style="cursor: pointer"
