@@ -52,6 +52,7 @@
                 </div>
             </div>
 
+            <!-- Modal For Add Category -->
             <div class="modal fade" id="addProductModal" tabindex="-1" aria-labelledby="addProductModalLabel"
                 aria-hidden="true">
                 <div class="modal-dialog modal-md p3">
@@ -92,6 +93,26 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Modal For Delete Category -->
+             <div class="modal fade mt-5" id="deleteConfirmModal" tabindex="-1">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-danger fw-bold"><span><i class="fa-solid fa-trash pe-3" style="color: rgb(223, 0, 0);"></i></span">Delete Category</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p class="fw-bold">Are You Sure To Delete This Category?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" id="confirmDeleteBtn" class="btn btn-danger btn-delete">Delete</button>
+                    </div>
+                    </div>
+                </div>
+            </div>
+
         </main>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
@@ -109,6 +130,7 @@
                     }
                 });
         </script>
+
         <script type="module" src="../js/features/categories.js"></script>
 </body>
 
