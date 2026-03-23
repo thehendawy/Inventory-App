@@ -25,7 +25,6 @@
       "password": "test1234"
     }
   ],
-
   "products": [
     {
       "id": "1",
@@ -128,7 +127,6 @@
       "supplierId": "1"
     }
   ],
-
   "categories": [
     {
       "id": "1",
@@ -156,7 +154,6 @@
       "description": "Daily office consumables such as paper and stationery."
     }
   ],
-
   "suppliers": [
     {
       "id": "1",
@@ -194,7 +191,6 @@
       "address": "Mansoura, Egypt"
     }
   ],
-
   "purchaseOrders": [
     {
       "id": "1",
@@ -247,7 +243,6 @@
       "isProcessed": true
     }
   ],
-
   "stockAdjustments": [
     {
       "id": "1",
@@ -266,7 +261,6 @@
       "timestamp": "2026-03-15T11:00:00"
     }
   ],
-
   "logs": [
     {
       "id": "1",
@@ -358,5 +352,6 @@
       "user": "Ahmed",
       "timestamp": "2026-03-14T15:40:00"
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }
