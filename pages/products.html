@@ -11,6 +11,7 @@
         crossorigin="anonymous" />
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/products.css">
+    <script src="../js/auth/authentication.js"></script>
 </head>
 
 <body style="background-color: var(--bg-color);">
@@ -31,22 +32,24 @@
                         <i class="fas fa-plus me-3"></i> Add Product
                     </button>
                 </header>
+
+
                 <div class="bg-white rounded-3 mb-4 ps-3 pt-5 pb-5 border border-secondary-subtle"
                     style="box-shadow:var(--shadow)">
                     <div class="position-relative">
-                        <input type="text" class="form-control ps-5" placeholder="Search..."
+                        <input type="text" class="form-control ps-5 w-50" placeholder="Search..."
                             style=" max-width: 3500px ;border-radius:5px;">
                         <i class="fas fa-search text-muted position-absolute"
                             style="left:15px; top:50%; transform:translateY(-50%);"></i>
                     </div>
                 </div>
                 <div class="bg-white rounded-3 ps-3 pt-4 pb-5  border border-secondary-subtle"
-                    style="box-shadow:var(--shadow) " >
+                    style="box-shadow:var(--shadow) ">
                     <h3 class="fw-bolder">All Products</h3>
                     <p class="color :var(--secondary-color) pb-3">A list of all products in your inventory (8 total)</p>
                     <div class="table-responsive">
                         <table class="table align-middle">
-                            <tbody>
+                            <thead>
                                 <tr>
                                     <th>Product Name</th>
                                     <th>SKU</th>
@@ -58,7 +61,9 @@
                                     <th>Status</th>
                                     <th>Actions</td>
                                 </tr>
-                                <tr>
+                            </thead>
+                            <tbody>
+                                <!-- <tr>
                                     <td class="py-3">Apple iPhone 15</td>
                                     <td class="text-secondary py-3">IP15-001</td>
                                     <td class="py-3">Electronics</td>
@@ -71,36 +76,8 @@
                                         <button class="btn  btn-sm"><i class="fa-solid fa-pen"></i></button>
                                         <button class="btn btn-sm"><i class="fas fa-trash text-danger"></i></button>
                                     </td>
-                                </tr>
-                                <tr>
-                                    <td class="py-3">Apple iPhone 15</td>
-                                    <td class="text-secondary py-3">IP15-001</td>
-                                    <td class="py-3">Electronics</td>
-                                    <td class="py-3">Apple Inc.</td>
-                                    <td class="py-3">$999</td>
-                                    <td class="py-3">50</td>
-                                    <td class="text-secondary py-3">20</td>
-                                    <td class="py-3"><span class="badge text-white bg-danger ">Low Stock</span></td>
-                                    <td class="py-3">
-                                        <button class="btn  btn-sm"><i class="fa-solid fa-pen"></i></button>
-                                        <button class="btn btn-sm"><i class="fas fa-trash text-danger"></i></button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="py-3">Apple iPhone 15</td>
-                                    <td class="text-secondary py-3">IP15-001</td>
-                                    <td class="py-3">Electronics</td>
-                                    <td class="py-3">Apple Inc.</td>
-                                    <td class="py-3">$999</td>
-                                    <td class="py-3">50</td>
-                                    <td class="text-secondary py-3">20</td>
-                                    <td class="py-3"><span class="badge text-black bg-secondary-subtle fw-semibold">In
-                                            Stock</span></td>
-                                    <td class="py-3">
-                                        <button class="btn  btn-sm"><i class="fa-solid fa-pen"></i></button>
-                                        <button class="btn btn-sm"><i class="fas fa-trash text-danger"></i></button>
-                                    </td>
-                                </tr>
+                                </tr> -->
+
                             </tbody>
                         </table>
                     </div>
@@ -113,64 +90,82 @@
                     <div class="modal-content" style="background-color:var(--bg-color)">
                         <div class="modal-header border-0 pb-0">
                             <div>
-                                <h5 class="modal-title" id="addProductModalLabel">Add New Product</h5>
+                                <h5 class="modal-title fw-semibold" id="addProductModalLabel">Add New Product</h5>
                                 <small class="text-muted">Fill in the details to add a new Product to your
                                     inventory.</small>
                             </div>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <form>
-                                <div class="row mb-4">
-                                    <div class="col-md-6 mb-2 mb-md-0">
+                            <form id="addProductForm">
+                                <div class="row mb-2 mb-sm-0">
+                                    <div class="col-md-6 mb-1 mb-md-0">
                                         <label class="form-label fw-semibold">Product Name</label>
-                                        <input class="form-control py-2" type="text" placeholder="Enter product name"
-                                            style="background-color:var(--bg-color)">
+                                        <input id="productName" class="form-control py-2" type="text"
+                                            placeholder="Enter product name" style="background-color:var(--bg-color)">
+                                        <p class="text-danger mt-1 small" id="productNameError"></p>
                                     </div>
-                                    <div class="col-md-6 mb-2 mb-md-0">
+                                    <div class="col-md-6 mb-1 mb-md-0">
                                         <label class="form-label fw-semibold">SKU</label>
-                                        <input class="form-control py-2" type="text" placeholder="Enter SKU"
+                                        <input id="sku" class="form-control py-2" type="text" placeholder="Enter SKU"
                                             style="background-color:var(--bg-color)">
+                                        <p class="text-danger mt-1 small" id="skuError"></p>
                                     </div>
                                 </div>
 
-                                <div class="row mb-4">
-                                    <div class="col-md-6 mb-2 mb-md-0">
+                                <div class="row mb-2 mb-sm-0">
+                                    <div class="col-md-6 mb-1">
                                         <label class="form-label fw-semibold">Category</label>
-                                        <input class="form-control py-2" type="text" placeholder="Enter category"
+                                        <select id="category"class="form-select"
                                             style="background-color:var(--bg-color)">
+                                            <option value="">Select Category</option>
+                                        </select>
+                                        <p id="categoryError" class="text-danger small"></p>
                                     </div>
-                                    <div class="col-md-6 mb-2 mb-md-0">
+
+
+                                    <div class="col-md-6 mb-1">
                                         <label class="form-label fw-semibold">Supplier</label>
-                                        <input class="form-control py-2" type="text" placeholder="Enter supplier name"
+                                        <select id="supplier" class="form-select"
                                             style="background-color:var(--bg-color)">
+                                            <option value="">Select Supplier</option>
+                                        </select>
+                                        <p class="text-danger mt-1 small" id="supplierError"></p>
                                     </div>
                                 </div>
 
-                                <div class="row mb-4">
-                                    <div class="col-md-4 mb-2 mb-md-0">
+                                <div class="row mb-2 mb-sm-0">
+                                    <div class="col-md-4 mt-0 mb-1 mb-md-0">
                                         <label class="form-label fw-semibold">Price</label>
-                                        <input class="form-control py-2" type="number" placeholder="Enter price"
+                                        <input id="price" class="form-control py-2" type="number" placeholder="Enter price"
                                             style="background-color:var(--bg-color)">
-                                    </div>
-                                    <div class="col-md-4 mb-2 mb-md-0">
-                                        <label class="form-label fw-semibold">Quantity</label>
-                                        <input class="form-control py-2" type="number" placeholder="Enter quantity"
-                                            style="background-color:var(--bg-color)">
-                                    </div>
-                                    <div class="col-md-4 mb-2 mb-md-0">
-                                        <label class="form-label fw-semibold">Reorder</label>
-                                        <input class="form-control py-2" type="number" placeholder="Enter reorder level"
-                                            style="background-color:var(--bg-color)">
-                                    </div>
-                                </div>
+                                        <p class="text-danger mt-1 small" id="priceError"></p>
 
-                                <div class="mb-4">
-                                    <label class="form-label fw-semibold">Status</label>
-                                    <select class="form-select" style="background-color:var(--bg-color)">
-                                        <option value="in-stock">In Stock</option>
-                                        <option value="low-stock">Low Stock</option>
-                                    </select>
+                                    </div>
+                                    <div class="col-md-4 mb-1 mb-md-0">
+                                        <label class="form-label fw-semibold">Quantity</label>
+                                        <input id="quantity" class="form-control py-2" type="number"
+                                            placeholder="Enter quantity" style="background-color:var(--bg-color)">
+                                        <p class="text-danger mt-1 small" id="quantityError"></p>
+
+                                    </div>
+                                    <div class="col-md-4 mb-1 mb-md-0">
+                                        <label class="form-label fw-semibold">Reorder</label>
+                                        <input id="recorder" class="form-control py-2" type="number" placeholder="Enter reorder level"
+                                            style="background-color:var(--bg-color)">
+                                        <p class="text-danger mt-1 small" id="reorderError"></p>
+
+                                    </div>
+
+                                </div>
+                                <div class="row mb-2 mb-sm-0">
+                                    <div class="mb-1">
+                                        <label class="form-label fw-semibold">Status</label>
+                                        <select id="status" class="form-select" style="background-color:var(--bg-color)">
+                                            <option value="in-stock">In Stock</option>
+                                            <option value="low-stock">Low Stock</option>
+                                        </select>
+                                    </div>
                                 </div>
 
                                 <div class="d-flex justify-content-end">
@@ -187,23 +182,28 @@
                 </div>
             </div>
         </main>
+    </div>
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-            crossorigin="anonymous"></script>
-        <script>
-            fetch("navbar.html")
-                .then((res) => res.text())
-                .then((html) => {
-                    document.getElementById("navbar-container").innerHTML = html;
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
+    <script>
+        fetch("navbar.html")
+            .then((res) => res.text())
+            .then((html) => {
+                document.getElementById("navbar-container").innerHTML = html;
 
-                    const currentPage = window.location.pathname.split("/").pop();
-                    const navLink = document.querySelector(`.nav-item a[href='./${currentPage}']`);
-                    if (navLink) {
-                        navLink.style.cssText = " background-color: #1C222B; color: #fff";
-                    }
-                });
+                const currentPage = window.location.pathname.split("/").pop();
+                const navLink = document.querySelector(`.nav-item a[href='./${currentPage}']`);
+                if (navLink) {
+                    navLink.style.cssText = " background-color: #1C222B; color: #fff";
+                }
+            });
 
-        </script>
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="../js/auth/getUser.js" type="module"></script>
+    <script src="../js/features/products.js" type="module"></script>
 </body>
 
 </html>
