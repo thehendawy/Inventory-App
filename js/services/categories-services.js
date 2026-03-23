@@ -40,6 +40,7 @@ export class CategoriesService {
       });
     } catch (err) {
       console.log(err.message);
+      throw err;
     }
   }
 
