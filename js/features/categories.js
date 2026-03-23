@@ -4,21 +4,26 @@ const btn_add = document.querySelector(".btn-send");
 const input_name = document.querySelector(".input-name");
 const input_description = document.querySelector(".input-description");
 const myForm = document.querySelector("#myForm");
+const errMessage = document.querySelector(".err");
 
 let getCategories = async () => {
   try {
     const data = await CategoriesService.getAll();
-    return data;
+    if (!data || data.length === 0) {
+      throw new Error(`*Something wrong!`);
+    }
+    displayCategories(data);
   } catch (err) {
     console.log(err);
+    errMessage.textContent = `Try Again ${err.message}`;
   }
 };
-let categoriesData = await getCategories();
+getCategories();
 
-// Show Data at tables
-let displayCategories = (data) => {
+// Show Data at table
+function displayCategories(data) {
   let allRows = "";
-  table_body.innerHTML = "";
+  // table_body.innerHTML = "";
 
   data.forEach(function (el) {
     let tr = `
@@ -26,17 +31,16 @@ let displayCategories = (data) => {
         <td class="py-3">${el.name}</td>
         <td class="text-secondary py-3">${el.description}</td>
         <td class="py-3" >${el.products.length}</td>
-        <td class="py-3">
-        <button class="btn  btn-sm"><i class="fa-solid fa-pen"></i></button>
-        <button class="btn btn-sm"><i class="fas fa-trash text-danger"></i></button>
+        <td class="py-3 p-btn">
+        <button class="btn  btn-sm edit-btn" data-title="edit"><i class="fa-solid fa-pen"></i></button>
+        <button class="btn btn-sm delete-btn" data-title="delete"><i class="fas fa-trash text-danger"></i></button>
         </td>
         </tr>    
         `;
     allRows += tr;
   });
   table_body.insertAdjacentHTML("beforeend", allRows);
-};
-displayCategories(categoriesData);
+}
 
 // Add New Category
 myForm.addEventListener("submit", async (e) => {
@@ -62,5 +66,6 @@ myForm.addEventListener("submit", async (e) => {
     input_description.value = "";
   } catch (err) {
     console.log(err.message);
+    errMessage.textContent = err.message;
   }
 });
