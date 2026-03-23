@@ -124,9 +124,7 @@
       "quantity": 14,
       "reorderLevel": 4,
       "categoryId": 3,
-      "supplierId": 1,
-      "categoryId": "3",
-      "supplierId": "1"
+      "supplierId": 1
     },
     {
       "id": "e005",
@@ -159,9 +157,7 @@
       "price": "12344232",
       "quantity": "2",
       "reorderLevel": 3,
-      "status": "in-stock",
-      "categoryId": "3",
-      "supplierId": "1"
+      "status": "in-stock"
     }
   ],
   "categories": [
@@ -410,7 +406,6 @@
       "user": "Ahmed",
       "timestamp": "2026-03-14T15:40:00"
     }
-  ]
   ],
   "$schema": "./node_modules/json-server/schema.json"
 }
