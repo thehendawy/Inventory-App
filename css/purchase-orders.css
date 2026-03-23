@@ -1,0 +1,172 @@
+body {
+  background-color: #f1f3f7;
+  font-family: "Segoe UI", Roboto, sans-serif;
+}
+.main-container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+/* Header Section */
+.header-title {
+  font-weight: 700;
+  color: #1a1d21;
+}
+.header-sub {
+  color: #6c757d;
+  font-size: 0.95rem;
+}
+.btn-new-order {
+  background-color: var(--add-btn-color);
+  border-radius: 6px;
+  font-weight: 500;
+  padding: 8px 16px;
+}
+
+/* Search Section Card */
+.search-card {
+  background: white;
+  border-radius: 12px;
+  border: 1px solid #e0e4e9;
+  padding: 30px;
+  margin-bottom: 24px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+.search-box {
+  max-width: 320px;
+  border-radius: 6px;
+  background-color: #fff;
+  border: 1px solid #dee2e6;
+}
+.search-box .input-group-text {
+  background: none;
+  border-right: none;
+  color: #adb5bd;
+}
+.search-box .form-control {
+  border-left: none;
+  font-size: 0.9rem;
+}
+
+/* Table Section Card */
+.table-card {
+  background: white;
+  border-radius: 12px;
+  border: 1px solid #e0e4e9;
+  overflow: hidden;
+  padding-top: 20px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+.table-header-info {
+  padding: 0 24px 20px;
+}
+
+/* Table Styling */
+.table thead th {
+  background-color: #fff;
+  color: #495057;
+  font-weight: 600;
+  font-size: 0.85rem;
+  border-bottom: 2px solid #f8f9fa;
+  padding: 15px 20px;
+}
+.table tbody td {
+  vertical-align: middle;
+  padding: 15px 20px;
+  font-size: 0.9rem;
+  color: #495057;
+  border-bottom: 1px solid #f8f9fa;
+}
+
+/* Status Badges */
+.badge-received {
+  /* background-color: #007bff; */
+  background-color: var(--add-btn-color);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+}
+.badge-pending {
+  background-color: #e9ecef;
+  color: #495057;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+}
+.badge-cancelled {
+  background-color: #dc3545;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+}
+
+/* Action Icons */
+.action-btn {
+  color: #6c757d;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: 0.2s;
+  font-size: 1.1rem;
+}
+.action-btn:hover {
+  color: #007bff;
+}
+.action-check {
+  color: #198754;
+}
+/* تنسيق الخلية */
+.actions-cell {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* التنسيق العام للأزرار الدائرية */
+.action-btn {
+  background: transparent;
+  border: 1.5px solid; /* خط رفيع للدائرة */
+  border-radius: 50%; /* جعل الزر دائري */
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s ease-in-out;
+  padding: 0;
+}
+
+.view-btn {
+  color: #888;
+  border-color: #ddd;
+}
+
+.check-btn {
+  color: #28a745;
+  border-color: #c3e6cb;
+}
+
+.cancel-btn {
+  color: #dc3545;
+  border-color: #f5c6cb;
+}
+
+.action-btn:hover {
+  transform: scale(1.1);
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.modal-content {
+  background-color: #f1f3f7;
+}
+
+@media (min-width: 768px) {
+  .btn-new-order {
+    width: auto !important;
+  }
+}
