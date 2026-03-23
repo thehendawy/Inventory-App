@@ -1,0 +1,10 @@
+table tr:hover {
+  --bs-table-hover-bg: var(--bg-color);
+}
+
+tbody tr .stock-status {
+  color: #fff;
+  background-color: #0f74c5;
+  padding: 5px 10px;
+  font-size: 13px;
+}
