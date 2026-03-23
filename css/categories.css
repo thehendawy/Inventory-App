@@ -1,0 +1,30 @@
+.sub-title {
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+.p-btn {
+  position: relative;
+}
+
+.edit-btn:hover::before {
+  content: attr(data-title);
+  position: absolute;
+  bottom: -7px;
+  left: 6px;
+  background-color: black;
+  color: white;
+  padding: 2px 5px;
+  border-radius: 5px;
+  z-index: 1;
+}
+.delete-btn:hover:before {
+  content: attr(data-title);
+  position: absolute;
+  bottom: -7px;
+  left: 33px;
+  background-color: rgb(230, 20, 20);
+  color: white;
+  padding: 2px 5px;
+  border-radius: 5px;
+  z-index: 1;
+}
