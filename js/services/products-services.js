@@ -10,7 +10,7 @@ class ProductService {
             if (!response.ok) throw new Error(`${response.status}`);
             return await response.json();
         } catch (error) {
-            console.error(`Error in GET ${endpoint}:`, error);
+            console.error(`Error`, error);
             throw error;
         }
     }
@@ -48,10 +48,10 @@ class ProductService {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data)
             });
-            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+            if (!response.ok) throw new Error(`error: ${response.status}`);
             return await response.json();
         } catch (error) {
-            console.error(`Error in PUT ${endpoint}/${id}:`, error);
+            console.error(`Error `, error);
             throw error;
         }
     }
@@ -61,10 +61,10 @@ class ProductService {
             const response = await fetch(`${this.baseURL}/${endpoint}/${id}`, {
                 method: 'DELETE'
             });
-            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+            if (!response.ok) throw new Error(` error ${response.status}`);
             return { success: true };
         } catch (error) {
-            console.error(`Error in DELETE ${endpoint}/${id}:`, error);
+            console.error(`Error:`, error);
             throw error;
         }
     }
