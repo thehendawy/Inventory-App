@@ -14,6 +14,7 @@ export class CategoriesService {
       return data;
     } catch (err) {
       console.log(err.message);
+      throw err;
     }
   }
 
@@ -26,6 +27,7 @@ export class CategoriesService {
       });
     } catch (err) {
       console.log(err.message);
+      throw err;
     }
   }
 
@@ -52,6 +54,7 @@ export class CategoriesService {
       return await response.json();
     } catch (err) {
       console.log(err.message);
+      throw err;
     }
   }
 }
