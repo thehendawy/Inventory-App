@@ -1,10 +1,12 @@
 import { CategoriesService } from "../services/categories-services.js";
 const table_body = document.querySelector(".table-body");
-const btn_add = document.querySelector(".btn-send");
 const input_name = document.querySelector(".input-name");
 const input_description = document.querySelector(".input-description");
 const myForm = document.querySelector("#myForm");
 const errMessage = document.querySelector(".err");
+const deleteModal = document.getElementById("deleteConfirmModal");
+const btn_delete = document.querySelector(".btn-delete");
+let idForDeleteCategory = null;
 
 let getCategories = async () => {
   try {
@@ -26,14 +28,14 @@ function displayCategories(data) {
   // table_body.innerHTML = "";
 
   data.forEach(function (el) {
-    let tr = `
+    let tr = /* html */ `
         <tr>
         <td class="py-3">${el.name}</td>
         <td class="text-secondary py-3">${el.description}</td>
         <td class="py-3" >${el.products.length}</td>
         <td class="py-3 p-btn">
         <button class="btn  btn-sm edit-btn" data-title="edit"><i class="fa-solid fa-pen"></i></button>
-        <button class="btn btn-sm delete-btn" data-title="delete"><i class="fas fa-trash text-danger"></i></button>
+        <button class="btn btn-sm delete-btn" data-title="delete" data-bs-toggle="modal" data-bs-target="#deleteConfirmModal" data-id="${el.id}"><i class="fas fa-trash text-danger"></i></button>
         </td>
         </tr>    
         `;
@@ -67,5 +69,24 @@ myForm.addEventListener("submit", async (e) => {
   } catch (err) {
     console.log(err.message);
     errMessage.textContent = err.message;
+  }
+});
+
+// delete Category
+deleteModal.addEventListener("show.bs.modal", (e) => {
+  const button = e.relatedTarget;
+  idForDeleteCategory = button.getAttribute("data-id");
+});
+btn_delete.addEventListener("click", async () => {
+  try {
+    await CategoriesService.deleteCategory(idForDeleteCategory);
+
+    const modalInstance = bootstrap.Modal.getInstance(deleteModal);
+    modalInstance.hide();
+
+    const newCategories = await getCategories();
+    displayCategories(newCategories);
+  } catch (err) {
+    errMessage.textContent = `Something wrong + ${err.message}`;
   }
 });
