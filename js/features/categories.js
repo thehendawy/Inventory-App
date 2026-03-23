@@ -19,7 +19,7 @@ let categoriesData = await getCategories();
 let displayCategories = (data) => {
   let allRows = "";
   table_body.innerHTML = "";
-  
+
   data.forEach(function (el) {
     let tr = `
         <tr>

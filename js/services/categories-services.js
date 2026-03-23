@@ -28,4 +28,30 @@ export class CategoriesService {
       console.log(err.message);
     }
   }
+
+  static async updateCategory(id, newData) {
+    try {
+      await fetch(`http://localhost:3000/categories/${id}`, {
+        method: "PUT",
+        headers: { "Content-Type": "Application/json" },
+        body: JSON.stringify(newData),
+      });
+    } catch (err) {
+      console.log(err.message);
+    }
+  }
+
+  static async deleteCategory(id) {
+    try {
+      const response = await fetch(`http://localhost:3000/categories/${id}`, {
+        method: "DELETE",
+      });
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      return await response.json();
+    } catch (err) {
+      console.log(err.message);
+    }
+  }
 }
