@@ -123,6 +123,43 @@
       "price": 2200,
       "quantity": 14,
       "reorderLevel": 4,
+      "categoryId": 3,
+      "supplierId": 1,
+      "categoryId": "3",
+      "supplierId": "1"
+    },
+    {
+      "id": "e005",
+      "name": "dell",
+      "sku": "dell-12",
+      "categoryId": "1",
+      "supplierId": "1",
+      "price": "12222",
+      "quantity": "3",
+      "reorderLevel": 2,
+      "status": "low-stock"
+    },
+    {
+      "id": "c672",
+      "name": "dell1",
+      "sku": "dell-12",
+      "categoryId": "2",
+      "supplierId": "2",
+      "price": "12222222",
+      "quantity": "2",
+      "reorderLevel": 1,
+      "status": "in-stock"
+    },
+    {
+      "id": "e1e5",
+      "name": "hp",
+      "sku": "ddd",
+      "categoryId": "2",
+      "supplierId": "2",
+      "price": "12344232",
+      "quantity": "2",
+      "reorderLevel": 3,
+      "status": "in-stock",
       "categoryId": "3",
       "supplierId": "1"
     }
@@ -373,6 +410,7 @@
       "user": "Ahmed",
       "timestamp": "2026-03-14T15:40:00"
     }
+  ]
   ],
   "$schema": "./node_modules/json-server/schema.json"
 }
