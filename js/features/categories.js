@@ -18,7 +18,7 @@ let displayCategories = (data) => {
         <tr>
         <td class="py-3">${el.name}</td>
         <td class="text-secondary py-3">${el.description}</td>
-        <td class="py-3">145</td>
+        <td class="py-3" >${el.products.length}</td>
         <td class="py-3">
         <button class="btn  btn-sm"><i class="fa-solid fa-pen"></i></button>
         <button class="btn btn-sm"><i class="fas fa-trash text-danger"></i></button>
