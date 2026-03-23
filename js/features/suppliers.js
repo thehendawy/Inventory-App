@@ -1,6 +1,5 @@
 import {SupplierService, SupplierTable} from "../services/suppliers-services.js";
 
-// عنوان الـ API بتاعك (مثلاً لو شغال JSON Server أو Node.js)
 const service = new SupplierService('http://localhost:3000/suppliers');
 const table = new SupplierTable('http://localhost:3000/suppliers', 'tablebody');
 table.render();
@@ -17,13 +16,11 @@ window.prepareEdit = async (id) => {
     window.idtoEdit = id
     const supplier = await service.getSupplierById(id);
 
-    // 2. ملء حقول الفورم بالبيانات الحالية (نفس فورم الإضافة)
     document.getElementById("supplierName").value = supplier.name;
     document.getElementById("supplierPhone").value = supplier.phone;
     document.getElementById("supplierEmail").value = supplier.email;
     document.getElementById("supplierAddress").value = supplier.address;
 
-    // 3. تغيير عنوان المودال وزرار الحفظ (اختياري عشان المستخدم ميتوهش)
     document.getElementById("addSupplierLabel").innerText = "Edit Supplier";
     document.getElementById("addsuppliercontent").innerText = "Edit an existing supplier in your network.";
     document.getElementById("supplierAddButton").innerText = "Update Changes";
@@ -33,7 +30,6 @@ window.prepareEdit = async (id) => {
 
 document.getElementById('supplierAddButton').addEventListener('click', async (e) => {
 
-    // سحب البيانات من الـ Inputs اللي في صورة الفورم
     const formData = {
         name: document.getElementById("supplierName").value,
         phone: document.getElementById("supplierPhone").value,
@@ -42,8 +38,9 @@ document.getElementById('supplierAddButton').addEventListener('click', async (e)
     };
 
     // check statment either add or update
+    let result;
     if (window.idtoEdit) {
-        let result = await service.updateSupplier(window.idtoEdit, formData);
+        result = await service.updateSupplier(window.idtoEdit, formData);
         if (result !== false) {
 
         alert("supplier updated successfully");
@@ -57,7 +54,7 @@ document.getElementById('supplierAddButton').addEventListener('click', async (e)
 
 });
 
-
+// delete supplier
 document.getElementById("confirmDeleteBtn").addEventListener("click", async () => {
 
     console.log(idtodelete)
@@ -66,11 +63,11 @@ document.getElementById("confirmDeleteBtn").addEventListener("click", async () =
 
 // Search input
 
-let searchInput = document.getElementById('searchSupplier'); // تأكد من الـ ID في الـ HTML
+let searchInput = document.getElementById('searchSupplier');
 
 searchInput.addEventListener('input', (e) => {
     let query = e.target.value;
-    table.search(query); // استدعاء دالة البحث من الكلاس
+    table.search(query);
 });
 
 

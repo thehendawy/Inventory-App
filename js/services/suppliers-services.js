@@ -7,7 +7,7 @@ export class SupplierService {
 
   validate(data) {
       
-      // 1. التأكد من وجود الاسم (على الأقل 3 حروف)
+    //name validation
       const supplierName = document.getElementById("supplierName")
       if (data.name == "" || data.name.trim().length < 3) {
         supplierName.classList.add('is-invalid');
@@ -16,7 +16,7 @@ export class SupplierService {
         supplierName.classList.remove('is-invalid');
       }
 
-      // 2. التأكد من رقم التليفون (11 رقم مصري مثلاً)
+      // Phone validation
       const phoneRegex = /^01[0125][0-9]{8}$/;
       const supplierPhone = document.getElementById("supplierPhone")
       if (!phoneRegex.test(data.phone)) {
@@ -26,7 +26,7 @@ export class SupplierService {
         supplierPhone.classList.remove('is-invalid');
       }
 
-      // 3. التأكد من صيغة الإيميل
+      //email validation
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       const supplierEmail = document.getElementById("supplierEmail")
       if (!emailRegex.test(data.email)) {
@@ -36,9 +36,9 @@ export class SupplierService {
         supplierEmail.classList.remove('is-invalid');
       }
 
-      // 4. التأكد من العنوان
+      // Address validation
       const supplierAddress = document.getElementById("supplierAddress")
-      if (data.address == "" || data.address.trim().length < 5) {
+      if (data.address == "" || data.address.trim().length < 4) {
           supplierAddress.classList.add('is-invalid');
         return false
       } else {
@@ -53,7 +53,7 @@ export class SupplierService {
     if (erroeMassage == false ) return false
 
     try {
-      // 2. استخدام fetch لإرسال البيانات (POST)
+
     const suppliersnumbers = await fetch(this.Url);
     const data = await suppliersnumbers.json();
     console.log(data)
@@ -84,14 +84,14 @@ export class SupplierService {
             });
 
             if (!response.ok) {
-                throw new Error("فشل حذف المورد من السيرفر");
+                throw new Error("Delete proccess has failed");
             }
 
             alert(`suppliers of ${id} id has been deleted succesfully✅`);
-            return true; // عشان تعرف في الـ UI إن العملية تمت
+            return true;
 
         } catch (error) {
-            console.error("❌ خطأ في عملية الحذف:", error.message);
+            console.error("an Error has happened❌", error.message);
             return false;
         }
     }
@@ -108,7 +108,7 @@ export class SupplierService {
     if (erroeMassage == false ) return false;
 
       const response = await fetch(`${this.Url}/${id}`, {
-          method: 'PUT', // PUT بتعدل العنصر بالكامل
+          method: 'PUT',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(updatedData)
       });
@@ -123,20 +123,19 @@ export class SupplierTable {
         this.tableBody = document.getElementById(tableBodyId);
     }
 
-    // 1. جلب البيانات من الـ JSON
     async render() {
         const response = await fetch(this.Url);
         const data = await response.json();
         console.log(data)
 
-        // 2. بناء الصفوف في الجدول
+        // Table
         this.tableBody.innerHTML = data.map(s => `
             <tr>
                 <td>${s.name}</td>
                 <td>${s.phone}</td>
                 <td><a href="mailto:${s.email}">${s.email}</a></td>
                 <td>${s.address}</td>
-                <td class="text-end">
+                <td class="text-start">
                     <i
                         class="fa-solid fa-edit mx-2 text-secondary"
                         style="cursor: pointer"
@@ -161,23 +160,20 @@ export class SupplierTable {
     }
 
     // search method
-    // جوه كلاس SupplierTable
     async search(query) {
         let response = await fetch(this.Url);
         let data = await response.json();
         console.log(query)
 
-        // فلترة الموردين بناءً على الاسم أو التليفون
         let filtered = data.filter(s => {
             return s.name.toLowerCase().includes(query.toLowerCase()) || 
             s.phone.includes(query)
         });
 
-        // إعادة رسم الجدول بالنتائج المفلترة فقط
         this.renderData(filtered); 
     }
 
-    // دالة مساعدة للرسم (عشان م نكررش الكود)
+    // Display result of search in table
     renderData(suppliers) {
         this.tableBody.innerHTML = suppliers.map(s => `
             <tr>
@@ -185,8 +181,15 @@ export class SupplierTable {
                 <td>${s.phone}</td>
                 <td><a href="mailto:${s.email}">${s.email}</a></td>
                 <td>${s.address}</td>
-                <td class="text-end">
-                      <button class="btn btn-sm text-secondary"><i class="fa-regular fa-pen-to-square"></i></button>
+                <td class="text-start">
+                      <i
+                        class="fa-solid fa-edit mx-2 text-secondary"
+                        style="cursor: pointer"
+                        data-bs-toggle="modal"
+                        data-bs-target="#supplierInputs"
+                        data-bs-whatever="add-supplier"
+                        onclick="prepareEdit('${s.id}')"
+                      ></i>
                       <i
                           class="fa-solid fa-trash mx-2 text-danger"
                           style="cursor: pointer"
@@ -198,7 +201,7 @@ export class SupplierTable {
             </tr>
         `).join('');
         
-        // تحديث عداد البحث
+        // Display numbers of search result
         const countLabel = document.getElementById('countofsuppleries');
         if (countLabel) countLabel.innerText = `Search results: (${suppliers.length})`;
     }
