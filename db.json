@@ -234,20 +234,6 @@
       "email": "samsungegy@gmail.com",
       "address": "el-maadi, cairo, Egypt",
       "id": "9e35"
-    },
-    {
-      "name": "Anker",
-      "phone": "01097555064",
-      "email": "ankerEgypt@gmail.com",
-      "address": "Cairo, Egypt",
-      "id": "4c25"
-    },
-    {
-      "id": "79cf",
-      "name": "samsung",
-      "phone": "01025478963",
-      "email": "samsungEgypt@gmail.com",
-      "address": "Cairo, Egypt"
     }
   ],
   "purchaseOrders": [
