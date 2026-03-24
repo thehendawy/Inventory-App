@@ -194,6 +194,13 @@
       "phone": "01055555555",
       "email": "support@printersolutions.com",
       "address": "Mansoura, Egypt"
+    },
+    {
+      "name": "samsung egypt",
+      "phone": "01069555849",
+      "email": "samsungegy@gmail.com",
+      "address": "el-maadi, cairo, Egypt",
+      "id": "9e35"
     }
   ],
   "purchaseOrders": [
