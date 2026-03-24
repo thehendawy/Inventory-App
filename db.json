@@ -28,13 +28,13 @@
   "products": [
     {
       "id": "1",
-      "name": "Laptop Dell Inspiron",
+      "name": "Laptop Dell",
       "sku": "LAP-001",
       "price": 20000,
       "quantity": 32,
       "reorderLevel": 3,
-      "categoryId": "1",
-      "supplierId": "1"
+      "supplierId": "2",
+      "categoryId": "3"
     },
     {
       "id": "2",
@@ -123,41 +123,8 @@
       "price": 2200,
       "quantity": 14,
       "reorderLevel": 4,
-      "categoryId": 3,
-      "supplierId": 1
-    },
-    {
-      "id": "e005",
-      "name": "dell",
-      "sku": "dell-12",
-      "categoryId": "1",
-      "supplierId": "1",
-      "price": "12222",
-      "quantity": "3",
-      "reorderLevel": 2,
-      "status": "low-stock"
-    },
-    {
-      "id": "c672",
-      "name": "dell1",
-      "sku": "dell-12",
-      "categoryId": "2",
-      "supplierId": "2",
-      "price": "12222222",
-      "quantity": "2",
-      "reorderLevel": 1,
-      "status": "in-stock"
-    },
-    {
-      "id": "e1e5",
-      "name": "hp",
-      "sku": "ddd",
-      "categoryId": "2",
-      "supplierId": "2",
-      "price": "12344232",
-      "quantity": "2",
-      "reorderLevel": 3,
-      "status": "in-stock"
+      "categoryId": "3",
+      "supplierId": "1"
     }
   ],
   "categories": [
@@ -185,6 +152,11 @@
       "id": "5",
       "name": "Office Supplies",
       "description": "Daily office consumables such as paper and stationery."
+    },
+    {
+      "name": "Ahmed3",
+      "description": "edit2",
+      "id": "2CyGcjsrbjw"
     }
   ],
   "suppliers": [
@@ -229,20 +201,6 @@
       "email": "samsungegy@gmail.com",
       "address": "el-maadi, cairo, Egypt",
       "id": "9e35"
-    },
-    {
-      "name": "Anker",
-      "phone": "01097555064",
-      "email": "ankerEgypt@gmail.com",
-      "address": "Cairo, Egypt",
-      "id": "4c25"
-    },
-    {
-      "id": "79cf",
-      "name": "samsung",
-      "phone": "01025478963",
-      "email": "samsungEgypt@gmail.com",
-      "address": "Cairo, Egypt"
     }
   ],
   "purchaseOrders": [
