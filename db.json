@@ -41,7 +41,7 @@
       "name": "Wireless Mouse",
       "sku": "MOU-001",
       "price": 250,
-      "quantity": 50,
+      "quantity": 80,
       "reorderLevel": 10,
       "categoryId": "1",
       "supplierId": "2"
@@ -61,7 +61,7 @@
       "name": "Office Chair",
       "sku": "CHR-001",
       "price": 1500,
-      "quantity": 15,
+      "quantity": 16,
       "reorderLevel": 4,
       "categoryId": "2",
       "supplierId": "3"
@@ -101,7 +101,7 @@
       "name": "Printer HP LaserJet",
       "sku": "PRT-001",
       "price": 4500,
-      "quantity": 6,
+      "quantity": 14,
       "reorderLevel": 2,
       "categoryId": "4",
       "supplierId": "5"
@@ -111,7 +111,7 @@
       "name": "A4 Printing Paper",
       "sku": "PAP-001",
       "price": 150,
-      "quantity": 200,
+      "quantity": 255,
       "reorderLevel": 50,
       "categoryId": "5",
       "supplierId": "4"
@@ -212,6 +212,7 @@
       "quantity": 5,
       "total": 100000,
       "status": "Received",
+      "orderTime": "2026-03-23",
       "isProcessed": true
     },
     {
@@ -221,8 +222,26 @@
       "productId": "2",
       "quantity": 20,
       "total": 5000,
-      "status": "Pending",
-      "isProcessed": false
+      "status": "Received",
+      "orderTime": "2026-03-23",
+      "isProcessed": true,
+      "product": {
+        "id": "2",
+        "name": "Wireless Mouse",
+        "sku": "MOU-001",
+        "price": 250,
+        "quantity": 60,
+        "reorderLevel": 10,
+        "categoryId": "1",
+        "supplierId": "2"
+      },
+      "supplier": {
+        "id": "2",
+        "name": "TechSource",
+        "phone": "01022222222",
+        "email": "info@techsource.com",
+        "address": "Giza, Egypt"
+      }
     },
     {
       "id": "3",
@@ -232,6 +251,7 @@
       "quantity": 3,
       "total": 4500,
       "status": "Received",
+      "orderTime": "2026-03-23",
       "isProcessed": true
     },
     {
@@ -241,8 +261,26 @@
       "productId": "8",
       "quantity": 2,
       "total": 9000,
-      "status": "Pending",
-      "isProcessed": false
+      "status": "Received",
+      "orderTime": "2026-03-23",
+      "isProcessed": true,
+      "product": {
+        "id": "8",
+        "name": "Printer HP LaserJet",
+        "sku": "PRT-001",
+        "price": 4500,
+        "quantity": 6,
+        "reorderLevel": 2,
+        "categoryId": "4",
+        "supplierId": "5"
+      },
+      "supplier": {
+        "id": "5",
+        "name": "Printer Solutions",
+        "phone": "01055555555",
+        "email": "support@printersolutions.com",
+        "address": "Mansoura, Egypt"
+      }
     },
     {
       "id": "5",
@@ -252,7 +290,374 @@
       "quantity": 30,
       "total": 3600,
       "status": "Received",
+      "orderTime": "2026-03-23",
       "isProcessed": true
+    },
+    {
+      "id": "97bd",
+      "orderId": "PO-1774363210128",
+      "supplierId": "2",
+      "productId": "2",
+      "quantity": "10",
+      "total": 2500,
+      "status": "Received",
+      "orderTime": "2026-03-24",
+      "isProcessed": true,
+      "product": {
+        "id": "2",
+        "name": "Wireless Mouse",
+        "sku": "MOU-001",
+        "price": 250,
+        "quantity": 50,
+        "reorderLevel": 10,
+        "categoryId": "1",
+        "supplierId": "2"
+      },
+      "supplier": {
+        "id": "2",
+        "name": "TechSource",
+        "phone": "01022222222",
+        "email": "info@techsource.com",
+        "address": "Giza, Egypt"
+      }
+    },
+    {
+      "id": "1c75",
+      "orderId": "PO-1774363275774",
+      "supplierId": "5",
+      "productId": "8",
+      "quantity": "20",
+      "total": 90000,
+      "status": "Cancelled",
+      "orderTime": "2026-03-24",
+      "isProcessed": false,
+      "product": {
+        "id": "8",
+        "name": "Printer HP LaserJet",
+        "sku": "PRT-001",
+        "price": 4500,
+        "quantity": 6,
+        "reorderLevel": 2,
+        "categoryId": "4",
+        "supplierId": "5"
+      },
+      "supplier": {
+        "id": "5",
+        "name": "Printer Solutions",
+        "phone": "01055555555",
+        "email": "support@printersolutions.com",
+        "address": "Mansoura, Egypt"
+      }
+    },
+    {
+      "id": "8a26",
+      "orderId": "PO-1774363574591",
+      "supplierId": "2",
+      "productId": "c672",
+      "quantity": "20",
+      "total": 244444440,
+      "status": "Cancelled",
+      "orderTime": "2026-03-24",
+      "isProcessed": false,
+      "product": {
+        "id": "c672",
+        "name": "dell1",
+        "sku": "dell-12",
+        "categoryId": "2",
+        "supplierId": "2",
+        "price": "12222222",
+        "quantity": "2",
+        "reorderLevel": 1,
+        "status": "in-stock"
+      },
+      "supplier": {
+        "id": "2",
+        "name": "TechSource",
+        "phone": "01022222222",
+        "email": "info@techsource.com",
+        "address": "Giza, Egypt"
+      }
+    },
+    {
+      "id": "b966",
+      "orderId": "PO-1774363724020",
+      "supplierId": "1",
+      "productId": "e005",
+      "quantity": 2,
+      "total": 24444,
+      "status": "Cancelled",
+      "orderTime": "2026-03-24",
+      "isProcessed": false,
+      "product": {
+        "id": "e005",
+        "name": "dell",
+        "sku": "dell-12",
+        "categoryId": "1",
+        "supplierId": "1",
+        "price": "12222",
+        "quantity": "3",
+        "reorderLevel": 2,
+        "status": "low-stock"
+      },
+      "supplier": {
+        "id": "1",
+        "name": "Dell Egypt",
+        "phone": "01011111111",
+        "email": "sales@dell-eg.com",
+        "address": "Cairo, Egypt"
+      }
+    },
+    {
+      "id": "f471",
+      "orderId": "PO-1774364751624",
+      "supplierId": "3",
+      "productId": "4",
+      "quantity": 5,
+      "total": 7500,
+      "status": "Cancelled",
+      "orderTime": "2026-03-24",
+      "isProcessed": false,
+      "product": {
+        "id": "4",
+        "name": "Office Chair",
+        "sku": "CHR-001",
+        "price": 1500,
+        "quantity": 15,
+        "reorderLevel": 4,
+        "categoryId": "2",
+        "supplierId": "3"
+      },
+      "supplier": {
+        "id": "3",
+        "name": "Office Furniture Co",
+        "phone": "01033333333",
+        "email": "contact@officefurniture.com",
+        "address": "Alexandria, Egypt"
+      }
+    },
+    {
+      "id": "c675",
+      "orderId": "PO-1774365276071",
+      "supplierId": "3",
+      "productId": "4",
+      "quantity": 1,
+      "total": 1500,
+      "status": "Received",
+      "orderTime": "2026-03-24",
+      "isProcessed": true,
+      "product": {
+        "id": "4",
+        "name": "Office Chair",
+        "sku": "CHR-001",
+        "price": 1500,
+        "quantity": 15,
+        "reorderLevel": 4,
+        "categoryId": "2",
+        "supplierId": "3"
+      },
+      "supplier": {
+        "id": "3",
+        "name": "Office Furniture Co",
+        "phone": "01033333333",
+        "email": "contact@officefurniture.com",
+        "address": "Alexandria, Egypt"
+      }
+    },
+    {
+      "id": "eac5",
+      "orderId": "PO-1774365433023",
+      "supplierId": "2",
+      "productId": "3",
+      "quantity": 5,
+      "total": 4500,
+      "status": "Cancelled",
+      "orderTime": "2026-03-24",
+      "isProcessed": false,
+      "product": {
+        "id": "3",
+        "name": "Mechanical Keyboard",
+        "sku": "KEY-001",
+        "price": 900,
+        "quantity": 20,
+        "reorderLevel": 5,
+        "categoryId": "1",
+        "supplierId": "2"
+      },
+      "supplier": {
+        "id": "2",
+        "name": "TechSource",
+        "phone": "01022222222",
+        "email": "info@techsource.com",
+        "address": "Giza, Egypt"
+      }
+    },
+    {
+      "id": "fffd",
+      "orderId": "PO-1774367615981",
+      "supplierId": "3",
+      "productId": "5",
+      "quantity": 1,
+      "total": 3000,
+      "status": "Cancelled",
+      "orderTime": "2026-03-24",
+      "isProcessed": false,
+      "product": {
+        "id": "5",
+        "name": "Wooden Desk",
+        "sku": "DSK-001",
+        "price": 3000,
+        "quantity": 8,
+        "reorderLevel": 2,
+        "categoryId": "2",
+        "supplierId": "3"
+      },
+      "supplier": {
+        "id": "3",
+        "name": "Office Furniture Co",
+        "phone": "01033333333",
+        "email": "contact@officefurniture.com",
+        "address": "Alexandria, Egypt"
+      }
+    },
+    {
+      "id": "18c8",
+      "orderId": "PO-1774367816859",
+      "supplierId": "1",
+      "productId": "1",
+      "quantity": 2,
+      "total": 40000,
+      "status": "Cancelled",
+      "orderTime": "2026-03-24",
+      "isProcessed": false,
+      "product": {
+        "id": "1",
+        "name": "Laptop Dell Inspiron",
+        "sku": "LAP-001",
+        "price": 20000,
+        "quantity": 10,
+        "reorderLevel": 3,
+        "categoryId": "1",
+        "supplierId": "1"
+      },
+      "supplier": {
+        "id": "1",
+        "name": "Dell Egypt",
+        "phone": "01011111111",
+        "email": "sales@dell-eg.com",
+        "address": "Cairo, Egypt"
+      }
+    },
+    {
+      "id": "475d",
+      "orderId": "PO-1774367980137",
+      "supplierId": "1",
+      "productId": "6",
+      "quantity": 2,
+      "total": 7000,
+      "status": "Cancelled",
+      "orderTime": "2026-03-24",
+      "isProcessed": false,
+      "product": {
+        "id": "6",
+        "name": "LED Monitor 24 inch",
+        "sku": "MON-001",
+        "price": 3500,
+        "quantity": 12,
+        "reorderLevel": 3,
+        "categoryId": "1",
+        "supplierId": "1"
+      },
+      "supplier": {
+        "id": "1",
+        "name": "Dell Egypt",
+        "phone": "01011111111",
+        "email": "sales@dell-eg.com",
+        "address": "Cairo, Egypt"
+      }
+    },
+    {
+      "id": "8a60",
+      "orderId": "PO-1774368059640",
+      "supplierId": "4",
+      "productId": "9",
+      "quantity": 55,
+      "total": 8250,
+      "status": "Received",
+      "orderTime": "2026-03-24",
+      "isProcessed": true,
+      "product": {
+        "id": "9",
+        "name": "A4 Printing Paper",
+        "sku": "PAP-001",
+        "price": 150,
+        "quantity": 200,
+        "reorderLevel": 50,
+        "categoryId": "5",
+        "supplierId": "4"
+      },
+      "supplier": {
+        "id": "4",
+        "name": "Storage World",
+        "phone": "01044444444",
+        "email": "sales@storageworld.com",
+        "address": "Tanta, Egypt"
+      }
+    },
+    {
+      "id": "95f3",
+      "orderId": "PO-1774368207768",
+      "supplierId": "1",
+      "productId": "1",
+      "quantity": 22,
+      "total": 440000,
+      "status": "Received",
+      "orderTime": "2026-03-24",
+      "isProcessed": true,
+      "product": {
+        "id": "1",
+        "name": "Laptop Dell Inspiron",
+        "sku": "LAP-001",
+        "price": 20000,
+        "quantity": 10,
+        "reorderLevel": 3,
+        "categoryId": "1",
+        "supplierId": "1"
+      },
+      "supplier": {
+        "id": "1",
+        "name": "Dell Egypt",
+        "phone": "01011111111",
+        "email": "sales@dell-eg.com",
+        "address": "Cairo, Egypt"
+      }
+    },
+    {
+      "id": "41cd",
+      "orderId": "PO-1774368545304",
+      "supplierId": "5",
+      "productId": "8",
+      "quantity": 6,
+      "total": 27000,
+      "status": "Received",
+      "orderTime": "2026-03-24",
+      "isProcessed": true,
+      "product": {
+        "id": "8",
+        "name": "Printer HP LaserJet",
+        "sku": "PRT-001",
+        "price": 4500,
+        "quantity": 8,
+        "reorderLevel": 2,
+        "categoryId": "4",
+        "supplierId": "5"
+      },
+      "supplier": {
+        "id": "5",
+        "name": "Printer Solutions",
+        "phone": "01055555555",
+        "email": "support@printersolutions.com",
+        "address": "Mansoura, Egypt"
+      }
     }
   ],
   "stockAdjustments": [

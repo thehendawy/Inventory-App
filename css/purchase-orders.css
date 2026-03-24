@@ -2,11 +2,11 @@ body {
   background-color: #f1f3f7;
   font-family: "Segoe UI", Roboto, sans-serif;
 }
-.main-container {
+/* .main-container {
   max-width: 1200px;
   margin: 40px auto;
   padding: 0 20px;
-}
+} */
 
 /* Header Section */
 .header-title {
@@ -22,6 +22,10 @@ body {
   border-radius: 6px;
   font-weight: 500;
   padding: 8px 16px;
+}
+
+.table-hover > tbody > tr:hover > * {
+  --bs-table-bg-state: var(--bg-color);
 }
 
 /* Search Section Card */
@@ -88,6 +92,7 @@ body {
   border-radius: 4px;
   font-size: 0.75rem;
 }
+
 .badge-pending {
   background-color: #e9ecef;
   color: #495057;
@@ -95,6 +100,7 @@ body {
   border-radius: 4px;
   font-size: 0.75rem;
 }
+
 .badge-cancelled {
   background-color: #dc3545;
   color: #fff;

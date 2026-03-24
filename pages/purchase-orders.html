@@ -24,7 +24,7 @@
       <div id="navbar-container"></div>
 
       <main class="flex-grow-1" style="min-width: 0">
-        <div class="main-container mt-3">
+        <div class="container mt-3 px-4 py-2">
           <!-- Header -->
           <div
             class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center mb-4 gap-3"
@@ -55,6 +55,7 @@
                 type="text"
                 class="form-control shadow-none"
                 placeholder="Search orders..."
+                id="searchOrders"
               />
             </div>
           </div>
@@ -63,9 +64,7 @@
           <div class="table-card mt-3">
             <div class="table-header-info">
               <h5 class="fw-bold mb-1">All Orders</h5>
-              <p class="text-muted small mb-0">
-                Your purchase order history (4 orders)
-              </p>
+              <p class="text-muted small mb-0">Your purchase orders history</p>
             </div>
 
             <div class="table-responsive">
@@ -82,9 +81,8 @@
                     <th class="text-center">Actions</th>
                   </tr>
                 </thead>
-                <tbody>
-                  <!-- Row 1 -->
-                  <tr>
+                <tbody id="purchaseBody">
+                  <!-- <tr>
                     <td class="fw-medium">PO-001</td>
                     <td>Apple Inc.</td>
                     <td>MacBook Pro 14"</td>
@@ -110,91 +108,7 @@
                         <i class="far fa-times-circle"></i>
                       </button>
                     </td>
-                  </tr>
-                  <!-- Row 2 -->
-                  <tr>
-                    <td class="fw-medium">PO-002</td>
-                    <td>Logitech</td>
-                    <td>Wireless Mouse</td>
-                    <td>100</td>
-                    <td class="fw-bold">$4,999</td>
-                    <td><span class="badge-pending">Pending</span></td>
-                    <td class="text-muted">2024-03-12</td>
-                    <td class="text-center d-flex justify-content-center">
-                      <button
-                        type="button"
-                        class="btn btn-link text-dark p-0"
-                        data-bs-toggle="modal"
-                        data-bs-target="#orderDetailsModal"
-                      >
-                        <i class="fa-regular fa-eye"></i>
-                      </button>
-
-                      <button class="action-btn check-btn" title="Approve">
-                        <i class="far fa-check-circle"></i>
-                      </button>
-
-                      <button class="action-btn cancel-btn" title="Cancel">
-                        <i class="far fa-times-circle"></i>
-                      </button>
-                    </td>
-                  </tr>
-                  <!-- Row 3 -->
-                  <tr>
-                    <td class="fw-medium">PO-003</td>
-                    <td>Anker</td>
-                    <td>USB-C Cable 2m</td>
-                    <td>200</td>
-                    <td class="fw-bold">$2,598</td>
-                    <td><span class="badge-cancelled">cancelled</span></td>
-                    <td class="text-muted">2024-03-13</td>
-                    <td class="text-center d-flex justify-content-center">
-                      <button
-                        type="button"
-                        class="btn btn-link text-dark p-0"
-                        data-bs-toggle="modal"
-                        data-bs-target="#orderDetailsModal"
-                      >
-                        <i class="fa-regular fa-eye"></i>
-                      </button>
-
-                      <button class="action-btn check-btn" title="Approve">
-                        <i class="far fa-check-circle"></i>
-                      </button>
-
-                      <button class="action-btn cancel-btn" title="Cancel">
-                        <i class="far fa-times-circle"></i>
-                      </button>
-                    </td>
-                  </tr>
-                  <!-- Row 4 -->
-                  <tr>
-                    <td class="fw-medium">PO-004</td>
-                    <td>Dell</td>
-                    <td>27" Monitor 4K</td>
-                    <td>15</td>
-                    <td class="fw-bold">$8,235</td>
-                    <td><span class="badge-received">Received</span></td>
-                    <td class="text-muted">2024-03-08</td>
-                    <td class="text-center d-flex justify-content-center">
-                      <button
-                        type="button"
-                        class="btn btn-link text-dark p-0"
-                        data-bs-toggle="modal"
-                        data-bs-target="#orderDetailsModal"
-                      >
-                        <i class="fa-regular fa-eye"></i>
-                      </button>
-
-                      <button class="action-btn check-btn" title="Approve">
-                        <i class="far fa-check-circle"></i>
-                      </button>
-
-                      <button class="action-btn cancel-btn" title="Cancel">
-                        <i class="far fa-times-circle"></i>
-                      </button>
-                    </td>
-                  </tr>
+                  </tr> -->
                 </tbody>
               </table>
             </div>
@@ -203,7 +117,7 @@
       </main>
     </div>
 
-    <!-- المودال -->
+    <!-- Modal -->
     <div
       class="modal fade"
       id="createOrderModal"
@@ -213,7 +127,7 @@
     >
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content p-3 shadow-lg" style="border-radius: 12px">
-          <!-- الرأس: العنوان والوصف -->
+          <!--Header-->
           <div class="modal-header border-0 pb-0">
             <div>
               <h5 class="modal-title fw-bold" id="modalTitle">
@@ -233,46 +147,44 @@
 
           <div class="modal-body">
             <form>
-              <!-- حقل المورد -->
-              <div class="mb-3">
-                <label class="form-label fw-semibold">Supplier</label>
-                <select class="form-select text-muted">
-                  <option selected>Select supplier</option>
-                  <option value="1">Supplier A</option>
-                  <option value="2">Supplier B</option>
-                </select>
-              </div>
-
-              <!-- حقل المنتج -->
+              <!-- product -->
               <div class="mb-3">
                 <label class="form-label fw-semibold">Product</label>
-                <select class="form-select text-muted">
-                  <option selected>Select product</option>
-                  <option value="1">Product 1</option>
-                  <option value="2">Product 2</option>
-                </select>
+                <select
+                  class="form-select text-muted"
+                  required
+                  id="productOptions"
+                ></select>
+                <p class="text-danger mb-0 d-none" id="selectProductErr">
+                  *select the product please
+                </p>
               </div>
+              <!-- supplier
+              <div class="mb-3">
+                <label class="form-label fw-semibold">Supplier</label>
+                <select
+                  class="form-select text-muted"
+                  required
+                  id="supplierOptions"
+                ></select>
+              </div> -->
 
-              <!-- الكمية والإجمالي جنب بعض -->
-              <div class="row">
-                <div class="col-md-6 mb-3">
-                  <label class="form-label fw-semibold">Quantity</label>
-                  <input type="number" class="form-control" placeholder="0" />
-                </div>
-                <div class="col-md-6 mb-3">
-                  <label class="form-label fw-semibold">Total ($)</label>
-                  <input
-                    type="text"
-                    class="form-control bg-light text-muted"
-                    value="0.00"
-                    readonly
-                  />
-                </div>
+              <div class="mb-3">
+                <label class="form-label fw-semibold">Quantity</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="quantityInput"
+                  placeholder="0"
+                />
+                <p class="text-danger mb-0 d-none" id="quantityErr">
+                  *select enter the quantity
+                </p>
               </div>
             </form>
           </div>
 
-          <!-- الأزرار في الأسفل -->
+          <!-- buttons -->
           <div class="modal-footer border-0 pt-0 justify-content-end">
             <button
               type="button"
@@ -281,76 +193,13 @@
             >
               Cancel
             </button>
-            <button type="submit" class="btn btn-primary px-4">
+            <button
+              type="submit"
+              id="createOrderBtn"
+              class="btn btn-primary px-4"
+            >
               Create Order
             </button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- أيقونة العين-->
-    <div
-      class="modal fade"
-      id="orderDetailsModal"
-      tabindex="-1"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-dialog-centered">
-        <div
-          class="modal-content p-4 shadow-sm"
-          style="border-radius: 15px; border: none"
-        >
-          <!-- الهيدر وزر الإغلاق -->
-          <div class="modal-header border-0 pb-0 position-relative">
-            <div>
-              <h5 class="modal-title fw-bold text-dark">Order Details</h5>
-              <p class="text-muted small mb-0">Purchase order PO-001</p>
-            </div>
-            <button
-              type="button"
-              class="btn-close border rounded-2 p-2 position-absolute end-0 top-0 mt-3 me-3"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-
-          <!-- محتوى البيانات -->
-          <div class="modal-body py-4">
-            <div class="row gy-4">
-              <!-- المورد -->
-              <div class="col-6">
-                <label class="text-muted small d-block mb-1">Supplier</label>
-                <span class="fw-bold text-dark d-block">Apple Inc.</span>
-              </div>
-              <!-- المنتج -->
-              <div class="col-6">
-                <label class="text-muted small d-block mb-1">Product</label>
-                <span class="fw-bold text-dark d-block">MacBook Pro 14"</span>
-              </div>
-
-              <!-- الكمية -->
-              <div class="col-6">
-                <label class="text-muted small d-block mb-1">Quantity</label>
-                <span class="fw-bold text-dark d-block">25</span>
-              </div>
-              <!-- الإجمالي -->
-              <div class="col-6">
-                <label class="text-muted small d-block mb-1">Total</label>
-                <span class="fw-bold text-dark d-block">$49,975</span>
-              </div>
-
-              <!-- الحالة -->
-              <div class="col-6">
-                <label class="text-muted small d-block mb-1">Status</label>
-                <span class="fw-bold text-dark d-block">Received</span>
-              </div>
-              <!-- التاريخ -->
-              <div class="col-6">
-                <label class="text-muted small d-block mb-1">Date</label>
-                <span class="fw-bold text-dark d-block">2024-03-10</span>
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -375,5 +224,6 @@
     </script>
 
     <script src="../js/auth/getUser.js" type="module"></script>
+    <script src="../js/features/purchase-orders.js" type="module"></script>
   </body>
 </html>
