@@ -28,3 +28,9 @@
   border-radius: 5px;
   z-index: 1;
 }
+.err {
+  color: red;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
