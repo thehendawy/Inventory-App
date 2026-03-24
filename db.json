@@ -28,13 +28,13 @@
   "products": [
     {
       "id": "1",
-      "name": "Laptop Dell Inspiron",
+      "name": "Laptop Dell",
       "sku": "LAP-001",
-      "price": 20000,
-      "quantity": 10,
+      "price": "20000",
+      "quantity": "0",
       "reorderLevel": 3,
-      "categoryId": "1",
-      "supplierId": "1"
+      "supplierId": "2",
+      "categoryId": "3"
     },
     {
       "id": "2",
@@ -123,41 +123,8 @@
       "price": 2200,
       "quantity": 14,
       "reorderLevel": 4,
-      "categoryId": 3,
-      "supplierId": 1
-    },
-    {
-      "id": "e005",
-      "name": "dell",
-      "sku": "dell-12",
-      "categoryId": "1",
-      "supplierId": "1",
-      "price": "12222",
-      "quantity": "3",
-      "reorderLevel": 2,
-      "status": "low-stock"
-    },
-    {
-      "id": "c672",
-      "name": "dell1",
-      "sku": "dell-12",
-      "categoryId": "2",
-      "supplierId": "2",
-      "price": "12222222",
-      "quantity": "2",
-      "reorderLevel": 1,
-      "status": "in-stock"
-    },
-    {
-      "id": "e1e5",
-      "name": "hp",
-      "sku": "ddd",
-      "categoryId": "2",
-      "supplierId": "2",
-      "price": "12344232",
-      "quantity": "2",
-      "reorderLevel": 3,
-      "status": "in-stock"
+      "categoryId": "3",
+      "supplierId": "1"
     }
   ],
   "categories": [
@@ -222,27 +189,6 @@
       "phone": "01055555555",
       "email": "support@printersolutions.com",
       "address": "Mansoura, Egypt"
-    },
-    {
-      "name": "samsung egypt",
-      "phone": "01069555849",
-      "email": "samsungegy@gmail.com",
-      "address": "el-maadi, cairo, Egypt",
-      "id": "9e35"
-    },
-    {
-      "name": "Anker",
-      "phone": "01097555064",
-      "email": "ankerEgypt@gmail.com",
-      "address": "Cairo, Egypt",
-      "id": "4c25"
-    },
-    {
-      "id": "79cf",
-      "name": "samsung",
-      "phone": "01025478963",
-      "email": "samsungEgypt@gmail.com",
-      "address": "Cairo, Egypt"
     }
   ],
   "purchaseOrders": [
@@ -405,7 +351,24 @@
       "details": "Product removed from inventory",
       "user": "Ahmed",
       "timestamp": "2026-03-14T15:40:00"
+    },
+    {
+      "id": "6314",
+      "action": "UPDATE_PRODUCT",
+      "productId": "1",
+      "quantity": "10",
+      "details": "Updated Laptop Dell",
+      "user": "Shorok Magdy",
+      "timestamp": "2026-03-24T02:20:41.571Z"
+    },
+    {
+      "id": "ddf0",
+      "action": "UPDATE_PRODUCT",
+      "productId": "1",
+      "quantity": "0",
+      "details": "Updated Laptop Dell",
+      "user": "Shorok Magdy",
+      "timestamp": "2026-03-24T02:20:51.375Z"
     }
-  ],
-  "$schema": "./node_modules/json-server/schema.json"
+  ]
 }
