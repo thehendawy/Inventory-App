@@ -8,6 +8,6 @@ async function getUser() {
   else return "Not Exist";
 }
 
-const username = await getUser();
+export const username = await getUser();
 
 document.querySelector("#username").innerHTML = username;
