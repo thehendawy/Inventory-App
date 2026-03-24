@@ -196,7 +196,7 @@
       "id": "1",
       "orderId": "PO-1001",
       "supplierId": "1",
-      "productId": "1",
+      "productId": null,
       "quantity": 5,
       "total": 100000,
       "status": "Received",
@@ -265,7 +265,7 @@
     {
       "id": "1",
       "action": "Add Product",
-      "productId": "1",
+      "productId": null,
       "quantity": 10,
       "details": "New product added to inventory",
       "user": "Ahmed",
@@ -283,7 +283,7 @@
     {
       "id": "3",
       "action": "Create Purchase Order",
-      "productId": "1",
+      "productId": null,
       "quantity": 5,
       "details": "Purchase order PO-1001 created",
       "user": "Ahmed",
@@ -292,7 +292,7 @@
     {
       "id": "4",
       "action": "Receive Purchase Order",
-      "productId": "1",
+      "productId": null,
       "quantity": 5,
       "details": "Stock received from supplier",
       "user": "Ahmed",
@@ -355,7 +355,7 @@
     {
       "id": "6314",
       "action": "UPDATE_PRODUCT",
-      "productId": "1",
+      "productId": null,
       "quantity": "10",
       "details": "Updated Laptop Dell",
       "user": "Shorok Magdy",
@@ -364,7 +364,7 @@
     {
       "id": "ddf0",
       "action": "UPDATE_PRODUCT",
-      "productId": "1",
+      "productId": null,
       "quantity": "0",
       "details": "Updated Laptop Dell",
       "user": "Shorok Magdy",
