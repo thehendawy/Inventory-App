@@ -3,10 +3,15 @@ const table_body = document.querySelector(".table-body");
 const input_name = document.querySelector(".input-name");
 const input_description = document.querySelector(".input-description");
 const myForm = document.querySelector("#myForm");
+const myFormUpdate = document.querySelector("#myFormUpdate");
 const errMessage = document.querySelector(".err");
 const deleteModal = document.getElementById("deleteConfirmModal");
+const updateModal = document.getElementById("updateProductModal");
 const btn_delete = document.querySelector(".btn-delete");
 let idForDeleteCategory = null;
+let idForUpdateCategory = null;
+let nameForUpdateCategory = null;
+let descriptionForUpdateCategory = null;
 
 let getCategories = async () => {
   try {
@@ -34,7 +39,7 @@ function displayCategories(data) {
         <td class="text-secondary py-3">${el.description}</td>
         <td class="py-3" >${el.products.length}</td>
         <td class="py-3 p-btn">
-        <button class="btn  btn-sm edit-btn" data-title="edit"><i class="fa-solid fa-pen"></i></button>
+        <button class="btn  btn-sm edit-btn" data-title="edit" data-bs-toggle="modal" data-bs-target="#updateProductModal" data-id="${el.id}" data-name="${el.name}" data-description="${el.description}"><i class="fa-solid fa-pen"></i></button>
         <button class="btn btn-sm delete-btn" data-title="delete" data-bs-toggle="modal" data-bs-target="#deleteConfirmModal" data-id="${el.id}"><i class="fas fa-trash text-danger"></i></button>
         </td>
         </tr>    
@@ -88,5 +93,44 @@ btn_delete.addEventListener("click", async () => {
     displayCategories(newCategories);
   } catch (err) {
     errMessage.textContent = `Something wrong + ${err.message}`;
+  }
+});
+
+// Update Category
+updateModal.addEventListener("show.bs.modal", (e) => {
+  const button = e.relatedTarget;
+  idForUpdateCategory = button.getAttribute("data-id");
+  nameForUpdateCategory = button.getAttribute("data-name");
+  descriptionForUpdateCategory = button.getAttribute("data-description");
+
+  document.getElementById("updName").value = nameForUpdateCategory;
+  document.getElementById("updDescription").value =
+    descriptionForUpdateCategory;
+});
+myFormUpdate.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const nameInput = document.getElementById("updName");
+  const descInput = document.getElementById("updDescription");
+
+  if (!nameInput.value.trim() || !descInput.value.trim()) return;
+
+  let categoryData = {
+    name: nameInput.value,
+    description: descInput.value,
+  };
+
+  try {
+    await CategoriesService.updateCategory(idForUpdateCategory, categoryData);
+
+    const newCategories = await getCategories();
+    displayCategories(newCategories);
+
+    bootstrap.Modal.getInstance(document.getElementById("updateModal")).hide();
+    nameInput.value = "";
+    descInput.value = "";
+  } catch (err) {
+    console.log(err.message);
+    errMessage.textContent = err.message;
   }
 });
