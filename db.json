@@ -27,24 +27,19 @@
   ],
   "products": [
     {
-      "id": "1",
-      "name": "Laptop Dell",
-      "sku": "LAP-001",
-      "price": 20000,
-      "quantity": 32,
-      "reorderLevel": 3,
-      "supplierId": "2",
-      "categoryId": "3"
-    },
-    {
       "id": "2",
       "name": "Wireless Mouse",
       "sku": "MOU-001",
       "price": 250,
-      "quantity": 80,
+      "quantity": 79,
       "reorderLevel": 10,
       "categoryId": "1",
-      "supplierId": "2"
+      "supplierId": "2",
+      "category": {
+        "id": "1",
+        "name": "Electronics",
+        "description": "Electronic devices such as laptops, monitors, keyboards, and accessories."
+      }
     },
     {
       "id": "3",
@@ -660,24 +655,6 @@
       }
     }
   ],
-  "stockAdjustments": [
-    {
-      "id": "1",
-      "productId": "3",
-      "adjustment": -1,
-      "reason": "Damaged item",
-      "user": "Ahmed",
-      "timestamp": "2026-03-12T09:45:00"
-    },
-    {
-      "id": "2",
-      "productId": "2",
-      "adjustment": 5,
-      "reason": "Manual inventory correction",
-      "user": "Ahmed",
-      "timestamp": "2026-03-15T11:00:00"
-    }
-  ],
   "logs": [
     {
       "id": "1",
@@ -786,6 +763,33 @@
       "details": "Updated Laptop Dell",
       "user": "Shorok Magdy",
       "timestamp": "2026-03-24T02:20:51.375Z"
+    },
+    {
+      "id": "a665",
+      "action": "Stock Removed",
+      "productId": "2",
+      "quantity": 10,
+      "details": "Removed 10 units from Wireless Mouse. Reason: products damaged",
+      "user": "Ahmed Mohamed",
+      "timestamp": "2026-03-25T13:08:15.612Z"
+    },
+    {
+      "id": "57e1",
+      "action": "Stock Added",
+      "productId": "2",
+      "quantity": 10,
+      "details": "Added 10 units to Wireless Mouse. Reason: Increased",
+      "user": "Ahmed Mohamed",
+      "timestamp": "2026-03-25T13:09:24.383Z"
+    },
+    {
+      "id": "e970",
+      "action": "Stock Removed",
+      "productId": "2",
+      "quantity": 1,
+      "details": "Removed 1 units from Wireless Mouse. Reason: remove",
+      "user": "Ahmed Mohamed",
+      "timestamp": "2026-03-25T13:23:07.840Z"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
