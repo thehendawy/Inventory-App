@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Inventory</title>
+    <title>Stock Adjustment</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -34,7 +34,7 @@
             class="suppliers-head border-bottom border-1 border-opacity-25 d-flex flex-column flex-sm-row align-items-sm-center justify-content-sm-between"
           >
             <div>
-              <h1 class="fs-3 fw-bold mb-0">Inventory</h1>
+              <h1 class="fs-3 fw-bold mb-0">Stock Adjustment</h1>
               <p class="text-secondary">Manage stock levels</p>
             </div>
           </div>
@@ -51,9 +51,10 @@
               <input
                 class="form-control ps-5 py-2"
                 type="search"
-                placeholder="Search suppliers..."
+                placeholder="Search products..."
                 aria-label="Search input"
                 style="max-width: 450px"
+                id="searchProducts"
               />
             </div>
           </div>
@@ -74,42 +75,10 @@
                     <th scope="col">Category</th>
                     <th scope="col">Quantity</th>
                     <th scope="col">Reorder</th>
-                    <th scope="col">Status</th>
-                    <th scope="col">Last Updated</th>
                     <th scope="col">Actions</th>
                   </tr>
                 </thead>
-                <tbody>
-                  <tr>
-                    <td>MacBook Pro 14"</td>
-                    <td>MBP-14-001</td>
-                    <td>Electronics</td>
-                    <td>55</td>
-                    <td>10</td>
-                    <td>
-                      <span class="stock-status rounded-3 fw-semibold"
-                        >In Stock</span
-                      >
-                    </td>
-                    <td>2024-03-22</td>
-                    <td>
-                      <i
-                        class="fa-regular fa-eye text-secondary me-2"
-                        style="cursor: pointer"
-                        data-bs-toggle="modal"
-                        data-bs-target="#inventoryResult"
-                      ></i>
-
-                      <i
-                        class="fa-solid fa-rotate text-secondary"
-                        style="cursor: pointer"
-                        data-bs-toggle="modal"
-                        data-bs-target="#inventoryInputs"
-                        data-bs-whatever="handle-inventory"
-                      ></i>
-                    </td>
-                  </tr>
-                </tbody>
+                <tbody id="stockBody"></tbody>
               </table>
             </div>
           </div>
@@ -136,7 +105,7 @@
                 Adjust Stock
               </h1>
               <p style="font-size: 13px" class="mb-0 text-muted">
-                Update stock level for ${productName}
+                Update stock quantity
               </p>
             </div>
             <button
@@ -153,7 +122,13 @@
               <div class="text-muted" style="font-size: 13px">
                 Current Stock
               </div>
-              <div class="fw-bold" style="font-size: 2rem">45</div>
+              <div
+                class="fw-bold"
+                style="font-size: 2rem"
+                id="currentStockDisplay"
+              >
+                -
+              </div>
             </div>
 
             <!-- Adjustment Type -->
@@ -191,12 +166,15 @@
 
             <!-- Reason Input -->
             <div class="mb-3">
-              <label for="amount" class="form-label fw-medium">Reason</label>
-
+              <label for="reason_msg" class="form-label fw-medium"
+                >Reason</label
+              >
               <textarea
                 name="reason_msg"
                 id="reason_msg"
                 class="w-100 form-control"
+                rows="3"
+                placeholder="Enter reason for adjustment..."
               ></textarea>
             </div>
           </div>
@@ -211,92 +189,33 @@
             >
               Cancel
             </button>
-            <button type="button" class="btn btn-primary">Update Stock</button>
+            <button type="button" class="btn btn-primary" id="updateStockBtn">
+              Update Stock
+            </button>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Modal for display results -->
-    <div
-      class="modal fade"
-      id="inventoryResult"
-      tabindex="-1"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-dialog-centered">
-        <div
-          class="modal-content p-4 shadow-sm"
-          style="border-radius: 15px; border: none"
-        >
-          <div class="modal-header border-0 pb-0 position-relative">
-            <div>
-              <h5 class="modal-title fw-bold text-dark">
-                Stock Adjustment Result
-              </h5>
-              <p class="text-muted small mb-0" id="resultProductName">
-                MacBook Pro 14"
-              </p>
-            </div>
-            <button
-              type="button"
-              class="btn-close border rounded-2 p-2 position-absolute end-0 top-0 mt-3 me-3"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-
-          <div class="modal-body py-4">
-            <!-- Stock Change Summary -->
-            <div
-              class="d-flex align-items-center justify-content-between rounded-3 p-3 mb-4"
-              style="background-color: #f8fafc; border: 1px solid #e2e8f0"
-            >
-              <div class="text-center">
-                <p class="text-muted small mb-1">Previous</p>
-                <p class="fw-bold fs-4 mb-0" id="resultPreviousStock">45</p>
-              </div>
-              <div class="text-center">
-                <span class="badge rounded-pill px-3 py-2" id="resultBadge"
-                  >+10</span
-                >
-              </div>
-              <div class="text-center">
-                <p class="text-muted small mb-1">New Stock</p>
-                <p class="fw-bold fs-4 mb-0" id="resultNewStock">55</p>
-              </div>
-            </div>
-
-            <!-- Reason -->
-            <div>
-              <label class="text-muted small d-block mb-1">Reason</label>
-              <p class="fw-semibold text-dark mb-0" id="resultReason">
-                Restocked from supplier
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- !=======> Bootstrap -->
+    <!-- Bootstrap -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
       crossorigin="anonymous"
     ></script>
 
-    <!-- !==========> Load navbar content -->
+    <!-- Load navbar content -->
     <script>
       fetch("./navbar.html")
         .then((res) => res.text())
         .then((html) => {
           document.getElementById("navbar-container").innerHTML = html;
           document.querySelector(
-            ".nav-item a[href='./inventory.html']",
+            ".nav-item a[href='./stock-adjustment.html']",
           ).style.cssText = `background-color: #1C222B; color: #fff`;
         });
     </script>
 
     <script src="../js/auth/getUser.js" type="module"></script>
+    <script src="../js/features/stock-adjustment.js" type="module"></script>
   </body>
 </html>
