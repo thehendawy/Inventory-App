@@ -208,7 +208,7 @@
       "id": "1",
       "orderId": "PO-1001",
       "supplierId": "1",
-      "productId": "1",
+      "productId": null,
       "quantity": 5,
       "total": 100000,
       "status": "Received",
@@ -682,7 +682,7 @@
     {
       "id": "1",
       "action": "Add Product",
-      "productId": "1",
+      "productId": null,
       "quantity": 10,
       "details": "New product added to inventory",
       "user": "Ahmed",
@@ -700,7 +700,7 @@
     {
       "id": "3",
       "action": "Create Purchase Order",
-      "productId": "1",
+      "productId": null,
       "quantity": 5,
       "details": "Purchase order PO-1001 created",
       "user": "Ahmed",
@@ -709,7 +709,7 @@
     {
       "id": "4",
       "action": "Receive Purchase Order",
-      "productId": "1",
+      "productId": null,
       "quantity": 5,
       "details": "Stock received from supplier",
       "user": "Ahmed",
@@ -770,40 +770,23 @@
       "timestamp": "2026-03-14T15:40:00"
     },
     {
-      "id": "bb9c",
-      "action": "Order Cancelled",
-      "productId": "6",
-      "quantity": 2,
-      "details": "Purchase order PO-1774367980137 cancelled — no stock changes made",
-      "user": "Ahmed Mohamed",
-      "timestamp": "2026-03-24T15:59:46.732Z"
+      "id": "6314",
+      "action": "UPDATE_PRODUCT",
+      "productId": null,
+      "quantity": "10",
+      "details": "Updated Laptop Dell",
+      "user": "Shorok Magdy",
+      "timestamp": "2026-03-24T02:20:41.571Z"
     },
     {
-      "id": "0257",
-      "action": "Order Received",
-      "productId": "9",
-      "quantity": 55,
-      "details": "Purchase order PO-1774368059640 approved — added 55 units to A4 Printing Paper stock",
-      "user": "Ahmed Mohamed",
-      "timestamp": "2026-03-24T16:01:01.257Z"
-    },
-    {
-      "id": "a47b",
-      "action": "Order Received",
-      "productId": "1",
-      "quantity": 22,
-      "details": "Purchase order PO-1774368207768 approved — added 22 units to Laptop Dell Inspiron stock",
-      "user": "Ahmed Mohamed",
-      "timestamp": "2026-03-24T16:03:29.510Z"
-    },
-    {
-      "id": "98b4",
-      "action": "Order Received",
-      "productId": "8",
-      "quantity": 6,
-      "details": "Purchase order PO-1774368545304 approved — added 6 units to Printer HP LaserJet stock",
-      "user": "Ahmed Mohamed",
-      "timestamp": "2026-03-24T16:09:11.279Z"
+      "id": "ddf0",
+      "action": "UPDATE_PRODUCT",
+      "productId": null,
+      "quantity": "0",
+      "details": "Updated Laptop Dell",
+      "user": "Shorok Magdy",
+      "timestamp": "2026-03-24T02:20:51.375Z"
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }
