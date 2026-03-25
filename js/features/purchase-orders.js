@@ -91,10 +91,18 @@ function searchOrdersFun() {
     const orders = await PurchaseService.getAllPurchaseOrders();
 
     const filteredOrders = orders.filter((order) => {
+      const productName = (order.product?.name ?? order.productId ?? "")
+        .toString()
+        .toLowerCase();
+      const supplierName = (order.supplier?.name ?? order.supplierId ?? "")
+        .toString()
+        .toLowerCase();
+      const orderId = order.orderId.toString().toLowerCase();
+
       return (
-        order.product.name.toLowerCase().includes(searchValue) ||
-        order.supplier.name.toLowerCase().includes(searchValue) ||
-        order.orderId.toString().includes(searchValue)
+        productName.includes(searchValue) ||
+        supplierName.includes(searchValue) ||
+        orderId.includes(searchValue)
       );
     });
 
