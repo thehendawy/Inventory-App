@@ -1,16 +1,105 @@
-import {SupplierService, SupplierTable} from "../services/suppliers-services.js";
+import {SupplierService} from "../services/suppliers-services.js";
 
 const service = new SupplierService('http://localhost:3000/suppliers');
-const table = new SupplierTable('http://localhost:3000/suppliers', 'tablebody');
-table.render();
+const tablebody = document.getElementById("tablebody")
+let allSuppliers =  await service.getAllSuppliers()
+render(allSuppliers)
 
-// function for delete supplier
+/********************validation function***********************/
+ function validate(data) {
+      
+    //name validation
+      const supplierName = document.getElementById("supplierName")
+      if (data.name == "" || data.name.trim().length < 3) {
+        supplierName.classList.add('is-invalid');
+        return false
+      } else {
+        supplierName.classList.remove('is-invalid');
+      }
+
+      // Phone validation
+      const phoneRegex = /^01[0125][0-9]{8}$/;
+      const supplierPhone = document.getElementById("supplierPhone")
+      if (!phoneRegex.test(data.phone)) {
+          supplierPhone.classList.add('is-invalid');
+        return false
+      } else {
+        supplierPhone.classList.remove('is-invalid');
+      }
+
+      //email validation
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      const supplierEmail = document.getElementById("supplierEmail")
+      if (!emailRegex.test(data.email)) {
+          supplierEmail.classList.add('is-invalid');
+        return false
+      } else {
+        supplierEmail.classList.remove('is-invalid');
+      }
+
+      // Address validation
+      const supplierAddress = document.getElementById("supplierAddress")
+      if (data.address == "" || data.address.trim().length < 4) {
+          supplierAddress.classList.add('is-invalid');
+        return false
+      } else {
+        supplierAddress.classList.remove('is-invalid');
+      }
+  }
+
+  /********************Render function********************************/
+  async function render(data) {
+
+        // Table
+        tablebody.innerHTML = data.map(s => `
+            <tr>
+                <td>${s.name}</td>
+                <td>${s.phone}</td>
+                <td><a href="mailto:${s.email}">${s.email}</a></td>
+                <td>${s.address}</td>
+                <td class="text-start">
+                    <i
+                        class="fa-solid fa-edit mx-2 text-secondary"
+                        style="cursor: pointer"
+                        data-bs-toggle="modal"
+                        data-bs-target="#supplierInputs"
+                        data-bs-whatever="add-supplier"
+                        onclick="prepareEdit('${s.id}')"
+                      ></i>
+                    <i
+                        class="fa-solid fa-trash mx-2 text-danger"
+                        style="cursor: pointer"
+                        data-bs-toggle="modal"
+                        data-bs-target="#deleteSupplierModal"
+                        onclick="prepareDelete('${s.id}')"
+                      ></i>
+                </td>
+            </tr>
+        `).join('');
+        
+        // تحديث العدد الإجمالي (suppliersLength)
+        document.getElementById('countofsuppleries').textContent = `Your supplier network (${data.length} suppliers)`;
+    }
+
+/********************** Search Function ******************************/
+async function search(query) {
+
+        let filtered = allSuppliers.filter(s => {
+            return s.name.toLowerCase().includes(query.toLowerCase()) || 
+            s.phone.includes(query)
+        });
+
+        render(filtered); 
+    }
+
+
+/*********************** function for delete supplier ********************/
 let idtodelete = null
 window.prepareDelete = (id) => {
     idtodelete = id
 }
 
-// function for delete supplier
+/****************************** function for delete supplier ***********************/
 window.idtoEdit = null
 window.prepareEdit = async (id) => {
     window.idtoEdit = id
@@ -27,7 +116,7 @@ window.prepareEdit = async (id) => {
 
 }
 
-
+/************************* Add Or Update Suppllier ********************************************/
 document.getElementById('supplierAddButton').addEventListener('click', async (e) => {
 
     const formData = {
@@ -39,6 +128,9 @@ document.getElementById('supplierAddButton').addEventListener('click', async (e)
 
     // check statment either add or update
     let result;
+    let erroeMassage = validate(formData);
+    if (erroeMassage == false ) return false
+
     if (window.idtoEdit) {
         result = await service.updateSupplier(window.idtoEdit, formData);
         if (result !== false) {
@@ -47,27 +139,26 @@ document.getElementById('supplierAddButton').addEventListener('click', async (e)
         window.idtoEdit = null;
         }
     } else {
-        
         result = await service.addSupplier(formData);
         alert("a new supplier has added");
     }
 
 });
 
-// delete supplier
+/************************* delete supplier *****************************************/
 document.getElementById("confirmDeleteBtn").addEventListener("click", async () => {
 
     console.log(idtodelete)
     const result = await service.deleteSupplier(idtodelete);
 })
 
-// Search input
+/************************************ Search input ************************************/
 
 let searchInput = document.getElementById('searchSupplier');
 
 searchInput.addEventListener('input', (e) => {
     let query = e.target.value;
-    table.search(query);
+    search(query);
 });
 
 
