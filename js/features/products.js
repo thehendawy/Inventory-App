@@ -9,7 +9,9 @@ let products = [];
 let addProductForm = document.getElementById("addProductForm");
 let editProductForm = document.getElementById("editProductForm");
 let searchInput = document.querySelector('.searchInput');
+let base;
 let selectedProductId = null;
+let idEdit = null;
 let debounceTimeout;
 
 
@@ -80,11 +82,10 @@ function getStatusBadge(product) {
 function bindEvents() {
     document.querySelectorAll(".editBtn").forEach((btn) => {
         btn.addEventListener("click", async function () {
-            const id = this.dataset.id;
-            await openEditModal(id);
+            idEdit = this.dataset.id;
+            await openEditModal(idEdit);
         });
     });
-
     document.querySelectorAll(".deleteBtn").forEach((btn) => {
         btn.addEventListener("click", function () {
             selectedProductId = this.dataset.id;
@@ -118,8 +119,8 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-function generateSKU(productName) {
-    const cleanName = productName
+function generateSKU(name) {
+    const cleanName = name
         .trim()
         .toUpperCase()
         .replace(/\s+/g, '-');
@@ -181,7 +182,6 @@ async function openEditModal(id) {
     await loadCategories('editCategory');
     await loadSuppliers('editSupplier');
 
-    document.getElementById("editProductId").value = product.id;
     document.getElementById("editProductName").value = product.name;
     document.getElementById("editPrice").value = product.price;
     document.getElementById("editQuantity").value = product.quantity;
@@ -198,107 +198,49 @@ async function openEditModal(id) {
 
 }
 
-function validateAddProduct() {
-    let isValid = true;
-
-    document.querySelectorAll("#addProductForm p").forEach(p => p.textContent = "");
-
-    let productName = document.getElementById("productName").value.trim();
-    let category = document.getElementById("category").value;
-    let supplier = document.getElementById("supplier").value;
-    let price = document.getElementById("price").value.trim();
-    let quantity = document.getElementById("quantity").value.trim();
-    let recorder = document.getElementById("recorder").value.trim();
-    let sku = document.getElementById("sku").value.trim();
-
-    let recorderValue = Number(recorder);
-
-    if (!productName) {
-        document.getElementById("productNameError").textContent = "Product name is required";
-        isValid = false;
-    } else if (!isNaN(productName)) {
-        document.getElementById("productNameError").textContent = "Product name cannot be only numbers";
-        isValid = false;
-    } else if (productName.length < 2) {
-        document.getElementById("productNameError").textContent = "Product name must be at least 2 characters";
-        isValid = false;
-    }
-
-    if (!category) {
-        document.getElementById("categoryError").textContent = "Category is Required";
-        isValid = false;
-    }
-
-    if (!supplier) {
-        document.getElementById("supplierError").textContent = "Supplier is Required";
-        isValid = false;
-    }
-
-    if (!price || isNaN(price) || Number(price) <= 0) {
-        document.getElementById("priceError").textContent = "Enter valid price";
-        isValid = false;
-    }
-
-    if (!quantity) {
-        document.getElementById("quantityError").textContent = "Quantity is required";
-        isValid = false;
-    } else if (isNaN(quantity)) {
-        document.getElementById("quantityError").textContent = "Quantity must be a number";
-        isValid = false;
-    } else if (Number(quantity) < 0) {
-        document.getElementById("quantityError").textContent = "Quantity cannot be negative";
-        isValid = false;
-    }
-
-    if (recorder === "" || isNaN(recorderValue) || recorderValue < 0) {
-        document.getElementById("reorderError").textContent = "Invalid";
-        isValid = false;
-    }
-     if (!sku) {
-        document.getElementById("skuError").textContent = "SKU is required";
-        isValid = false;
-    } else if (!isNaN(sku)) {
-        document.getElementById("skuError").textContent = " SKU cannot be only numbers";
-        isValid = false;
-    }
-    return isValid;
-}
-
 function getAddFormData() {
     let productName = document.getElementById("productName").value.trim();
+    base = document.getElementById("sku").value.trim();
     let category = document.getElementById("category").value;
     let supplier = document.getElementById("supplier").value;
     let price = document.getElementById("price").value.trim();
-    let quantity = document.getElementById("quantity").value.trim();
-    let recorderValue = Number(document.getElementById("recorder").value.trim());
+    let quantityValue = document.getElementById("quantity").value.trim();
+    let recorderValue = document.getElementById("recorder").value.trim();
 
-    let sku = generateSKU(productName);
-     let status ;
-    if(Number(quantity) <= recorderValue){
-        status =  "low-stock"  
-    }else if(Number(quantity) == 0){
-        status = "Out-of-stock"
-    }else{
-        status="in-stock"
-    }
+
     return {
         name: productName,
-        sku,
+        sku: base,
+        price,
+        quantity: quantityValue === "" ? "" : Number(quantityValue),
+        reorderLevel: recorderValue === "" ? "" : Number(recorderValue),
         categoryId: category,
         supplierId: supplier,
-        price,
-        quantity,
-        reorderLevel: recorderValue,
-        status,
     };
 }
 
 addProductForm.addEventListener("submit", async function (e) {
     e.preventDefault();
 
-    if (!validateAddProduct()) return;
-
     let productData = getAddFormData();
+    let resultValidation = productService.validateProduct(productData, "add");
+    document.querySelectorAll("#addProductForm p").forEach(p => p.textContent = "");
+
+    if (!resultValidation.isValid) {
+        let errors = resultValidation.errors;
+
+        if (errors.name) document.getElementById("productNameError").textContent = errors.name;
+        if (errors.category) document.getElementById("categoryError").textContent = errors.category;
+        if (errors.supplier) document.getElementById("supplierError").textContent = errors.supplier;
+        if (errors.price) document.getElementById("priceError").textContent = errors.price;
+        if (errors.quantity) document.getElementById("quantityError").textContent = errors.quantity;
+        if (errors.recorder) document.getElementById("reorderError").textContent = errors.recorder;
+        if (errors.sku) document.getElementById("skuError").textContent = errors.sku;
+
+        return;
+    }
+
+    productData.sku = generateSKU(base);
 
     try {
         let result = await productService.create("products", productData);
@@ -312,13 +254,11 @@ addProductForm.addEventListener("submit", async function (e) {
             quantity: productData.quantity,
             details: `Added ${productData.name}`,
             user: user.name,
+            timestamp: new Date().toISOString().slice(0, 19)
         });
 
         showAlert("Product added successfully", "primary");
-
-        setTimeout(() => {
-            document.getElementById("addProductModal").style.display = "none";
-        }, 3000);
+        document.getElementById("addProductModal").style.display = "none";
 
     } catch (error) {
         console.error(error);
@@ -327,68 +267,91 @@ addProductForm.addEventListener("submit", async function (e) {
 });
 
 
-function validateEditProduct() {
-    let isValid = true;
-
-    document.querySelectorAll('#editProductForm p').forEach(p => p.textContent = '');
-
-    let name = document.getElementById('editProductName').value.trim();
-    let category = document.getElementById('editCategory').value;
-    let supplier = document.getElementById('editSupplier').value;
-    let price = document.getElementById('editPrice').value.trim();
-    let quantity = document.getElementById('editQuantity').value.trim();
-    let recorder = document.getElementById('editRecorder').value.trim();
-
-    let recorderValue = Number(recorder);
-
-    if (!name) { document.getElementById('editProductNameError').textContent = 'Required'; isValid = false; }
-    if (!category) { document.getElementById('editCategoryError').textContent = 'Required'; isValid = false; }
-    if (!supplier) { document.getElementById('editSupplierError').textContent = 'Required'; isValid = false; }
-    if (!price || isNaN(price) || Number(price) <= 0) { document.getElementById('editPriceError').textContent = 'Invalid'; isValid = false; }
-    if (!quantity || isNaN(quantity) || Number(quantity) < 0) { document.getElementById('editQuantityError').textContent = 'Invalid'; isValid = false; }
-    if (!recorder || isNaN(recorderValue)) { document.getElementById('editReorderError').textContent = 'Invalid'; isValid = false; }
-
-    return isValid;
-}
 
 editProductForm.addEventListener('submit', async function (e) {
     e.preventDefault();
 
-    if (!validateEditProduct()) return;
-
-    let id = document.getElementById('editProductId').value;
-    let originalProduct = await productService.getById('products', id);
-
-    let updatedData = {
-        id: originalProduct.id,
-        name: document.getElementById('editProductName').value.trim() || originalProduct.name,
-        sku: originalProduct.sku,
-        price: document.getElementById('editPrice').value.trim() || originalProduct.price,
-        quantity: document.getElementById('editQuantity').value.trim() || originalProduct.quantity,
-        reorderLevel: Number(document.getElementById('editRecorder').value.trim()) || originalProduct.reorderLevel,
-        supplierId: document.getElementById('editSupplier').value || originalProduct.supplierId,
-        categoryId: document.getElementById('editCategory').value || originalProduct.categoryId,
+    let productData = {
+        id: idEdit,
+        name: document.getElementById('editProductName').value.trim(),
+        price: document.getElementById('editPrice').value.trim(),
+        quantity: document.getElementById('editQuantity').value.trim(),
+        reorderLevel: document.getElementById('editRecorder').value.trim(),
+        supplierId: document.getElementById('editSupplier').value,
+        categoryId: document.getElementById('editCategory').value,
     };
 
+
+    let resultValidation = productService.validateProduct(productData, "edit");
+    document.querySelectorAll("#editProductForm p").forEach(p => p.textContent = "");
+
+    if (!resultValidation.isValid) {
+        let errors = resultValidation.errors;
+        if (errors.name) document.getElementById("editProductNameError").textContent = errors.name;
+        if (errors.category) document.getElementById("editCategoryError").textContent = errors.category;
+        if (errors.supplier) document.getElementById("editSupplierError").textContent = errors.supplier;
+        if (errors.price) document.getElementById("editPriceError").textContent = errors.price;
+        if (errors.quantity) document.getElementById("editQuantityError").textContent = errors.quantity;
+        if (errors.recorder) document.getElementById("editReorderError").textContent = errors.recorder;
+        return;
+    }
+
     try {
+        let id = productData.id;
+        let originalProduct = await productService.getById('products', id);
+
+        let updatedData = {
+            id: originalProduct.id,
+            name: productData.name || originalProduct.name,
+            sku: originalProduct.sku,
+            price: productData.price || originalProduct.price,
+            quantity: productData.quantity === "" ? originalProduct.quantity : Number(productData.quantity),
+            reorderLevel: productData.reorderLevel === "" ? originalProduct.reorderLevel : Number(productData.reorderLevel),
+            supplierId: productData.supplierId || originalProduct.supplierId,
+            categoryId: productData.categoryId || originalProduct.categoryId,
+        };
+
         await productService.update('products', id, updatedData);
 
         let userId = localStorage.getItem("userId");
         let user = await userService.getLoggedUser(userId);
 
+        let changes = [];
+
+        if (originalProduct.name !== updatedData.name) {
+            changes.push(`Name: "${originalProduct.name}" → "${updatedData.name}"`);
+        }
+        if (originalProduct.price !== updatedData.price) {
+            changes.push(`Price: ${originalProduct.price} → ${updatedData.price}`);
+        }
+        if (originalProduct.quantity !== updatedData.quantity) {
+            changes.push(`Quantity: ${originalProduct.quantity} → ${updatedData.quantity}`);
+        }
+        if (originalProduct.reorderLevel !== updatedData.reorderLevel) {
+            changes.push(`Reorder Level: ${originalProduct.reorderLevel} → ${updatedData.reorderLevel}`);
+        }
+        if (originalProduct.supplierId !== updatedData.supplierId) {
+            changes.push(`Supplier: ${originalProduct.supplierId} → ${updatedData.supplierId}`);
+        }
+        if (originalProduct.categoryId !== updatedData.categoryId) {
+            changes.push(`Category: ${originalProduct.categoryId} → ${updatedData.categoryId}`);
+        }
+
+        let detailsText = changes.length > 0 ? `Updated ${updatedData.name}: ` + changes.join(", ") : `No changes for ${updatedData.name}`;
+
+
         await logService.addLog({
             action: 'UPDATE_PRODUCT',
             productId: id,
             quantity: updatedData.quantity,
-            details: `Updated ${updatedData.name}`,
-            user: user.name
+            details: detailsText,
+            user: user.name,
+            timestamp: new Date().toISOString().slice(0, 19)
         });
 
         showAlert('Product updated successfully', 'primary');
-
         bootstrap.Modal.getInstance(document.getElementById("editProductModal")).hide();
-
-        await getProducts(); 
+        await getProducts();
 
     } catch (error) {
         console.error(error);
@@ -396,28 +359,38 @@ editProductForm.addEventListener('submit', async function (e) {
     }
 });
 
+
 document.getElementById("confirmDeleteBtn").addEventListener("click", async function () {
     if (selectedProductId) {
+        let product = await productService.getById("products", selectedProductId);
+
+
+        if (product.quantity !== 0) {
+            showAlert("You can't delete this product unless quantity is 0", "danger");
+            return;
+        }
+
         await productService.delete("products", selectedProductId);
 
-          let userId = localStorage.getItem("userId");
+        let userId = localStorage.getItem("userId");
         let user = await userService.getLoggedUser(userId);
 
         await logService.addLog({
             action: 'DELETE_PRODUCT',
             productId: id,
-            quantity: updatedData.quantity,
-            details: `Delete ${name || originalProduct.name}`,
-            user: user.name
+            quantity: product.quantity,
+            details: `Delete ${product.name}`,
+            user: user.name,
+            timestamp: new Date().toISOString().slice(0, 19)
         });
 
         let modal = bootstrap.Modal.getInstance(document.getElementById("deleteModal"));
         modal.hide();
-        showAlert("deleted successfully" , "primary")
-
+        showAlert("deleted successfully", "primary")
         displayProducts();
-    }else{
-        showAlert("failed to delete" , "danger")
+    } else {
+
+        showAlert("failed to delete", "danger")
     }
 });
 
@@ -447,7 +420,7 @@ searchInput.addEventListener('input', function () {
             displayProducts(filtered);
         }
 
-    }, 300); 
+    }, 300);
 });
 
 
