@@ -11,6 +11,7 @@
     crossorigin="anonymous" />
   <link rel="stylesheet" href="../css/main.css" />
   <link rel="stylesheet" href="../css/dashboard.css" />
+  <link rel="stylesheet" href="../css/products.css">
 </head>
 
 <body>
@@ -27,16 +28,16 @@
         </div>
 
         <!-- Cards -->
-        <div class="row g-3 mb-5 mt-3">
+        <div class="row g-3 mb-3 mt-3">
 
 
             <!-- Inventory Value -->
           <div class="col-lg-3 col-md-6 col-12">
-            <div class="status-card pt-5 pb-5 border border-secondary-subtle">
+            <div class="status-card border border-secondary-subtle" style="padding: 55px 25px;">
               <div class="d-flex justify-content-between align-items-center">
-                <div>
+                <div class="">
                   <div class="status-title fw-bold">Inventory Value</div>
-                  <div class="inventoryVal status-value">284,500</div>
+                  <div class="inventoryVal status-value"></div>
                 </div>
                 <div class="status-icon-wrap icon-orange mt-2">
                   <i class="fa-solid fa-dollar-sign"></i>
@@ -47,7 +48,7 @@
 
           <!-- Products -->
           <div class="col-lg-3 col-md-6 col-12">
-            <div class="status-card pt-5 pb-5 border border-secondary-subtle">
+            <div class="status-card pt-5 pb-5 border border-secondary-subtle" style="padding: 55px 25px;">
               <div class="d-flex justify-content-between align-items-center">
                 <div>
                   <div class="status-title fw-bold">Total Products</div>
@@ -64,11 +65,11 @@
 
           <!-- Suppliers -->
           <div class="col-lg-3 col-md-6 col-12">
-            <div class="status-card pt-5 pb-5 border border-secondary-subtle">
+            <div class="status-card pt-5 pb-5 border border-secondary-subtle" style="padding: 55px 25px;">
               <div class="d-flex justify-content-between align-items-center">
                 <div>
                   <div class="status-title fw-bold">Total Suppliers</div>
-                  <div class="totalSupplier status-value">86</div>
+                  <div class="totalSupplier status-value"></div>
                 </div>
                 <div class="status-icon-wrap icon-green">
                   <i class="fa-solid fa-truck"></i>
@@ -79,11 +80,11 @@
 
           <!-- Low Stock Items -->
           <div class="col-lg-3 col-md-6 col-12">
-            <div class="status-card pt-5 pb-5 border border-secondary-subtle">
+            <div class="status-card pt-5 pb-5 border border-secondary-subtle" style="padding: 55px 25px;">
               <div class="d-flex justify-content-between align-items-center">
                 <div>
                   <div class="status-title fw-bold">Low Stock Items</div>
-                  <div class="lowStock status-value">23</div>
+                  <div class="lowStock status-value"></div>
                 </div>
                 <div class="status-icon-wrap icon-red mt-2">
                   <i class="fa-solid fa-triangle-exclamation"></i>
@@ -94,141 +95,88 @@
 
         </div>
 
+
+        <!-- Inventory Value by Category -->
+        <div class="section-card mt-4 p-4 border border-secondary-subtle mb-3" style="box-shadow:var(--shadow)">
+          <div class="header mb-3">
+            <div class="section-title">
+            <i class="fa-solid fa-boxes-packing text-primary "></i>
+           <h5 class="section-title fw-bold"> Inventory Value by Category </h5>
+          </div>
+          <div class="section-subtitle" style="color: var(--secondary-color)">
+            <p style="font-size: 15px;">Distribution of inventory value across categories</p>
+        </div>
+          </div>
+
+           <div class="bg-white rounded-3 ">
+                    <div class="table-responsive">
+                        <table class="table align-middle">
+                            <thead>
+                                <tr>
+                                    <th>Category</th>
+                                    <th>Products</th>
+                                    <th>Value</th>
+                                    <th>% of Total</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tableBody">
+                                <!-- <tr>
+                                    <td class="">Electronics</td>
+                                    <td class="text-secondary ">45</td>
+                                    <td class="">$999</td>
+                                    <td><span class="badge text-secondary bg-secondary-subtle">51%</span></td>
+                                </tr> -->
+                            </tbody>
+
+                             <tfoot id="tableFooter"></tfoot>
+                        </table>
+                    </div>
+                </div>
+
+        </div>
+
         <!-- Low Stock Table -->
-        <div class="section-card">
-          <div class="section-title">
+        <div class="section-card mt-4 p-4 border border-secondary-subtle mb-5" style="box-shadow:var(--shadow)">
+          <div class="header mb-3">
+            <div class="section-title">
             <i class="fa-solid fa-triangle-exclamation text-warning"></i>
-            Low Stock Alert
+           <h5 class="section-title fw-bold"> Low Stock Report </h5>
           </div>
-          <div class="section-subtitle">Products that need to be reordered</div>
+          <div class="section-subtitle" style="color: var(--secondary-color)">
+            <p style="font-size: 15px;">Distribution of inventory value across categories</p>
+        </div>
+          </div>
 
-          <div class="table-section">
-            <table class="in-table">
-              <thead>
-                <tr>
-                  <th>Product</th>
-                  <th>SKU</th>
-                  <th class="text-center">Stock</th>
-                  <th class="text-end">Reorder</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td class="fw-500">Wireless Mouse</td>
-                  <td><span class="sku-bg">WM-001</span></td>
-                  <td class="text-center">
-                    <span class="stock-bg">5</span>
-                  </td>
-                  <td class="text-end reorder-num">20</td>
-                </tr>
-                <tr>
-                  <td class="fw-500">USB-C Cable</td>
-                  <td><span class="sku-bg">UC-003</span></td>
-                  <td class="text-center">
-                    <span class="stock-bg">8</span>
-                  </td>
-                  <td class="text-end reorder-num">50</td>
-                </tr>
-                <tr>
-                  <td class="fw-500">Laptop Stand</td>
-                  <td><span class="sku-bg">LS-012</span></td>
-                  <td class="text-center">
-                    <span class="stock-bg">3</span>
-                  </td>
-                  <td class="text-end reorder-num">15</td>
-                </tr>
-                <tr>
-                  <td class="fw-500">Webcam HD</td>
-                  <td><span class="sku-bg">WC-007</span></td>
-                  <td class="text-center">
-                    <span class="stock-bg">2</span>
-                  </td>
-                  <td class="text-end reorder-num">10</td>
-                </tr>
-                <tr>
-                  <td class="fw-500">Keyboard Wireless</td>
-                  <td><span class="sku-bg">KW-022</span></td>
-                  <td class="text-center">
-                    <span class="stock-bg">7</span>
-                  </td>
-                  <td class="text-end reorder-num">25</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+           <div class="bg-white rounded-3 ">
+                    <div class="table-responsive">
+                        <table class="table align-middle">
+                            <thead>
+                                <tr>
+                                    <th>Product Name</th>
+                                    <th>SKU</th>
+                                    <th>Category</th>
+                                    <th>Current Stock </th>
+                                    <th>Reorder Level </th>
+                                    <th>Shortage</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tableBody2">
+                                <tr>
+                                    <td class="">Electronics</td>
+                                    <td class="text-secondary ">ele-001</td>
+                                    <td>ele </td>
+                                    <td class="text-center"><span class = "badge bg-danger ">99</span></td>
+                                    <td>$999</td>
+                                    <td><span class="text-danger fw-medium"> -51</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
         </div>
 
-        <div class="section-card mt-4">
-          <div class="section-title">
-            <i class="fa-solid fa-clock-rotate-left text-secondary"></i>
-            Recent Activity
-          </div>
-          <div class="section-subtitle">
-            Latest inventory changes and updates
-          </div>
-
-          <div class="table-section">
-            <table class="in-table">
-              <thead>
-                <tr>
-                  <th>Action</th>
-                  <th>Product</th>
-                  <th class="text-end">Quantity</th>
-                  <th>User</th>
-                  <th class="text-end">Time</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>
-                    <span class="activity-badge badge-added">Stock Added</span>
-                  </td>
-                  <td>MacBook Pro 14"</td>
-                  <td class="text-end reorder-num">25</td>
-                  <td class="reorder-num">John D.</td>
-                  <td class="text-end reorder-num">2 min ago</td>
-                </tr>
-                <tr>
-                  <td>
-                    <span class="activity-badge badge-order">Order Received</span>
-                  </td>
-                  <td>iPhone 15 Case</td>
-                  <td class="text-end reorder-num">100</td>
-                  <td class="reorder-num">Sarah M.</td>
-                  <td class="text-end reorder-num">15 min ago</td>
-                </tr>
-                <tr>
-                  <td>
-                    <span class="activity-badge badge-removed">Stock Removed</span>
-                  </td>
-                  <td>USB-C Hub</td>
-                  <td class="text-end reorder-num">10</td>
-                  <td class="reorder-num">Mike R.</td>
-                  <td class="text-end reorder-num">1 hour ago</td>
-                </tr>
-                <tr>
-                  <td>
-                    <span class="activity-badge badge-new">New Product</span>
-                  </td>
-                  <td>Wireless Charger</td>
-                  <td class="text-end reorder-num">50</td>
-                  <td class="reorder-num">John D.</td>
-                  <td class="text-end reorder-num">2 hours ago</td>
-                </tr>
-                <tr>
-                  <td>
-                    <span class="activity-badge badge-updated">Stock Updated</span>
-                  </td>
-                  <td>AirPods Pro</td>
-                  <td class="text-end reorder-num">30</td>
-                  <td class="reorder-num">Emily K.</td>
-                  <td class="text-end reorder-num">3 hours ago</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-        </div>
+        
 
       </div>
     </main>
