@@ -1035,6 +1035,15 @@
       "user": "Ahmed Elhendawy",
       "timestamp": "2026-03-28T20:30:10.477Z",
       "id": "EAT14ZuMWA8"
+    },
+    {
+      "id": "2af1",
+      "action": "Low Stock Alert",
+      "productId": "Hbtyyv2yr_Q",
+      "quantity": 5,
+      "details": "Product reached reorder level",
+      "user": "System",
+      "timestamp": "2026-03-28T21:03:29.816Z"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
