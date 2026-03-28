@@ -6,14 +6,15 @@ export class CategoriesService {
       );
 
       if (!response.ok) {
-        throw new Error(`Something wrong! status : ${response.status} `);
+        throw new Error(
+          `Something wrong! status : ${response.status} ${response.statusText} `,
+        );
       }
 
       let data = await response.json();
-      //   console.log("Data fetched successfully:", data);
+      // console.log("Data fetched successfully:", data);
       return data;
     } catch (err) {
-      console.log(err.message);
       throw err;
     }
   }
@@ -26,7 +27,6 @@ export class CategoriesService {
         body: JSON.stringify(categoryData),
       });
     } catch (err) {
-      console.log(err.message);
       throw err;
     }
   }
@@ -39,7 +39,6 @@ export class CategoriesService {
         body: JSON.stringify(newData),
       });
     } catch (err) {
-      console.log(err.message);
       throw err;
     }
   }
@@ -54,7 +53,6 @@ export class CategoriesService {
       }
       return await response.json();
     } catch (err) {
-      console.log(err.message);
       throw err;
     }
   }

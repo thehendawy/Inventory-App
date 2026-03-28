@@ -44,8 +44,8 @@
                                     <th>Description</th>
                                     <th>Products</th>
                                     <th>Action</td>
-                                </tr>   
-                                    <p class="err"></p>
+                                </tr> 
+                                        <p class="err"></p>
                             </tbody>
                         </table>
                     </div>
@@ -70,14 +70,16 @@
                                     <div class="col-md-12 ">
                                         <label class="form-label fw-semibold">Category Name</label>
                                         <input style="background-color:var(--bg-color)" type="text" class="form-control input-name"
-                                            placeholder="Enter category Name" required>
+                                            placeholder="Enter category Name" >
+                                            <p id="catName" class="err"></p>
                                     </div>
                                 </div>
                                 <div class="row mb-5">
                                     <div class="col-md-12">
                                         <label class="form-label fw-semibold">Description</label>
                                         <textarea style="background-color:var(--bg-color)" type="text" class="form-control input-description"
-                                            placeholder="Enter category Description" required></textarea>
+                                            placeholder="Enter category Description" ></textarea>
+                                            <p id="catDesc" class="err"></p>
                                     </div>
                                 </div>
 
@@ -131,14 +133,17 @@
                                     <div class="col-md-12 ">
                                         <label class="form-label fw-semibold">Category Name</label>
                                         <input style="background-color:var(--bg-color)" type="text" class="form-control input-name"
-                                            placeholder="Enter category Name" required id="updName">
+                                            placeholder="Enter category Name"  id="updName">
+                                        <p id="catNameUp" class="err"></p>
                                     </div>
                                 </div>
                                 <div class="row mb-5">
                                     <div class="col-md-12">
                                         <label class="form-label fw-semibold">Description</label>
                                         <textarea style="background-color:var(--bg-color)" type="text" class="form-control input-description"
-                                            placeholder="Enter category Description" required id="updDescription"></textarea>
+                                            placeholder="Enter category Description"  id="updDescription"></textarea>
+                                        <p id="catDescUp" class="err"></p>
+
                                     </div>
                                 </div>
 
@@ -173,6 +178,8 @@
         </script>
 
         <script type="module" src="../js/features/categories.js"></script>
+        <script src="../js/auth/getUser.js" type="module"></script>
+
 </body>
 
 </html>

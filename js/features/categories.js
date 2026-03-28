@@ -12,16 +12,15 @@ let idForDeleteCategory = null;
 let idForUpdateCategory = null;
 let nameForUpdateCategory = null;
 let descriptionForUpdateCategory = null;
+let productsLength = null;
 
 let getCategories = async () => {
   try {
     const data = await CategoriesService.getAll();
-    if (!data || data.length === 0) {
-      throw new Error(`*Something wrong!`);
-    }
+    if (!data || data.length === 0) return null;
+
     displayCategories(data);
   } catch (err) {
-    console.log(err);
     errMessage.textContent = `Try Again ${err.message}`;
   }
 };
@@ -30,7 +29,6 @@ getCategories();
 // Show Data at table
 function displayCategories(data) {
   let allRows = "";
-  // table_body.innerHTML = "";
 
   data.forEach(function (el) {
     let tr = /* html */ `
@@ -40,7 +38,7 @@ function displayCategories(data) {
         <td class="py-3" >${el.products.length}</td>
         <td class="py-3 p-btn">
         <button class="btn  btn-sm edit-btn" data-title="edit" data-bs-toggle="modal" data-bs-target="#updateProductModal" data-id="${el.id}" data-name="${el.name}" data-description="${el.description}"><i class="fa-solid fa-pen"></i></button>
-        <button class="btn btn-sm delete-btn" data-title="delete" data-bs-toggle="modal" data-bs-target="#deleteConfirmModal" data-id="${el.id}"><i class="fas fa-trash text-danger"></i></button>
+        <button class="btn btn-sm delete-btn" data-title="delete" data-bs-toggle="modal" data-bs-target="#deleteConfirmModal" data-id="${el.id}" data-prod="${el.products.length}"><i class="fas fa-trash text-danger"></i></button>
         </td>
         </tr>    
         `;
@@ -53,7 +51,13 @@ function displayCategories(data) {
 myForm.addEventListener("submit", async (e) => {
   e.preventDefault();
 
-  if (input_name.value == "" || input_description.value == "") return;
+  let catName = document.getElementById("catName");
+  let catDesc = document.getElementById("catDesc");
+
+  if (
+    !ValidtionForm(catName, catDesc, input_name.value, input_description.value)
+  )
+    return false;
 
   let categoryName = input_name.value;
   let categoryDescription = input_description.value;
@@ -63,42 +67,61 @@ myForm.addEventListener("submit", async (e) => {
     description: categoryDescription,
   };
 
-  try {
-    await CategoriesService.addNewCategory(categoryData);
+  await CategoriesService.addNewCategory(categoryData);
 
-    const newCategories = await getCategories();
-    displayCategories(newCategories);
-
-    input_name.value = "";
-    input_description.value = "";
-  } catch (err) {
-    console.log(err.message);
-    errMessage.textContent = err.message;
-  }
+  const newCategories = await getCategories();
+  displayCategories(newCategories);
 });
+
+// Form Validtion
+
+let ValidtionForm = (catName, catDesc, nameValue, descValue) => {
+  let isValid = true;
+
+  catName.textContent = "";
+  catDesc.textContent = "";
+
+  if (nameValue.trim() === "") {
+    catName.textContent = "Category Name Is Required";
+    isValid = false;
+  }
+
+  if (descValue.trim() === "") {
+    catDesc.textContent = "Category Description Is Required";
+    isValid = false;
+  }
+
+  return isValid;
+};
 
 // delete Category
 deleteModal.addEventListener("show.bs.modal", (e) => {
   const button = e.relatedTarget;
+  productsLength = button.getAttribute("data-prod");
+  if (productsLength > 0) {
+    alert(
+      "You should get rid of products first before deleting this category!",
+    );
+    e.preventDefault();
+    return;
+  }
   idForDeleteCategory = button.getAttribute("data-id");
 });
+
 btn_delete.addEventListener("click", async () => {
-  try {
-    await CategoriesService.deleteCategory(idForDeleteCategory);
+  await CategoriesService.deleteCategory(idForDeleteCategory);
 
-    const modalInstance = bootstrap.Modal.getInstance(deleteModal);
-    modalInstance.hide();
+  const modalInstance = bootstrap.Modal.getInstance(deleteModal);
+  modalInstance.hide();
 
-    const newCategories = await getCategories();
-    displayCategories(newCategories);
-  } catch (err) {
-    errMessage.textContent = `Something wrong + ${err.message}`;
-  }
+  const newCategories = await getCategories();
+  displayCategories(newCategories);
 });
 
 // Update Category
 updateModal.addEventListener("show.bs.modal", (e) => {
   const button = e.relatedTarget;
+
   idForUpdateCategory = button.getAttribute("data-id");
   nameForUpdateCategory = button.getAttribute("data-name");
   descriptionForUpdateCategory = button.getAttribute("data-description");
@@ -107,30 +130,26 @@ updateModal.addEventListener("show.bs.modal", (e) => {
   document.getElementById("updDescription").value =
     descriptionForUpdateCategory;
 });
+
 myFormUpdate.addEventListener("submit", async (e) => {
   e.preventDefault();
+
+  let catName = document.getElementById("catNameUp");
+  let catDesc = document.getElementById("catDescUp");
 
   const nameInput = document.getElementById("updName");
   const descInput = document.getElementById("updDescription");
 
-  if (!nameInput.value.trim() || !descInput.value.trim()) return;
+  if (!ValidtionForm(catName, catDesc, nameInput.value, descInput.value))
+    return false;
 
   let categoryData = {
     name: nameInput.value,
     description: descInput.value,
   };
 
-  try {
-    await CategoriesService.updateCategory(idForUpdateCategory, categoryData);
+  await CategoriesService.updateCategory(idForUpdateCategory, categoryData);
 
-    const newCategories = await getCategories();
-    displayCategories(newCategories);
-
-    bootstrap.Modal.getInstance(document.getElementById("updateModal")).hide();
-    nameInput.value = "";
-    descInput.value = "";
-  } catch (err) {
-    console.log(err.message);
-    errMessage.textContent = err.message;
-  }
+  const newCategories = await getCategories();
+  displayCategories(newCategories);
 });
