@@ -22,16 +22,15 @@
     <!-- Main content -->
     <main class="flex-grow-1 p-4" style="min-width: 0;">
       <div class="container">
-        <div class="page-header mb-4">
+        <div class="page-header mb-4 text-md-start text-center">
           <h1>Reports</h1>
           <p style="color: var(--secondary-color);">Welcome back! Here is an overview of your inventory.</p>
         </div>
 
-        <!-- Cards -->
         <div class="row g-3 mb-3 mt-3">
 
 
-            <!-- Inventory Value -->
+          <!-- Inventory Value -->
           <div class="col-lg-3 col-md-6 col-12">
             <div class="status-card border border-secondary-subtle" style="padding: 55px 25px;">
               <div class="d-flex justify-content-between align-items-center">
@@ -96,87 +95,78 @@
         </div>
 
 
-        <!-- Inventory Value by Category -->
         <div class="section-card mt-4 p-4 border border-secondary-subtle mb-3" style="box-shadow:var(--shadow)">
           <div class="header mb-3">
             <div class="section-title">
-            <i class="fa-solid fa-boxes-packing text-primary "></i>
-           <h5 class="section-title fw-bold"> Inventory Value by Category </h5>
-          </div>
-          <div class="section-subtitle" style="color: var(--secondary-color)">
-            <p style="font-size: 15px;">Distribution of inventory value across categories</p>
-        </div>
+              <i class="fa-solid fa-boxes-packing text-primary "></i>
+              <h5 class="section-title fw-bold"> Inventory Value by Category </h5>
+            </div>
+            <div class="section-subtitle" style="color: var(--secondary-color)">
+              <p style="font-size: 15px;">Distribution of inventory value across categories</p>
+            </div>
           </div>
 
-           <div class="bg-white rounded-3 ">
-                    <div class="table-responsive">
-                        <table class="table align-middle">
-                            <thead>
-                                <tr>
-                                    <th>Category</th>
-                                    <th>Products</th>
-                                    <th>Value</th>
-                                    <th>% of Total</th>
-                                </tr>
-                            </thead>
-                            <tbody id="tableBody">
-                                <!-- <tr>
+          <div class="bg-white rounded-3 ">
+            <div class="table-responsive">
+              <table class="table align-middle">
+                <thead>
+                  <tr>
+                    <th>Category</th>
+                    <th>Products</th>
+                    <th>Value</th>
+                    <th>% of Total</th>
+                  </tr>
+                </thead>
+                <tbody id="tableBody">
+                  <!-- <tr>
                                     <td class="">Electronics</td>
                                     <td class="text-secondary ">45</td>
                                     <td class="">$999</td>
                                     <td><span class="badge text-secondary bg-secondary-subtle">51%</span></td>
                                 </tr> -->
-                            </tbody>
+                </tbody>
 
-                             <tfoot id="tableFooter"></tfoot>
-                        </table>
-                    </div>
-                </div>
+                <tfoot id="tableFooter"></tfoot>
+              </table>
+            </div>
+          </div>
 
         </div>
 
-        <!-- Low Stock Table -->
         <div class="section-card mt-4 p-4 border border-secondary-subtle mb-5" style="box-shadow:var(--shadow)">
           <div class="header mb-3">
             <div class="section-title">
-            <i class="fa-solid fa-triangle-exclamation text-warning"></i>
-           <h5 class="section-title fw-bold"> Low Stock Report </h5>
-          </div>
-          <div class="section-subtitle" style="color: var(--secondary-color)">
-            <p style="font-size: 15px;">Distribution of inventory value across categories</p>
-        </div>
+              <i class="fa-solid fa-triangle-exclamation text-warning"></i>
+              <h5 class="section-title fw-bold"> Low Stock Report </h5>
+            </div>
+            <div class="section-subtitle" style="color: var(--secondary-color)">
+              <p style="font-size: 15px;">Distribution of inventory value across categories</p>
+            </div>
           </div>
 
-           <div class="bg-white rounded-3 ">
-                    <div class="table-responsive">
-                        <table class="table align-middle">
-                            <thead>
-                                <tr>
-                                    <th>Product Name</th>
-                                    <th>SKU</th>
-                                    <th>Category</th>
-                                    <th>Current Stock </th>
-                                    <th>Reorder Level </th>
-                                    <th>Shortage</th>
-                                </tr>
-                            </thead>
-                            <tbody id="tableBody2">
-                                <tr>
-                                    <td class="">Electronics</td>
-                                    <td class="text-secondary ">ele-001</td>
-                                    <td>ele </td>
-                                    <td class="text-center"><span class = "badge bg-danger ">99</span></td>
-                                    <td>$999</td>
-                                    <td><span class="text-danger fw-medium"> -51</span></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+          <div class="bg-white rounded-3 ">
+            <div class="table-responsive">
+              <table class="table align-middle">
+                <thead>
+                  <tr>
+                    <th>Product Name</th>
+                    <th>SKU</th>
+                    <th>Category</th>
+                    <th class="ps-4">Current Stock </th>
+                    <th>Reorder Level </th>
+                    <th>Shortage</th>
+                  </tr>
+                </thead>
+                <tbody id="tableBody2">
+
+                </tbody>
+              </table>
+            </div>
+          </div>
 
         </div>
 
-        
+
 
       </div>
     </main>
