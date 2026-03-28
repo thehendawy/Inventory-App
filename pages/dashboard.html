@@ -37,11 +37,7 @@
               <div class="d-flex justify-content-between align-items-start">
                 <div>
                   <div class="status-title">Total Products</div>
-                  <div class="status-value">1,248</div>
-                  <span class="status-badge up">
-                    <i class="fa-solid fa-arrow-trend-up fa-xs"></i> +12% from
-                    last month
-                  </span>
+                  <div class="status-value total-products"></div>
                 </div>
                 <div class="status-icon-wrap icon-blue">
                   <i class="fa-solid fa-box"></i>
@@ -56,11 +52,7 @@
               <div class="d-flex justify-content-between align-items-start">
                 <div>
                   <div class="status-title">Total Suppliers</div>
-                  <div class="status-value">86</div>
-                  <span class="status-badge up">
-                    <i class="fa-solid fa-arrow-trend-up fa-xs"></i> +3% from
-                    last month
-                  </span>
+                  <div class="status-value total-suppliers"></div>
                 </div>
                 <div class="status-icon-wrap icon-green">
                   <i class="fa-solid fa-truck"></i>
@@ -75,11 +67,7 @@
               <div class="d-flex justify-content-between align-items-start">
                 <div>
                   <div class="status-title">Low Stock Items</div>
-                  <div class="status-value">23</div>
-                  <span class="status-badge down">
-                    <i class="fa-solid fa-arrow-trend-down fa-xs"></i> -8% from
-                    last month
-                  </span>
+                  <div class="status-value low-stock"></div>
                 </div>
                 <div class="status-icon-wrap icon-red">
                   <i class="fa-solid fa-triangle-exclamation"></i>
@@ -94,11 +82,7 @@
               <div class="d-flex justify-content-between align-items-start">
                 <div>
                   <div class="status-title">Inventory Value</div>
-                  <div class="status-value">$284,500</div>
-                  <span class="status-badge up">
-                    <i class="fa-solid fa-arrow-trend-up fa-xs"></i> +18% from
-                    last month
-                  </span>
+                  <div class="status-value total-price"></div>
                 </div>
                 <div class="status-icon-wrap icon-orange">
                   <i class="fa-solid fa-dollar-sign"></i>
@@ -126,53 +110,14 @@
                   <th class="text-end">Reorder</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr>
-                  <td class="fw-500">Wireless Mouse</td>
-                  <td><span class="sku-bg">WM-001</span></td>
-                  <td class="text-center">
-                    <span class="stock-bg">5</span>
-                  </td>
-                  <td class="text-end reorder-num">20</td>
-                </tr>
-                <tr>
-                  <td class="fw-500">USB-C Cable</td>
-                  <td><span class="sku-bg">UC-003</span></td>
-                  <td class="text-center">
-                    <span class="stock-bg">8</span>
-                  </td>
-                  <td class="text-end reorder-num">50</td>
-                </tr>
-                <tr>
-                  <td class="fw-500">Laptop Stand</td>
-                  <td><span class="sku-bg">LS-012</span></td>
-                  <td class="text-center">
-                    <span class="stock-bg">3</span>
-                  </td>
-                  <td class="text-end reorder-num">15</td>
-                </tr>
-                <tr>
-                  <td class="fw-500">Webcam HD</td>
-                  <td><span class="sku-bg">WC-007</span></td>
-                  <td class="text-center">
-                    <span class="stock-bg">2</span>
-                  </td>
-                  <td class="text-end reorder-num">10</td>
-                </tr>
-                <tr>
-                  <td class="fw-500">Keyboard Wireless</td>
-                  <td><span class="sku-bg">KW-022</span></td>
-                  <td class="text-center">
-                    <span class="stock-bg">7</span>
-                  </td>
-                  <td class="text-end reorder-num">25</td>
-                </tr>
+              <tbody class="table_body">
+
               </tbody>
             </table>
           </div>
         </div>
 
-        <div class="section-card mt-4">
+        <!-- <div class="section-card mt-4">
           <div class="section-title">
             <i class="fa-solid fa-clock-rotate-left text-secondary"></i>
             Recent Activity
@@ -247,7 +192,7 @@
               </tbody>
             </table>
           </div>
-        </div>
+        </div> -->
       </main>
     </div>
 
@@ -265,6 +210,7 @@
           ).style.cssText = `background-color: #1C222B; color: #fff`;
         });
     </script>
+    <script type="module" src="../js/features/dashborad.js"></script>
     <script src="../js/auth/getUser.js" type="module"></script>
   </body>
 </html>
