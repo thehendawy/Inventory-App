@@ -216,7 +216,7 @@ npm run dev
 
 1. Ahmed Elhendawy
 
-2. Ahmed Mohamed
+2. Ahmed Mohamed Ismail
 
 3. Ahmed Samir
 
