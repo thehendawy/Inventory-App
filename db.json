@@ -31,14 +31,14 @@
       "name": "Wireless Mouse",
       "sku": "MOU-001",
       "price": 250,
-      "quantity": 100,
+      "quantity": 20,
       "reorderLevel": 10,
       "categoryId": "1",
       "supplierId": "2",
       "category": {
-        "id": "1",
         "name": "Electronics",
-        "description": "Electronic devices such as laptops, monitors, keyboards, and accessories."
+        "description": "Electronic devices such as laptops, monitors, keyboards, and accessories.",
+        "id": "1"
       }
     },
     {
@@ -46,14 +46,14 @@
       "name": "Mechanical Keyboard",
       "sku": "KEY-001",
       "price": 900,
-      "quantity": 50,
+      "quantity": 49,
       "reorderLevel": 5,
       "categoryId": "1",
       "supplierId": "2",
       "category": {
-        "id": "1",
         "name": "Electronics",
-        "description": "Electronic devices such as laptops, monitors, keyboards, and accessories."
+        "description": "Electronic devices such as laptops, monitors, keyboards, and accessories.",
+        "id": "1"
       }
     },
     {
@@ -96,7 +96,7 @@
       "name": "USB Flash 64GB",
       "sku": "USB-001",
       "price": 120,
-      "quantity": 30,
+      "quantity": 40,
       "reorderLevel": 20,
       "categoryId": "3",
       "supplierId": "4",
@@ -154,7 +154,7 @@
       "quantity": 40,
       "reorderLevel": 5,
       "categoryId": "1",
-      "supplierId": "9e35",
+      "supplierId": null,
       "category": {
         "id": "1",
         "name": "Electronics",
@@ -162,14 +162,34 @@
       }
     },
     {
-      "name": "aa",
-      "sku": "DS-0451-4076",
-      "price": "1",
+      "id": "2c69",
+      "name": "New Product",
+      "sku": "NEW-5168-2903",
+      "price": "1000",
+      "quantity": 5,
+      "reorderLevel": 15,
+      "supplierId": "4",
+      "categoryId": "2"
+    },
+    {
+      "id": "9910",
+      "name": "test2",
+      "sku": "TEST2-6713-633",
+      "price": "55",
+      "quantity": 9,
+      "reorderLevel": 10,
+      "supplierId": "4",
+      "categoryId": "da24"
+    },
+    {
+      "id": "6495",
+      "name": "New Produ 100",
+      "sku": "TTT-1950-6371",
+      "price": "14",
       "quantity": 5,
       "reorderLevel": 10,
-      "categoryId": "1",
-      "supplierId": "2",
-      "id": "Hbtyyv2yr_Q"
+      "categoryId": "3",
+      "supplierId": "2"
     }
   ],
   "categories": [
@@ -197,15 +217,20 @@
       "id": "5",
       "name": "Office Supplies",
       "description": "Daily office consumables such as paper and stationery."
+    },
+    {
+      "id": "da24",
+      "name": "New cat",
+      "description": "this is the new cat"
     }
   ],
   "suppliers": [
     {
-      "id": "1",
       "name": "Dell Egypt",
       "phone": "01011111111",
       "email": "sales@dell-eg.com",
-      "address": "Cairo, Egypt"
+      "address": "Cairo, Cairo",
+      "id": "1"
     },
     {
       "id": "2",
@@ -234,13 +259,6 @@
       "phone": "01055555555",
       "email": "support@printersolutions.com",
       "address": "Mansoura, Egypt"
-    },
-    {
-      "name": "samsung egypt",
-      "phone": "01069555849",
-      "email": "samsungegy@gmail.com",
-      "address": "el-maadi, cairo, Egypt",
-      "id": "9e35"
     }
   ],
   "purchaseOrders": [
@@ -791,7 +809,7 @@
     {
       "id": "8f41",
       "orderId": "PO-1774668397231",
-      "supplierId": "9e35",
+      "supplierId": null,
       "productId": "42cc",
       "quantity": 10,
       "total": 1000000,
@@ -823,9 +841,64 @@
       "productId": "3",
       "quantity": 1,
       "total": 900,
-      "status": "Pending",
+      "status": "Cancelled",
       "orderTime": "2026-03-28",
-      "isProcessed": false
+      "isProcessed": false,
+      "product": {
+        "id": "3",
+        "name": "Mechanical Keyboard",
+        "sku": "KEY-001",
+        "price": 900,
+        "quantity": 50,
+        "reorderLevel": 5,
+        "categoryId": "1",
+        "supplierId": "2",
+        "category": {
+          "id": "1",
+          "name": "Electronics",
+          "description": "Electronic devices such as laptops, monitors, keyboards, and accessories."
+        }
+      },
+      "supplier": {
+        "id": "2",
+        "name": "TechSource",
+        "phone": "01022222222",
+        "email": "info@techsource.com",
+        "address": "Giza, Egypt"
+      }
+    },
+    {
+      "id": "2b93",
+      "orderId": "PO-1774733143698",
+      "supplierId": "4",
+      "productId": "7",
+      "quantity": 10,
+      "total": 1200,
+      "status": "Received",
+      "orderTime": "2026-03-28",
+      "isProcessed": true,
+      "product": {
+        "id": "7",
+        "name": "USB Flash 64GB",
+        "sku": "USB-001",
+        "price": 120,
+        "quantity": 30,
+        "reorderLevel": 20,
+        "categoryId": "3",
+        "supplierId": "4",
+        "category": {
+          "id": "3",
+          "name": "Storage Devices",
+          "description": "Data storage devices like USB drives and external hard disks."
+        }
+      },
+      "supplier": {
+        "id": "4",
+        "name": "Storage World",
+        "phone": "01044444444",
+        "email": "sales@storageworld.com",
+        "address": "Tanta, Egypt"
+      }
     }
   ],
   "logs": [
@@ -1029,7 +1102,7 @@
     },
     {
       "action": "ADD_PRODUCT",
-      "productId": "Hbtyyv2yr_Q",
+      "productId": null,
       "quantity": 5,
       "details": "Added aa",
       "user": "Ahmed Elhendawy",
@@ -1039,11 +1112,182 @@
     {
       "id": "2af1",
       "action": "Low Stock Alert",
-      "productId": "Hbtyyv2yr_Q",
+      "productId": null,
       "quantity": 5,
       "details": "Product reached reorder level",
       "user": "System",
       "timestamp": "2026-03-28T21:03:29.816Z"
+    },
+    {
+      "id": "5286",
+      "action": "UPDATE_PRODUCT",
+      "productId": null,
+      "quantity": 11,
+      "details": "Updated aa: Quantity: 5 → 11",
+      "user": "Ahmed Samir",
+      "timestamp": "2026-03-28T21:17:38.804Z"
+    },
+    {
+      "id": "63c8",
+      "action": "UPDATE_PRODUCT",
+      "productId": null,
+      "quantity": 5,
+      "details": "Updated aa: Quantity: 11 → 5",
+      "user": "Ahmed Samir",
+      "timestamp": "2026-03-28T21:17:49.096Z"
+    },
+    {
+      "id": "e40f",
+      "action": "UPDATE_PRODUCT",
+      "productId": null,
+      "quantity": 0,
+      "details": "Updated aa: Quantity: 5 → 0",
+      "user": "Ahmed Samir",
+      "timestamp": "2026-03-28T21:17:53.907Z"
+    },
+    {
+      "id": "2088",
+      "action": "ADD_PRODUCT",
+      "productId": "2c69",
+      "quantity": 25,
+      "details": "Added New Product",
+      "user": "Ahmed Samir",
+      "timestamp": "2026-03-28T21:18:35.248Z"
+    },
+    {
+      "id": "3ef3",
+      "action": "UPDATE_PRODUCT",
+      "productId": "2c69",
+      "quantity": 5,
+      "details": "Updated New Product: Quantity: 25 → 5",
+      "user": "Ahmed Samir",
+      "timestamp": "2026-03-28T21:18:43.319Z"
+    },
+    {
+      "id": "74a0",
+      "action": "ADD_PRODUCT",
+      "productId": "9910",
+      "quantity": 10,
+      "details": "Added test2",
+      "user": "Ahmed Samir",
+      "timestamp": "2026-03-28T21:22:06.810Z"
+    },
+    {
+      "id": "e819",
+      "action": "Order Cancelled",
+      "productId": "3",
+      "quantity": 1,
+      "details": "Purchase order PO-1774728989002 cancelled — no stock changes made",
+      "user": "Ahmed Samir",
+      "timestamp": "2026-03-28T21:25:33.253Z"
+    },
+    {
+      "id": "bfaa",
+      "action": "Order Received",
+      "productId": "7",
+      "quantity": 10,
+      "details": "Purchase order PO-1774733143698 approved — added 10 units to USB Flash 64GB stock",
+      "user": "Ahmed Samir",
+      "timestamp": "2026-03-28T21:26:36.384Z"
+    },
+    {
+      "id": "c266",
+      "action": "Low Stock Alert",
+      "productId": "2c69",
+      "quantity": 5,
+      "details": "Product reached reorder level",
+      "user": "System",
+      "timestamp": "2026-03-28T21:26:49.901Z"
+    },
+    {
+      "id": "3283",
+      "action": "Low Stock Alert",
+      "productId": "9910",
+      "quantity": 10,
+      "details": "Product reached reorder level",
+      "user": "System",
+      "timestamp": "2026-03-28T21:26:50.001Z"
+    },
+    {
+      "id": "dfa2",
+      "action": "Stock Removed",
+      "productId": "2",
+      "quantity": 99,
+      "details": "Removed 99 units from Wireless Mouse. Reason: one of the has been damdged",
+      "user": "Ahmed Samir",
+      "timestamp": "2026-03-28T21:29:02.455Z"
+    },
+    {
+      "id": "8d7e",
+      "action": "Low Stock Alert",
+      "productId": "2",
+      "quantity": 1,
+      "details": "Product reached reorder level",
+      "user": "System",
+      "timestamp": "2026-03-28T21:29:04.827Z"
+    },
+    {
+      "id": "db5b",
+      "action": "Stock Removed",
+      "productId": "3",
+      "quantity": 1,
+      "details": "Removed 1 units from Mechanical Keyboard. Reason: One of them has been damged",
+      "user": "Ahmed Samir",
+      "timestamp": "2026-03-28T21:30:18.176Z"
+    },
+    {
+      "id": "928e",
+      "action": "Stock Added",
+      "productId": "2",
+      "quantity": 5,
+      "details": "Added 5 units to Wireless Mouse. Reason: new stock",
+      "user": "Ahmed Samir",
+      "timestamp": "2026-03-28T21:32:00.803Z"
+    },
+    {
+      "id": "6138",
+      "action": "Stock Added",
+      "productId": "2",
+      "quantity": 4,
+      "details": "Added 4 units to Wireless Mouse. Reason: New stock",
+      "user": "Ahmed Samir",
+      "timestamp": "2026-03-28T21:32:13.349Z"
+    },
+    {
+      "id": "3a8b",
+      "action": "Stock Added",
+      "productId": "2",
+      "quantity": 10,
+      "details": "Added 10 units to Wireless Mouse. Reason: new stock has been added",
+      "user": "Ahmed Samir",
+      "timestamp": "2026-03-28T21:33:37.415Z"
+    },
+    {
+      "id": "814b",
+      "action": "ADD_PRODUCT",
+      "productId": "6495",
+      "quantity": 5,
+      "details": "Added New Produ 100",
+      "user": "Ahmed Samir",
+      "timestamp": "2026-03-28T21:36:52.065Z"
+    },
+    {
+      "id": "6f3e",
+      "action": "UPDATE_PRODUCT",
+      "productId": "9910",
+      "quantity": 9,
+      "details": "Updated test2: Quantity: 10 → 9",
+      "user": "Ahmed Samir",
+      "timestamp": "2026-03-28T21:38:16.637Z"
+    },
+    {
+      "id": "121c",
+      "action": "Low Stock Alert",
+      "productId": "6495",
+      "quantity": 5,
+      "details": "Product reached reorder level",
+      "user": "System",
+      "timestamp": "2026-03-28T21:42:01.548Z"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

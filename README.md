@@ -19,7 +19,6 @@ This system helps small businesses manage products, suppliers, stock levels, and
 
 - Overview of inventory status
 - Displays alerts (e.g., low stock)
-- Quick navigation to all modules
 
 ---
 
@@ -52,6 +51,7 @@ This system helps small businesses manage products, suppliers, stock levels, and
 - Status flow:
   - `Pending`
   - `Received`
+  - `Cancelled`
 
 - Stock updates only when order is received
 
@@ -214,7 +214,7 @@ npm run dev
 
 ## 👨‍💻 Team members
 
-1. Ahmed Elhendawy
+1. Ahmed Elhendawy [LEADER]
 
 2. Ahmed Mohamed Ismail
 
