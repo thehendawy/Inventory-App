@@ -18,13 +18,13 @@ function getTodayActivities(allLogs) {
     today.setHours(0, 0, 0, 0);
 
     const todayLogs = allLogs.filter(log => {
-        const logDate = new Date(log.timestamp); // افترضنا أن الحقل اسمه timestamp
+        const logDate = new Date(log.timestamp);
         logDate.setHours(0, 0, 0, 0);
         
         return logDate.getTime() === today.getTime();
     });
 
-    const activitiesCountElement = document.getElementById("activitiesCountElement"); // غير الـ Selector حسب كودك
+    const activitiesCountElement = document.getElementById("activitiesCountElement");
     activitiesCountElement.innerText = todayLogs.length;
 
     return todayLogs.length;
@@ -66,7 +66,7 @@ function getTodayStockAdded(alllogs) {
     })
     console.log(stockadded)
     const todayLogs = stockadded.filter(log => {
-        const logDate = new Date(log.timestamp); // افترضنا أن الحقل اسمه timestamp
+        const logDate = new Date(log.timestamp);
         logDate.setHours(0, 0, 0, 0);
         
         return logDate.getTime() === today.getTime();
@@ -76,7 +76,7 @@ function getTodayStockAdded(alllogs) {
     let numOfAdded = todayLogs.reduce((acc, ele) => {return acc + ele.quantity},0)
     console.log(numOfAdded)
 
-    const countofstockadded = document.getElementById("countofstockadded"); // غير الـ Selector حسب كودك
+    const countofstockadded = document.getElementById("countofstockadded");
     countofstockadded.textContent = `+${numOfAdded}`;
 }
 getTodayStockAdded(data)
@@ -90,7 +90,7 @@ function getTodayStockRemoved(alllogs) {
     })
     console.log(stockremoved)
     const todayLogs = stockremoved.filter(log => {
-        const logDate = new Date(log.timestamp); // افترضنا أن الحقل اسمه timestamp
+        const logDate = new Date(log.timestamp);
         logDate.setHours(0, 0, 0, 0);
         
         return logDate.getTime() === today.getTime();
@@ -100,7 +100,7 @@ function getTodayStockRemoved(alllogs) {
     let numOfRemoved = todayLogs.reduce((acc, ele) => {return acc + ele.quantity},0)
     console.log(numOfRemoved)
 
-    const countofstockremoved = document.getElementById("countofstockremoved"); // غير الـ Selector حسب كودك
+    const countofstockremoved = document.getElementById("countofstockremoved");
     countofstockremoved.textContent = `-${numOfRemoved}`;
 }
 getTodayStockRemoved(data)
@@ -108,18 +108,16 @@ getTodayStockRemoved(data)
 function getActionBadge(data){
 
   switch (data.toUpperCase()) {
-    // حالات الإضافة (Add Product / ADD_PRODUCT)
+
     case 'ADD PRODUCT':
     case 'ADD_PRODUCT':
       return `<span class="badge add rounded-pill bg-primary px-3 shadow-sm" data-type="add">+ Add Product</span>`;
 
-    // حالات التحديث (Update Stock / Update Product)
     case 'UPDATE STOCK':
     case 'UPDATE PRODUCT':
     case 'UPDATE_PRODUCT':
       return `<span class="badge  bg-info text-dark border px-3" data-type="update">🔄 Update</span>`;
 
-    // حالات أوامر الشراء (Purchase Orders)
     case 'CREATE PURCHASE ORDER':
       return `<span class="badge border border-secondary  text-secondary px-3" data-type="createpurchase">📝 Create PO</span>`;
       
@@ -127,7 +125,6 @@ function getActionBadge(data){
     case 'ORDER RECEIVED':
       return `<span class="badge bg-primary   border px-3" data-type="receivepurchase">📦 Receive PO</span>`;
 
-    // حالات تعديل المخزون (Stock Adjustment)
     case 'STOCK ADJUSTMENT':
     case 'STOCK ADDED':
       return `<span class="badge add rounded-pill bg-primary px-3 shadow-sm" data-type="stockadded">Stock Added</span>`;
@@ -136,11 +133,9 @@ function getActionBadge(data){
     case 'STOCK REMOVED':
       return `<span class="badge  bg-danger px-3" data-type="stockremoved">Stock Removed</span>`;
 
-    // حالات التنبيه (Low Stock Alert)
     case 'LOW STOCK ALERT':
       return `<span class="badge bg-outline-danger  text-danger border border-danger px-3" data-type="lowalert">⚠️ Low Stock</span>`;
 
-    // حالات الحذف (Delete Product)
     case 'DELETE PRODUCT':
       return `<span class="badge  bg-danger px-3" data-type="deleteproduct">🗑️ Delete</span>`;
 
@@ -152,28 +147,25 @@ function getActionBadge(data){
   }
 }
 
-// دالة عرض الجدول
+/**************************** render all logs *****************************************************/
 async function render(data) {
-    
-    // تفريغ الجدول قبل تعبئته
 
     tablebody.innerHTML = '';
 
     for (let item of data){
 
     const productdetails = await product.getById('products', item.productId)
-                // <td class="fw-bold text-dark">${productdetails.name}</td>
 
     const row = document.createElement("tr")
     row.classList.add("align-middle")
 
          row.innerHTML = `
-                <td class="badgeicon pe-4">${getActionBadge(item.action)}</td> <!-- هنا بنستدعي دالة البادج -->
+                <td class="badgeicon pe-4">${getActionBadge(item.action)}</td>
                 <td class=" text-muted ps-4">${productdetails.name}</td>
                 <td class=" colorofqty text-end ">${item.quantity}</td>
                 <td class="text-muted small">${item.details || 'No details'}</td>
-                <td class="text-secondary small">${item.user}</td> <!-- مثال للتاريخ -->
-                <td class="text-secondary small">${item.timestamp.slice(0,19)}</td> <!-- مثال للتاريخ -->
+                <td class="text-secondary small">${item.user}</td>
+                <td class="text-secondary small">${item.timestamp.slice(0,19)}</td>
         `;
         tablebody.appendChild(row)
         let logtype =row.querySelector(".badge").dataset.type
