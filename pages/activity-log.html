@@ -34,25 +34,25 @@
             <div class="col-md-3">
               <div class="card p-4 h-100">
                 <small class="text-muted fw-bold">Activities Today</small>
-                <div class="stats-number mt-2">7</div>
+                <div class="stats-number mt-2" id="activitiesCountElement">7</div>
               </div>
             </div>
             <div class="col-md-3">
               <div class="card p-4 h-100">
                 <small class="text-muted fw-bold">Stock Added Today</small>
-                <div class="stats-number mt-2 text-success-custom">+25</div>
+                <div class="stats-number mt-2 text-success-custom" id="countofstockadded">+25</div>
               </div>
             </div>
             <div class="col-md-3">
               <div class="card p-4 h-100">
                 <small class="text-muted fw-bold">Stock Removed Today</small>
-                <div class="stats-number mt-2 text-danger-custom">-15</div>
+                <div class="stats-number mt-2 text-danger-custom" id="countofstockremoved">-15</div>
               </div>
             </div>
             <div class="col-md-3">
               <div class="card p-4 h-100">
                 <small class="text-muted fw-bold">Active Users</small>
-                <div class="stats-number mt-2">4</div>
+                <div class="stats-number mt-2" id="numberofusers">4</div>
               </div>
             </div>
           </div>
@@ -67,10 +67,11 @@
                 type="text"
                 class="form-control border-start-0"
                 placeholder="Search activity..."
+                id="searchInput"
               />
             </div>
-            <select class="form-select" style="max-width: 200px">
-              <option selected>All Actions</option>
+            <select class="form-select" style="max-width: 200px" id="selecticon">
+              <option value="all" selected>All Actions</option>
               <option value="added">Stock Added</option>
               <option value="removed">Stock Removed</option>
               <option value="orders">Orders</option>
@@ -82,7 +83,7 @@
           <!-- Activity History Table -->
           <div class="card p-4 shadow-sm">
             <h5 class="fw-bold mb-1">Activity History</h5>
-            <p class="text-muted small mb-4">
+            <p class="text-muted small mb-4" id="countoflogs">
               Complete log of all inventory activities (12 entries)
             </p>
 
@@ -90,15 +91,15 @@
               <table class="table table-hover text-nowrap">
                 <thead>
                   <tr>
-                    <th>Action</th>
-                    <th>Product</th>
+                    <th class="pe-4">Action</th>
+                    <th class="ps-4">Product</th>
                     <th>Quantity</th>
                     <th>Details</th>
                     <th>User</th>
                     <th>Timestamp</th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody id="tablebody">
                   <tr>
                     <td>
                       <span class="badge badge-added p-2">+ Stock Added</span>
@@ -170,5 +171,6 @@
           ).style.cssText = `background-color: #1C222B; color: #fff`;
         });
     </script>
+    <script src="../js/features/logs.js" type="module"></script>
   </body>
 </html>

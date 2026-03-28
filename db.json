@@ -31,7 +31,7 @@
       "name": "Wireless Mouse",
       "sku": "MOU-001",
       "price": 250,
-      "quantity": 79,
+      "quantity": 100,
       "reorderLevel": 10,
       "categoryId": "1",
       "supplierId": "2",
@@ -46,20 +46,30 @@
       "name": "Mechanical Keyboard",
       "sku": "KEY-001",
       "price": 900,
-      "quantity": 20,
+      "quantity": 50,
       "reorderLevel": 5,
       "categoryId": "1",
-      "supplierId": "2"
+      "supplierId": "2",
+      "category": {
+        "id": "1",
+        "name": "Electronics",
+        "description": "Electronic devices such as laptops, monitors, keyboards, and accessories."
+      }
     },
     {
       "id": "4",
       "name": "Office Chair",
       "sku": "CHR-001",
       "price": 1500,
-      "quantity": 16,
+      "quantity": 15,
       "reorderLevel": 4,
       "categoryId": "2",
-      "supplierId": "3"
+      "supplierId": "3",
+      "category": {
+        "id": "2",
+        "name": "Furniture",
+        "description": "Office furniture including desks, chairs, and workstations."
+      }
     },
     {
       "id": "5",
@@ -86,17 +96,22 @@
       "name": "USB Flash 64GB",
       "sku": "USB-001",
       "price": 120,
-      "quantity": 100,
+      "quantity": 30,
       "reorderLevel": 20,
       "categoryId": "3",
-      "supplierId": "4"
+      "supplierId": "4",
+      "category": {
+        "id": "3",
+        "name": "Storage Devices",
+        "description": "Data storage devices like USB drives and external hard disks."
+      }
     },
     {
       "id": "8",
       "name": "Printer HP LaserJet",
       "sku": "PRT-001",
       "price": 4500,
-      "quantity": 14,
+      "quantity": 44,
       "reorderLevel": 2,
       "categoryId": "4",
       "supplierId": "5"
@@ -120,6 +135,31 @@
       "reorderLevel": 4,
       "categoryId": "3",
       "supplierId": "1"
+    },
+    {
+      "id": "fe22",
+      "name": "laptop Dell",
+      "sku": "LAP-001-2701-5400",
+      "price": "25000",
+      "quantity": 50,
+      "reorderLevel": 10,
+      "supplierId": "1",
+      "categoryId": "1"
+    },
+    {
+      "id": "42cc",
+      "name": "samsung S26 ultra",
+      "sku": "PHO-4000-8888-7289",
+      "price": "100000",
+      "quantity": 40,
+      "reorderLevel": 5,
+      "categoryId": "1",
+      "supplierId": "9e35",
+      "category": {
+        "id": "1",
+        "name": "Electronics",
+        "description": "Electronic devices such as laptops, monitors, keyboards, and accessories."
+      }
     }
   ],
   "categories": [
@@ -653,54 +693,126 @@
         "email": "support@printersolutions.com",
         "address": "Mansoura, Egypt"
       }
+    },
+    {
+      "id": "5ec1",
+      "orderId": "PO-1774646301864",
+      "supplierId": "2",
+      "productId": "2",
+      "quantity": 50,
+      "total": 12500,
+      "status": "Received",
+      "orderTime": "2026-03-27",
+      "isProcessed": true,
+      "product": {
+        "id": "2",
+        "name": "Wireless Mouse",
+        "sku": "MOU-001",
+        "price": 250,
+        "quantity": 79,
+        "reorderLevel": 10,
+        "categoryId": "1",
+        "supplierId": "2",
+        "category": {
+          "id": "1",
+          "name": "Electronics",
+          "description": "Electronic devices such as laptops, monitors, keyboards, and accessories."
+        }
+      },
+      "supplier": {
+        "id": "2",
+        "name": "TechSource",
+        "phone": "01022222222",
+        "email": "info@techsource.com",
+        "address": "Giza, Egypt"
+      }
+    },
+    {
+      "id": "c415",
+      "orderId": "PO-1774646375210",
+      "supplierId": "3",
+      "productId": "4",
+      "quantity": 20,
+      "total": 30000,
+      "status": "Cancelled",
+      "orderTime": "2026-03-27",
+      "isProcessed": false,
+      "product": {
+        "id": "4",
+        "name": "Office Chair",
+        "sku": "CHR-001",
+        "price": 1500,
+        "quantity": 16,
+        "reorderLevel": 4,
+        "categoryId": "2",
+        "supplierId": "3"
+      },
+      "supplier": {
+        "id": "3",
+        "name": "Office Furniture Co",
+        "phone": "01033333333",
+        "email": "contact@officefurniture.com",
+        "address": "Alexandria, Egypt"
+      }
+    },
+    {
+      "id": "d25b",
+      "orderId": "PO-1774646515990",
+      "supplierId": "5",
+      "productId": "8",
+      "quantity": 30,
+      "total": 135000,
+      "status": "Received",
+      "orderTime": "2026-03-27",
+      "isProcessed": true,
+      "product": {
+        "id": "8",
+        "name": "Printer HP LaserJet",
+        "sku": "PRT-001",
+        "price": 4500,
+        "quantity": 14,
+        "reorderLevel": 2,
+        "categoryId": "4",
+        "supplierId": "5"
+      },
+      "supplier": {
+        "id": "5",
+        "name": "Printer Solutions",
+        "phone": "01055555555",
+        "email": "support@printersolutions.com",
+        "address": "Mansoura, Egypt"
+      }
+    },
+    {
+      "id": "8f41",
+      "orderId": "PO-1774668397231",
+      "supplierId": "9e35",
+      "productId": "42cc",
+      "quantity": 10,
+      "total": 1000000,
+      "status": "Received",
+      "orderTime": "2026-03-28",
+      "isProcessed": true,
+      "product": {
+        "id": "42cc",
+        "name": "samsung S26 ultra",
+        "sku": "PHO-4000-8888-7289",
+        "price": "100000",
+        "quantity": 20,
+        "reorderLevel": 5,
+        "categoryId": "1",
+        "supplierId": "9e35"
+      },
+      "supplier": {
+        "name": "samsung egypt",
+        "phone": "01069555849",
+        "email": "samsungegy@gmail.com",
+        "address": "el-maadi, cairo, Egypt",
+        "id": "9e35"
+      }
     }
   ],
   "logs": [
-    {
-      "id": "1",
-      "action": "Add Product",
-      "productId": null,
-      "quantity": 10,
-      "details": "New product added to inventory",
-      "user": "Ahmed",
-      "timestamp": "2026-03-10T09:15:00"
-    },
-    {
-      "id": "2",
-      "action": "Update Stock",
-      "productId": "2",
-      "quantity": 50,
-      "details": "Stock quantity updated after inventory check",
-      "user": "Ahmed",
-      "timestamp": "2026-03-10T10:20:00"
-    },
-    {
-      "id": "3",
-      "action": "Create Purchase Order",
-      "productId": null,
-      "quantity": 5,
-      "details": "Purchase order PO-1001 created",
-      "user": "Ahmed",
-      "timestamp": "2026-03-11T11:00:00"
-    },
-    {
-      "id": "4",
-      "action": "Receive Purchase Order",
-      "productId": null,
-      "quantity": 5,
-      "details": "Stock received from supplier",
-      "user": "Ahmed",
-      "timestamp": "2026-03-11T13:30:00"
-    },
-    {
-      "id": "5",
-      "action": "Stock Adjustment",
-      "productId": "3",
-      "quantity": -1,
-      "details": "1 item removed due to damage",
-      "user": "Ahmed",
-      "timestamp": "2026-03-12T09:45:00"
-    },
     {
       "id": "6",
       "action": "Update Product",
@@ -738,33 +850,6 @@
       "timestamp": "2026-03-14T10:05:00"
     },
     {
-      "id": "10",
-      "action": "Delete Product",
-      "productId": "9",
-      "quantity": 0,
-      "details": "Product removed from inventory",
-      "user": "Ahmed",
-      "timestamp": "2026-03-14T15:40:00"
-    },
-    {
-      "id": "6314",
-      "action": "UPDATE_PRODUCT",
-      "productId": null,
-      "quantity": "10",
-      "details": "Updated Laptop Dell",
-      "user": "Shorok Magdy",
-      "timestamp": "2026-03-24T02:20:41.571Z"
-    },
-    {
-      "id": "ddf0",
-      "action": "UPDATE_PRODUCT",
-      "productId": null,
-      "quantity": "0",
-      "details": "Updated Laptop Dell",
-      "user": "Shorok Magdy",
-      "timestamp": "2026-03-24T02:20:51.375Z"
-    },
-    {
       "id": "a665",
       "action": "Stock Removed",
       "productId": "2",
@@ -790,6 +875,132 @@
       "details": "Removed 1 units from Wireless Mouse. Reason: remove",
       "user": "Ahmed Mohamed",
       "timestamp": "2026-03-25T13:23:07.840Z"
+    },
+    {
+      "id": "12c4",
+      "action": "ADD_PRODUCT",
+      "productId": "fe22",
+      "quantity": 50,
+      "details": "Added laptop Dell",
+      "user": "Ahmed Samir",
+      "timestamp": "2026-03-27T21:16:32.724Z"
+    },
+    {
+      "id": "8306",
+      "action": "Order Received",
+      "productId": "2",
+      "quantity": 50,
+      "details": "Purchase order PO-1774646301864 approved — added 50 units to Wireless Mouse stock",
+      "user": "Ahmed Samir",
+      "timestamp": "2026-03-27T21:18:25.842Z"
+    },
+    {
+      "id": "514c",
+      "action": "Order Cancelled",
+      "productId": "4",
+      "quantity": 20,
+      "details": "Purchase order PO-1774646375210 cancelled — no stock changes made",
+      "user": "Ahmed Samir",
+      "timestamp": "2026-03-27T21:20:30.633Z"
+    },
+    {
+      "id": "5810",
+      "action": "Order Received",
+      "productId": "8",
+      "quantity": 30,
+      "details": "Purchase order PO-1774646515990 approved — added 30 units to Printer HP LaserJet stock",
+      "user": "Ahmed Samir",
+      "timestamp": "2026-03-27T21:22:08.464Z"
+    },
+    {
+      "id": "ae9e",
+      "action": "Stock Removed",
+      "productId": "2",
+      "quantity": 29,
+      "details": "Removed 29 units from Wireless Mouse. Reason: there are alot",
+      "user": "Ahmed Samir",
+      "timestamp": "2026-03-28T02:17:13.961Z"
+    },
+    {
+      "id": "64e4",
+      "action": "Stock Added",
+      "productId": "3",
+      "quantity": 30,
+      "details": "Added 30 units to Mechanical Keyboard. Reason: orders on it are alot",
+      "user": "Ahmed Samir",
+      "timestamp": "2026-03-28T02:18:22.650Z"
+    },
+    {
+      "id": "5373",
+      "action": "UPDATE_PRODUCT",
+      "productId": "fe22",
+      "quantity": 50,
+      "details": "Updated laptop Dell: Price: 20000 → 25000",
+      "user": "Ahmed Samir",
+      "timestamp": "2026-03-28T02:18:59.730Z"
+    },
+    {
+      "id": "6ded",
+      "action": "ADD_PRODUCT",
+      "productId": "42cc",
+      "quantity": 20,
+      "details": "Added samsung S26 ultra",
+      "user": "Ahmed Samir",
+      "timestamp": "2026-03-28T03:07:38.904Z"
+    },
+    {
+      "id": "45e1",
+      "action": "Stock Removed",
+      "productId": "7",
+      "quantity": 90,
+      "details": "Removed 90 units from USB Flash 64GB. Reason: alot amount",
+      "user": "Ahmed Samir",
+      "timestamp": "2026-03-28T03:10:41.219Z"
+    },
+    {
+      "id": "5b36",
+      "action": "Low Stock Alert",
+      "productId": "7",
+      "quantity": 10,
+      "details": "Product reached reorder level",
+      "user": "System",
+      "timestamp": "2026-03-28T03:10:46.134Z"
+    },
+    {
+      "id": "2b21",
+      "action": "Stock Added",
+      "productId": "7",
+      "quantity": 20,
+      "details": "Added 20 units to USB Flash 64GB. Reason: alittle stock",
+      "user": "Ahmed Samir",
+      "timestamp": "2026-03-28T03:12:01.219Z"
+    },
+    {
+      "id": "ce06",
+      "action": "Order Received",
+      "productId": "42cc",
+      "quantity": 10,
+      "details": "Purchase order PO-1774668397231 approved — added 10 units to samsung S26 ultra stock",
+      "user": "Ahmed Samir",
+      "timestamp": "2026-03-28T03:26:40.450Z"
+    },
+    {
+      "id": "96f5",
+      "action": "Stock Added",
+      "productId": "42cc",
+      "quantity": 10,
+      "details": "Added 10 units to samsung S26 ultra. Reason: more orders",
+      "user": "Ahmed Samir",
+      "timestamp": "2026-03-28T03:27:23.701Z"
+    },
+    {
+      "id": "27ea",
+      "action": "Stock Removed",
+      "productId": "4",
+      "quantity": 1,
+      "details": "Removed 1 units from Office Chair. Reason: ghugug",
+      "user": "Ahmed Samir",
+      "timestamp": "2026-03-28T04:30:04.623Z"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
