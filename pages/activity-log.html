@@ -34,19 +34,31 @@
             <div class="col-md-3">
               <div class="card p-4 h-100">
                 <small class="text-muted fw-bold">Activities Today</small>
-                <div class="stats-number mt-2" id="activitiesCountElement">7</div>
+                <div class="stats-number mt-2" id="activitiesCountElement">
+                  7
+                </div>
               </div>
             </div>
             <div class="col-md-3">
               <div class="card p-4 h-100">
                 <small class="text-muted fw-bold">Stock Added Today</small>
-                <div class="stats-number mt-2 text-success-custom" id="countofstockadded">+25</div>
+                <div
+                  class="stats-number mt-2 text-success-custom"
+                  id="countofstockadded"
+                >
+                  +25
+                </div>
               </div>
             </div>
             <div class="col-md-3">
               <div class="card p-4 h-100">
                 <small class="text-muted fw-bold">Stock Removed Today</small>
-                <div class="stats-number mt-2 text-danger-custom" id="countofstockremoved">-15</div>
+                <div
+                  class="stats-number mt-2 text-danger-custom"
+                  id="countofstockremoved"
+                >
+                  -15
+                </div>
               </div>
             </div>
             <div class="col-md-3">
@@ -70,7 +82,11 @@
                 id="searchInput"
               />
             </div>
-            <select class="form-select" style="max-width: 200px" id="selecticon">
+            <select
+              class="form-select"
+              style="max-width: 200px"
+              id="selecticon"
+            >
               <option value="all" selected>All Actions</option>
               <option value="added">Stock Added</option>
               <option value="removed">Stock Removed</option>
@@ -172,5 +188,6 @@
         });
     </script>
     <script src="../js/features/logs.js" type="module"></script>
+    <script src="../js/auth/getUser.js" type="module"></script>
   </body>
 </html>
