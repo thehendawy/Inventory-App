@@ -169,7 +169,6 @@ async function render(data) {
         `;
         tablebody.appendChild(row)
         let logtype =row.querySelector(".badge").dataset.type
-        console.log(logtype)
         
         // colors of quantity text
         if(logtype == "add" || logtype == "update" || logtype == "createpurchase" || logtype == "receivepurchase" || logtype == "stockadded"){
