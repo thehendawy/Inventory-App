@@ -31,7 +31,7 @@
       "name": "Wireless Mouse",
       "sku": "MOU-001",
       "price": 250,
-      "quantity": 40,
+      "quantity": 39,
       "reorderLevel": 10,
       "categoryId": "1",
       "supplierId": "2",
@@ -116,7 +116,7 @@
       "name": "Printer HP LaserJet",
       "sku": "PRT-001",
       "price": 4500,
-      "quantity": 44,
+      "quantity": 54,
       "reorderLevel": 2,
       "categoryId": "4",
       "supplierId": "5"
@@ -227,6 +227,11 @@
       "id": "da24",
       "name": "New cat",
       "description": "this is the new cat"
+    },
+    {
+      "name": "new one category",
+      "description": "this is the new category updated",
+      "id": "5d37"
     }
   ],
   "suppliers": [
@@ -911,45 +916,70 @@
         "email": "sales@storageworld.com",
         "address": "Tanta, Egypt"
       }
+    },
+    {
+      "id": "f712",
+      "orderId": "PO-1774804233739",
+      "supplierId": "3",
+      "productId": "4",
+      "quantity": 15,
+      "total": 22500,
+      "status": "Cancelled",
+      "orderTime": "2026-03-29",
+      "isProcessed": false,
+      "product": {
+        "id": "4",
+        "name": "Office Chair",
+        "sku": "CHR-001",
+        "price": 1500,
+        "quantity": 15,
+        "reorderLevel": 4,
+        "categoryId": "2",
+        "supplierId": "3",
+        "category": {
+          "id": "2",
+          "name": "Furniture",
+          "description": "Office furniture including desks, chairs, and workstations."
+        }
+      },
+      "supplier": {
+        "id": "3",
+        "name": "Office Furniture Co",
+        "phone": "01033333333",
+        "email": "contact@officefurniture.com",
+        "address": "Alexandria, Egypt"
+      }
+    },
+    {
+      "id": "2afc",
+      "orderId": "PO-1774804244122",
+      "supplierId": "5",
+      "productId": "8",
+      "quantity": 10,
+      "total": 45000,
+      "status": "Received",
+      "orderTime": "2026-03-29",
+      "isProcessed": true,
+      "product": {
+        "id": "8",
+        "name": "Printer HP LaserJet",
+        "sku": "PRT-001",
+        "price": 4500,
+        "quantity": 44,
+        "reorderLevel": 2,
+        "categoryId": "4",
+        "supplierId": "5"
+      },
+      "supplier": {
+        "id": "5",
+        "name": "Printer Solutions",
+        "phone": "01055555555",
+        "email": "support@printersolutions.com",
+        "address": "Mansoura, Egypt"
+      }
     }
   ],
   "logs": [
-    {
-      "id": "6",
-      "action": "Update Product",
-      "productId": "4",
-      "quantity": 15,
-      "details": "Product price updated",
-      "user": "Ahmed",
-      "timestamp": "2026-03-12T12:10:00"
-    },
-    {
-      "id": "7",
-      "action": "Create Purchase Order",
-      "productId": "8",
-      "quantity": 2,
-      "details": "Purchase order PO-1004 created",
-      "user": "Ahmed",
-      "timestamp": "2026-03-13T08:30:00"
-    },
-    {
-      "id": "8",
-      "action": "Receive Purchase Order",
-      "productId": "7",
-      "quantity": 30,
-      "details": "USB flash drives received from supplier",
-      "user": "Ahmed",
-      "timestamp": "2026-03-13T14:15:00"
-    },
-    {
-      "id": "9",
-      "action": "Low Stock Alert",
-      "productId": "8",
-      "quantity": 6,
-      "details": "Product reached reorder level",
-      "user": "System",
-      "timestamp": "2026-03-14T10:05:00"
-    },
     {
       "id": "a665",
       "action": "Stock Removed",
@@ -1064,7 +1094,7 @@
       "productId": "7",
       "quantity": 10,
       "details": "Product reached reorder level",
-      "user": "System",
+      "user": "Ahmed Samir",
       "timestamp": "2026-03-28T03:10:46.134Z"
     },
     {
@@ -1154,7 +1184,7 @@
       "productId": "2c69",
       "quantity": 5,
       "details": "Product reached reorder level",
-      "user": "System",
+      "user": "Ahmed Samir",
       "timestamp": "2026-03-28T21:26:49.901Z"
     },
     {
@@ -1163,7 +1193,7 @@
       "productId": "9910",
       "quantity": 10,
       "details": "Product reached reorder level",
-      "user": "System",
+      "user": "Ahmed Samir",
       "timestamp": "2026-03-28T21:26:50.001Z"
     },
     {
@@ -1181,7 +1211,7 @@
       "productId": "2",
       "quantity": 1,
       "details": "Product reached reorder level",
-      "user": "System",
+      "user": "Ahmed Samir",
       "timestamp": "2026-03-28T21:29:04.827Z"
     },
     {
@@ -1244,7 +1274,7 @@
       "productId": "6495",
       "quantity": 5,
       "details": "Product reached reorder level",
-      "user": "System",
+      "user": "Ahmed Samir",
       "timestamp": "2026-03-28T21:42:01.548Z"
     },
     {
@@ -1273,6 +1303,69 @@
       "details": "Removed 10 units from samsung S26 ultra. Reason: more in stock",
       "user": "Ahmed Samir",
       "timestamp": "2026-03-29T14:14:14.728Z"
+    },
+    {
+      "id": "a288",
+      "action": "ADD_PRODUCT",
+      "productId": null,
+      "quantity": 25,
+      "details": "Added New Product",
+      "user": "Ahmed Mohamed",
+      "timestamp": "2026-03-29T17:06:28.088Z"
+    },
+    {
+      "id": "1297",
+      "action": "UPDATE_PRODUCT",
+      "productId": null,
+      "quantity": 10,
+      "details": "Updated New Product: Quantity: 25 → 10",
+      "user": "Ahmed Mohamed",
+      "timestamp": "2026-03-29T17:06:37.279Z"
+    },
+    {
+      "id": "5677",
+      "action": "UPDATE_PRODUCT",
+      "productId": null,
+      "quantity": 0,
+      "details": "Updated New Product: Quantity: 10 → 0",
+      "user": "Ahmed Mohamed",
+      "timestamp": "2026-03-29T17:06:49.376Z"
+    },
+    {
+      "id": "04a8",
+      "action": "DELETE_PRODUCT",
+      "productId": "ef34",
+      "quantity": 0,
+      "details": "Delete New Product",
+      "user": "Ahmed Mohamed",
+      "timestamp": "2026-03-29T17:06:53.727Z"
+    },
+    {
+      "id": "4e29",
+      "action": "Order Cancelled",
+      "productId": "4",
+      "quantity": 15,
+      "details": "Purchase order PO-1774804233739 cancelled — no stock changes made",
+      "user": "Ahmed Mohamed",
+      "timestamp": "2026-03-29T17:10:37.462Z"
+    },
+    {
+      "id": "aa15",
+      "action": "Order Received",
+      "productId": "8",
+      "quantity": 10,
+      "details": "Purchase order PO-1774804244122 approved — added 10 units to Printer HP LaserJet stock",
+      "user": "Ahmed Mohamed",
+      "timestamp": "2026-03-29T17:10:46.805Z"
+    },
+    {
+      "id": "02c4",
+      "action": "Stock Removed",
+      "productId": "2",
+      "quantity": 1,
+      "details": "Removed 1 units from Wireless Mouse. Reason: This product has been damged",
+      "user": "Ahmed Mohamed",
+      "timestamp": "2026-03-29T17:12:01.595Z"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
