@@ -99,9 +99,11 @@ deleteModal.addEventListener("show.bs.modal", (e) => {
   const button = e.relatedTarget;
   productsLength = button.getAttribute("data-prod");
   if (productsLength > 0) {
-    alert(
+    showAlert(
       "You should get rid of products first before deleting this category!",
+      "danger",
     );
+
     e.preventDefault();
     return;
   }
@@ -153,3 +155,16 @@ myFormUpdate.addEventListener("submit", async (e) => {
   const newCategories = await getCategories();
   displayCategories(newCategories);
 });
+
+function showAlert(message, type = "primary") {
+  let alertBox = document.getElementById("alertBox");
+  alertBox.className = `alert alert-${type} position-fixed top-0 end-0 m-3`;
+  alertBox.style.zIndex = "9999";
+  alertBox.style.maxWidth = "300px";
+  alertBox.textContent = message;
+  alertBox.classList.remove("d-none");
+
+  setTimeout(() => {
+    alertBox.classList.add("d-none");
+  }, 6000);
+}
