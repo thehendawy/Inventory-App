@@ -31,7 +31,7 @@
       "name": "Wireless Mouse",
       "sku": "MOU-001",
       "price": 250,
-      "quantity": 20,
+      "quantity": 40,
       "reorderLevel": 10,
       "categoryId": "1",
       "supplierId": "2",
@@ -76,10 +76,15 @@
       "name": "Wooden Desk",
       "sku": "DSK-001",
       "price": 3000,
-      "quantity": 8,
+      "quantity": 18,
       "reorderLevel": 2,
       "categoryId": "2",
-      "supplierId": "3"
+      "supplierId": "3",
+      "category": {
+        "id": "2",
+        "name": "Furniture",
+        "description": "Office furniture including desks, chairs, and workstations."
+      }
     },
     {
       "id": "6",
@@ -151,14 +156,14 @@
       "name": "samsung S26 ultra",
       "sku": "PHO-4000-8888-7289",
       "price": "100000",
-      "quantity": 40,
+      "quantity": 30,
       "reorderLevel": 5,
       "categoryId": "1",
       "supplierId": null,
       "category": {
-        "id": "1",
         "name": "Electronics",
-        "description": "Electronic devices such as laptops, monitors, keyboards, and accessories."
+        "description": "Electronic devices such as laptops, monitors, keyboards, and accessories.",
+        "id": "1"
       }
     },
     {
@@ -247,11 +252,11 @@
       "address": "Alexandria, Egypt"
     },
     {
-      "id": "4",
-      "name": "Storage World",
-      "phone": "01044444444",
-      "email": "sales@storageworld.com",
-      "address": "Tanta, Egypt"
+      "name": "samsung",
+      "phone": "01025478963",
+      "email": "samsungEgy@gmail.com",
+      "address": "Cairo, Egypt",
+      "id": "4"
     },
     {
       "id": "5",
@@ -259,6 +264,13 @@
       "phone": "01055555555",
       "email": "support@printersolutions.com",
       "address": "Mansoura, Egypt"
+    },
+    {
+      "id": "6f1d",
+      "name": "huawei",
+      "phone": "01069333058",
+      "email": "huawei@gmail.com",
+      "address": "Cairo, Egypt"
     }
   ],
   "purchaseOrders": [
@@ -1092,60 +1104,6 @@
       "timestamp": "2026-03-28T04:30:04.623Z"
     },
     {
-      "action": "ADD_PRODUCT",
-      "productId": "w9kHckmxkAg",
-      "quantity": 22,
-      "details": "Added aa",
-      "user": "Ahmed Elhendawy",
-      "timestamp": "2026-03-28T10:59:00.743Z",
-      "id": "jmAXe5NBcp0"
-    },
-    {
-      "action": "ADD_PRODUCT",
-      "productId": null,
-      "quantity": 5,
-      "details": "Added aa",
-      "user": "Ahmed Elhendawy",
-      "timestamp": "2026-03-28T20:30:10.477Z",
-      "id": "EAT14ZuMWA8"
-    },
-    {
-      "id": "2af1",
-      "action": "Low Stock Alert",
-      "productId": null,
-      "quantity": 5,
-      "details": "Product reached reorder level",
-      "user": "System",
-      "timestamp": "2026-03-28T21:03:29.816Z"
-    },
-    {
-      "id": "5286",
-      "action": "UPDATE_PRODUCT",
-      "productId": null,
-      "quantity": 11,
-      "details": "Updated aa: Quantity: 5 → 11",
-      "user": "Ahmed Samir",
-      "timestamp": "2026-03-28T21:17:38.804Z"
-    },
-    {
-      "id": "63c8",
-      "action": "UPDATE_PRODUCT",
-      "productId": null,
-      "quantity": 5,
-      "details": "Updated aa: Quantity: 11 → 5",
-      "user": "Ahmed Samir",
-      "timestamp": "2026-03-28T21:17:49.096Z"
-    },
-    {
-      "id": "e40f",
-      "action": "UPDATE_PRODUCT",
-      "productId": null,
-      "quantity": 0,
-      "details": "Updated aa: Quantity: 5 → 0",
-      "user": "Ahmed Samir",
-      "timestamp": "2026-03-28T21:17:53.907Z"
-    },
-    {
       "id": "2088",
       "action": "ADD_PRODUCT",
       "productId": "2c69",
@@ -1288,6 +1246,33 @@
       "details": "Product reached reorder level",
       "user": "System",
       "timestamp": "2026-03-28T21:42:01.548Z"
+    },
+    {
+      "id": "59ab",
+      "action": "Stock Added",
+      "productId": "2",
+      "quantity": 20,
+      "details": "Added 20 units to Wireless Mouse. Reason: more",
+      "user": "Ahmed Samir",
+      "timestamp": "2026-03-29T14:13:32.078Z"
+    },
+    {
+      "id": "38bf",
+      "action": "Stock Added",
+      "productId": "5",
+      "quantity": 10,
+      "details": "Added 10 units to Wooden Desk. Reason: more",
+      "user": "Ahmed Samir",
+      "timestamp": "2026-03-29T14:13:56.288Z"
+    },
+    {
+      "id": "652c",
+      "action": "Stock Removed",
+      "productId": "42cc",
+      "quantity": 10,
+      "details": "Removed 10 units from samsung S26 ultra. Reason: more in stock",
+      "user": "Ahmed Samir",
+      "timestamp": "2026-03-29T14:14:14.728Z"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

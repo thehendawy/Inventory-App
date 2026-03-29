@@ -2,6 +2,9 @@ import {SupplierService} from "../services/suppliers-services.js";
 
 const service = new SupplierService('http://localhost:3000/suppliers');
 const tablebody = document.getElementById("tablebody")
+const addNewSupplier = document.getElementById("addNewSupplier")
+const formdata = document.getElementById("formdata")
+
 let allSuppliers =  await service.getAllSuppliers()
 render(allSuppliers)
 
@@ -135,12 +138,10 @@ document.getElementById('supplierAddButton').addEventListener('click', async (e)
         result = await service.updateSupplier(window.idtoEdit, formData);
         if (result !== false) {
 
-        alert("supplier updated successfully");
         window.idtoEdit = null;
         }
     } else {
         result = await service.addSupplier(formData);
-        alert("a new supplier has added");
     }
 
 });
@@ -160,6 +161,11 @@ searchInput.addEventListener('input', (e) => {
     let query = e.target.value;
     search(query);
 });
+
+/***************************** Reset form ******************************************/
+addNewSupplier.addEventListener("click", (e)=>{
+    formdata.reset()
+})
 
 
 
