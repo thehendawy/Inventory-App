@@ -1305,42 +1305,6 @@
       "timestamp": "2026-03-29T14:14:14.728Z"
     },
     {
-      "id": "a288",
-      "action": "ADD_PRODUCT",
-      "productId": null,
-      "quantity": 25,
-      "details": "Added New Product",
-      "user": "Ahmed Mohamed",
-      "timestamp": "2026-03-29T17:06:28.088Z"
-    },
-    {
-      "id": "1297",
-      "action": "UPDATE_PRODUCT",
-      "productId": null,
-      "quantity": 10,
-      "details": "Updated New Product: Quantity: 25 → 10",
-      "user": "Ahmed Mohamed",
-      "timestamp": "2026-03-29T17:06:37.279Z"
-    },
-    {
-      "id": "5677",
-      "action": "UPDATE_PRODUCT",
-      "productId": null,
-      "quantity": 0,
-      "details": "Updated New Product: Quantity: 10 → 0",
-      "user": "Ahmed Mohamed",
-      "timestamp": "2026-03-29T17:06:49.376Z"
-    },
-    {
-      "id": "04a8",
-      "action": "DELETE_PRODUCT",
-      "productId": "ef34",
-      "quantity": 0,
-      "details": "Delete New Product",
-      "user": "Ahmed Mohamed",
-      "timestamp": "2026-03-29T17:06:53.727Z"
-    },
-    {
       "id": "4e29",
       "action": "Order Cancelled",
       "productId": "4",
