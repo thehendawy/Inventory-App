@@ -225,6 +225,7 @@ async function search(resultData, searchterm){
 
 
 selecticon.addEventListener("change", async function(e){
+  searchInput.value = ""
   if(this.value == "all"){
     currentArray = data
     render(currentArray)
