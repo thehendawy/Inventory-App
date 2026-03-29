@@ -87,13 +87,19 @@ function bindEvents() {
         });
     });
     document.querySelectorAll(".deleteBtn").forEach((btn) => {
-        btn.addEventListener("click", function () {
-            selectedProductId = this.dataset.id;
 
+        btn.addEventListener("click", async function () {
+            selectedProductId = this.dataset.id;
+            let product = await productService.getById("products", selectedProductId);
+            if (product.quantity !== 0) {
+                showAlert("You can't delete this product unless quantity is 0", "danger");
+                return;
+            }
             let modal = new bootstrap.Modal(document.getElementById("deleteModal"));
             modal.show();
         });
     });
+
 }
 
 
@@ -377,7 +383,7 @@ document.getElementById("confirmDeleteBtn").addEventListener("click", async func
 
         await logService.addLog({
             action: 'DELETE_PRODUCT',
-            productId: id,
+            productId: selectedProductId,
             quantity: product.quantity,
             details: `Delete ${product.name}`,
             user: user.name,
