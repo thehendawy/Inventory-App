@@ -15,7 +15,7 @@ total_suppliers.textContent = allSuppliers.length;
 
 // Low Stock Dom and Value
 const low_stock = document.querySelector(".low-stock");
-const lowStockProds = allProducts.filter((p) => p.quantity < p.reorderLevel);
+const lowStockProds = allProducts.filter((p) => p.quantity <= p.reorderLevel);
 low_stock.textContent = lowStockProds.length;
 
 // Total Price Dom and Value

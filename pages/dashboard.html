@@ -23,7 +23,7 @@
       <div id="navbar-container"></div>
 
       <!-- Main content -->
-      <main class="flex-grow-1 p-4">
+      <main class="flex-grow-1 p-4" style="min-width: 0">
         <div class="page-header mb-4">
           <h1>Dashboard</h1>
           <p>Welcome back! Here is an overview of your inventory.</p>
@@ -100,7 +100,7 @@
           </div>
           <div class="section-subtitle">Products that need to be reordered</div>
 
-          <div class="table-section">
+          <div class="table-section table-responsive">
             <table class="in-table">
               <thead>
                 <tr>
@@ -110,89 +110,10 @@
                   <th class="text-end">Reorder</th>
                 </tr>
               </thead>
-              <tbody class="table_body">
-
-              </tbody>
+              <tbody class="table_body"></tbody>
             </table>
           </div>
         </div>
-
-        <!-- <div class="section-card mt-4">
-          <div class="section-title">
-            <i class="fa-solid fa-clock-rotate-left text-secondary"></i>
-            Recent Activity
-          </div>
-          <div class="section-subtitle">
-            Latest inventory changes and updates
-          </div>
-
-          <div class="table-section">
-            <table class="in-table">
-              <thead>
-                <tr>
-                  <th>Action</th>
-                  <th>Product</th>
-                  <th class="text-end">Quantity</th>
-                  <th>User</th>
-                  <th class="text-end">Time</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>
-                    <span class="activity-badge badge-added">Stock Added</span>
-                  </td>
-                  <td>MacBook Pro 14"</td>
-                  <td class="text-end reorder-num">25</td>
-                  <td class="reorder-num">John D.</td>
-                  <td class="text-end reorder-num">2 min ago</td>
-                </tr>
-                <tr>
-                  <td>
-                    <span class="activity-badge badge-order"
-                      >Order Received</span
-                    >
-                  </td>
-                  <td>iPhone 15 Case</td>
-                  <td class="text-end reorder-num">100</td>
-                  <td class="reorder-num">Sarah M.</td>
-                  <td class="text-end reorder-num">15 min ago</td>
-                </tr>
-                <tr>
-                  <td>
-                    <span class="activity-badge badge-removed"
-                      >Stock Removed</span
-                    >
-                  </td>
-                  <td>USB-C Hub</td>
-                  <td class="text-end reorder-num">10</td>
-                  <td class="reorder-num">Mike R.</td>
-                  <td class="text-end reorder-num">1 hour ago</td>
-                </tr>
-                <tr>
-                  <td>
-                    <span class="activity-badge badge-new">New Product</span>
-                  </td>
-                  <td>Wireless Charger</td>
-                  <td class="text-end reorder-num">50</td>
-                  <td class="reorder-num">John D.</td>
-                  <td class="text-end reorder-num">2 hours ago</td>
-                </tr>
-                <tr>
-                  <td>
-                    <span class="activity-badge badge-updated"
-                      >Stock Updated</span
-                    >
-                  </td>
-                  <td>AirPods Pro</td>
-                  <td class="text-end reorder-num">30</td>
-                  <td class="reorder-num">Emily K.</td>
-                  <td class="text-end reorder-num">3 hours ago</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div> -->
       </main>
     </div>
 
