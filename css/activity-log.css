@@ -53,7 +53,7 @@ body {
   transition: transform 0.2s ease-in-out;
   cursor: pointer;
 }
-.card:hover {
+.topCard:hover {
   transform: translateY(-5px);
   transition: all .2s ease;
 }
