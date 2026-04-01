@@ -159,7 +159,7 @@
       "quantity": 30,
       "reorderLevel": 5,
       "categoryId": "1",
-      "supplierId": null,
+      "supplierId": "2",
       "category": {
         "name": "Electronics",
         "description": "Electronic devices such as laptops, monitors, keyboards, and accessories.",
@@ -191,10 +191,10 @@
       "name": "New Produ 100",
       "sku": "TTT-1950-6371",
       "price": "14",
-      "quantity": 5,
+      "quantity": 4,
       "reorderLevel": 10,
-      "categoryId": "3",
-      "supplierId": "2"
+      "supplierId": "2",
+      "categoryId": "3"
     }
   ],
   "categories": [
@@ -1330,6 +1330,15 @@
       "details": "Removed 1 units from Wireless Mouse. Reason: This product has been damged",
       "user": "Ahmed Mohamed",
       "timestamp": "2026-03-29T17:12:01.595Z"
+    },
+    {
+      "id": "cb4f",
+      "action": "UPDATE_PRODUCT",
+      "productId": "6495",
+      "quantity": 4,
+      "details": "Updated New Produ 100: Quantity: 5 → 4",
+      "user": "Ahmed Mohamed",
+      "timestamp": "2026-04-01T18:46:13.712Z"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
