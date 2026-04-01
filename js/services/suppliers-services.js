@@ -47,7 +47,6 @@ export class SupplierService {
                 throw new Error("Delete proccess has failed");
             }
 
-            alert(`suppliers of ${id} id has been deleted succesfully✅`);
             return true;
 
         } catch (error) {

@@ -271,6 +271,13 @@
       "phone": "01069333058",
       "email": "huawei@gmail.com",
       "address": "Cairo, Egypt"
+    },
+    {
+      "id": "199b",
+      "name": "samsung",
+      "phone": "01025478963",
+      "email": "ahmedsamir9828@gmail.com",
+      "address": "cairo"
     }
   ],
   "purchaseOrders": [
@@ -1273,6 +1280,24 @@
       "details": "Removed 10 units from samsung S26 ultra. Reason: more in stock",
       "user": "Ahmed Samir",
       "timestamp": "2026-03-29T14:14:14.728Z"
+    },
+    {
+      "id": "6554",
+      "action": "Stock Removed",
+      "productId": "2",
+      "quantity": 10,
+      "details": "Removed 10 units from Wireless Mouse. Reason: more",
+      "user": "Ahmed Samir",
+      "timestamp": "2026-04-01T20:30:54.425Z"
+    },
+    {
+      "id": "171d",
+      "action": "Stock Added",
+      "productId": "2",
+      "quantity": 10,
+      "details": "Added 10 units to Wireless Mouse. Reason: add",
+      "user": "Ahmed Samir",
+      "timestamp": "2026-04-01T20:38:51.003Z"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

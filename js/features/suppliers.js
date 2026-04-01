@@ -6,6 +6,7 @@ const addNewSupplier = document.getElementById("addNewSupplier")
 const formdata = document.getElementById("formdata")
 
 let allSuppliers =  await service.getAllSuppliers()
+allSuppliers.reverse()
 render(allSuppliers)
 
 /********************validation function***********************/
@@ -15,9 +16,16 @@ render(allSuppliers)
       const supplierName = document.getElementById("supplierName")
       if (data.name == "" || data.name.trim().length < 3) {
         supplierName.classList.add('is-invalid');
+        document.getElementById("error-message1").style.display = "none"
         return false
-      } else {
+      } else if (!isNaN(data.name)){
+        document.getElementById("error-message1").style.display = "block"
         supplierName.classList.remove('is-invalid');
+        document.getElementById("error-message1").textContent = "please don't enter numbers only"
+        return false
+      }else {
+        supplierName.classList.remove('is-invalid');
+        document.getElementById("error-message1").style.display = "none"
       }
 
       // Phone validation
@@ -44,9 +52,17 @@ render(allSuppliers)
       const supplierAddress = document.getElementById("supplierAddress")
       if (data.address == "" || data.address.trim().length < 4) {
           supplierAddress.classList.add('is-invalid');
+        document.getElementById("error-messageaddress").style.display = "none"
+        return false
+
+      }else if (!isNaN(data.address)) {
+        document.getElementById("error-messageaddress").style.display = "block"
+        supplierAddress.classList.remove('is-invalid');
+        document.getElementById("error-messageaddress").textContent = "plaese enter your address correctly"
         return false
       } else {
         supplierAddress.classList.remove('is-invalid');
+        document.getElementById("error-messageaddress").style.display = "none"
       }
   }
 
