@@ -31,7 +31,7 @@
       "name": "Wireless Mouse",
       "sku": "MOU-001",
       "price": 250,
-      "quantity": 40,
+      "quantity": 39,
       "reorderLevel": 10,
       "categoryId": "1",
       "supplierId": "2",
@@ -116,7 +116,7 @@
       "name": "Printer HP LaserJet",
       "sku": "PRT-001",
       "price": 4500,
-      "quantity": 44,
+      "quantity": 54,
       "reorderLevel": 2,
       "categoryId": "4",
       "supplierId": "5"
@@ -159,7 +159,7 @@
       "quantity": 30,
       "reorderLevel": 5,
       "categoryId": "1",
-      "supplierId": null,
+      "supplierId": "2",
       "category": {
         "name": "Electronics",
         "description": "Electronic devices such as laptops, monitors, keyboards, and accessories.",
@@ -191,10 +191,10 @@
       "name": "New Produ 100",
       "sku": "TTT-1950-6371",
       "price": "14",
-      "quantity": 5,
+      "quantity": 4,
       "reorderLevel": 10,
-      "categoryId": "3",
-      "supplierId": "2"
+      "supplierId": "2",
+      "categoryId": "3"
     }
   ],
   "categories": [
@@ -227,6 +227,11 @@
       "id": "da24",
       "name": "New cat",
       "description": "this is the new cat"
+    },
+    {
+      "name": "new one category",
+      "description": "this is the new category updated",
+      "id": "5d37"
     }
   ],
   "suppliers": [
@@ -918,45 +923,70 @@
         "email": "sales@storageworld.com",
         "address": "Tanta, Egypt"
       }
+    },
+    {
+      "id": "f712",
+      "orderId": "PO-1774804233739",
+      "supplierId": "3",
+      "productId": "4",
+      "quantity": 15,
+      "total": 22500,
+      "status": "Cancelled",
+      "orderTime": "2026-03-29",
+      "isProcessed": false,
+      "product": {
+        "id": "4",
+        "name": "Office Chair",
+        "sku": "CHR-001",
+        "price": 1500,
+        "quantity": 15,
+        "reorderLevel": 4,
+        "categoryId": "2",
+        "supplierId": "3",
+        "category": {
+          "id": "2",
+          "name": "Furniture",
+          "description": "Office furniture including desks, chairs, and workstations."
+        }
+      },
+      "supplier": {
+        "id": "3",
+        "name": "Office Furniture Co",
+        "phone": "01033333333",
+        "email": "contact@officefurniture.com",
+        "address": "Alexandria, Egypt"
+      }
+    },
+    {
+      "id": "2afc",
+      "orderId": "PO-1774804244122",
+      "supplierId": "5",
+      "productId": "8",
+      "quantity": 10,
+      "total": 45000,
+      "status": "Received",
+      "orderTime": "2026-03-29",
+      "isProcessed": true,
+      "product": {
+        "id": "8",
+        "name": "Printer HP LaserJet",
+        "sku": "PRT-001",
+        "price": 4500,
+        "quantity": 44,
+        "reorderLevel": 2,
+        "categoryId": "4",
+        "supplierId": "5"
+      },
+      "supplier": {
+        "id": "5",
+        "name": "Printer Solutions",
+        "phone": "01055555555",
+        "email": "support@printersolutions.com",
+        "address": "Mansoura, Egypt"
+      }
     }
   ],
   "logs": [
-    {
-      "id": "6",
-      "action": "Update Product",
-      "productId": "4",
-      "quantity": 15,
-      "details": "Product price updated",
-      "user": "Ahmed",
-      "timestamp": "2026-03-12T12:10:00"
-    },
-    {
-      "id": "7",
-      "action": "Create Purchase Order",
-      "productId": "8",
-      "quantity": 2,
-      "details": "Purchase order PO-1004 created",
-      "user": "Ahmed",
-      "timestamp": "2026-03-13T08:30:00"
-    },
-    {
-      "id": "8",
-      "action": "Receive Purchase Order",
-      "productId": "7",
-      "quantity": 30,
-      "details": "USB flash drives received from supplier",
-      "user": "Ahmed",
-      "timestamp": "2026-03-13T14:15:00"
-    },
-    {
-      "id": "9",
-      "action": "Low Stock Alert",
-      "productId": "8",
-      "quantity": 6,
-      "details": "Product reached reorder level",
-      "user": "System",
-      "timestamp": "2026-03-14T10:05:00"
-    },
     {
       "id": "a665",
       "action": "Stock Removed",
@@ -1071,7 +1101,7 @@
       "productId": "7",
       "quantity": 10,
       "details": "Product reached reorder level",
-      "user": "System",
+      "user": "Ahmed Samir",
       "timestamp": "2026-03-28T03:10:46.134Z"
     },
     {
@@ -1161,7 +1191,7 @@
       "productId": "2c69",
       "quantity": 5,
       "details": "Product reached reorder level",
-      "user": "System",
+      "user": "Ahmed Samir",
       "timestamp": "2026-03-28T21:26:49.901Z"
     },
     {
@@ -1170,7 +1200,7 @@
       "productId": "9910",
       "quantity": 10,
       "details": "Product reached reorder level",
-      "user": "System",
+      "user": "Ahmed Samir",
       "timestamp": "2026-03-28T21:26:50.001Z"
     },
     {
@@ -1188,7 +1218,7 @@
       "productId": "2",
       "quantity": 1,
       "details": "Product reached reorder level",
-      "user": "System",
+      "user": "Ahmed Samir",
       "timestamp": "2026-03-28T21:29:04.827Z"
     },
     {
@@ -1251,7 +1281,7 @@
       "productId": "6495",
       "quantity": 5,
       "details": "Product reached reorder level",
-      "user": "System",
+      "user": "Ahmed Samir",
       "timestamp": "2026-03-28T21:42:01.548Z"
     },
     {
