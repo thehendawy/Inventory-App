@@ -10,6 +10,7 @@ const searchInput = document.getElementById("searchInput")
 
 /********************** Get all Logs**************************************/
 let data = await service.getLogs()
+data.reverse()
 console.log(data)
 
 /********************* numbers of todayActivities ************************************** */

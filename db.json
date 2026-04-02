@@ -276,6 +276,13 @@
       "phone": "01069333058",
       "email": "huawei@gmail.com",
       "address": "Cairo, Egypt"
+    },
+    {
+      "id": "199b",
+      "name": "samsung",
+      "phone": "01025478963",
+      "email": "ahmedsamir9828@gmail.com",
+      "address": "cairo"
     }
   ],
   "purchaseOrders": [
@@ -1305,40 +1312,22 @@
       "timestamp": "2026-03-29T14:14:14.728Z"
     },
     {
-      "id": "4e29",
-      "action": "Order Cancelled",
-      "productId": "4",
-      "quantity": 15,
-      "details": "Purchase order PO-1774804233739 cancelled — no stock changes made",
-      "user": "Ahmed Mohamed",
-      "timestamp": "2026-03-29T17:10:37.462Z"
-    },
-    {
-      "id": "aa15",
-      "action": "Order Received",
-      "productId": "8",
-      "quantity": 10,
-      "details": "Purchase order PO-1774804244122 approved — added 10 units to Printer HP LaserJet stock",
-      "user": "Ahmed Mohamed",
-      "timestamp": "2026-03-29T17:10:46.805Z"
-    },
-    {
-      "id": "02c4",
+      "id": "6554",
       "action": "Stock Removed",
       "productId": "2",
-      "quantity": 1,
-      "details": "Removed 1 units from Wireless Mouse. Reason: This product has been damged",
-      "user": "Ahmed Mohamed",
-      "timestamp": "2026-03-29T17:12:01.595Z"
+      "quantity": 10,
+      "details": "Removed 10 units from Wireless Mouse. Reason: more",
+      "user": "Ahmed Samir",
+      "timestamp": "2026-04-01T20:30:54.425Z"
     },
     {
-      "id": "cb4f",
-      "action": "UPDATE_PRODUCT",
-      "productId": "6495",
-      "quantity": 4,
-      "details": "Updated New Produ 100: Quantity: 5 → 4",
-      "user": "Ahmed Mohamed",
-      "timestamp": "2026-04-01T18:46:13.712Z"
+      "id": "171d",
+      "action": "Stock Added",
+      "productId": "2",
+      "quantity": 10,
+      "details": "Added 10 units to Wireless Mouse. Reason: add",
+      "user": "Ahmed Samir",
+      "timestamp": "2026-04-01T20:38:51.003Z"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
