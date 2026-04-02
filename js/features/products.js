@@ -311,7 +311,7 @@ editProductForm.addEventListener('submit', async function (e) {
             name: productData.name || originalProduct.name,
             sku: originalProduct.sku,
             price: productData.price || originalProduct.price,
-            quantity: productData.quantity === "" ? originalProduct.quantity : Number(productData.quantity),
+            quantity:  originalProduct.quantity,
             reorderLevel: productData.reorderLevel === "" ? originalProduct.reorderLevel : Number(productData.reorderLevel),
             supplierId: productData.supplierId || originalProduct.supplierId,
             categoryId: productData.categoryId || originalProduct.categoryId,
@@ -329,9 +329,6 @@ editProductForm.addEventListener('submit', async function (e) {
         }
         if (originalProduct.price !== updatedData.price) {
             changes.push(`Price: ${originalProduct.price} → ${updatedData.price}`);
-        }
-        if (originalProduct.quantity !== updatedData.quantity) {
-            changes.push(`Quantity: ${originalProduct.quantity} → ${updatedData.quantity}`);
         }
         if (originalProduct.reorderLevel !== updatedData.reorderLevel) {
             changes.push(`Reorder Level: ${originalProduct.reorderLevel} → ${updatedData.reorderLevel}`);
